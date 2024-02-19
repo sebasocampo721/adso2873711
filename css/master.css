@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+body {background-color: #000000;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23220000' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23440000' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23660000' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23880000' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23A00' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: poppins, sans-serif;
+    color:floralwhite
+}
+
+main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    min-height: 100vh;
+
+    header{
+        h1, h1{
+            color: 0;; ;
+            text-align: center;
+        }
+        h1{
+            font-size: 4rem; 
+        font-weight: 400;
+    }
+        h2{
+            font-size: 1, 4rem;
+            font-weight: 300;
+        }
+    }
+
+    menu{
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        gap: 1rem;
+        
+
+        a:is(:link,:visited){
+            background-color: #fff9;
+            border-radius: 50px;
+            display: flex;
+            color: #fff9;
+            gap: 1rem;
+            padding: 1rem;
+            text-decoration: none;
+            transition: all 0.5 ease-in;
+            width: 200px;
+            
+
+            i{
+            background-color: #97b9eb;
+            border-radius: 20px;
+            color: #fff9;
+            font-style: normal;
+            display: flex;
+            align-items: center;
+            height: 34px;
+            width: 34px
+            }
+        }
+        a:is(:hover) i {
+            transform: skew (10deg);
+            background-color: brown;
+        }
+       
+        a:is(:hover) i {
+            transform: scale(1.4) rotatey(360deg);
+        }
+    }
+}
