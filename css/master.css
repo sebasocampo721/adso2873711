@@ -20,12 +20,10 @@ main {
             color: 0;; ;
             text-align: center;
         }
-        h1{
-            font-size: 4rem; 
+        h1{font-size: 4rem; 
         font-weight: 400;
     }
-        h2{
-            font-size: 1, 4rem;
+        h2{font-size: 1, 4rem;
             font-weight: 300;
         }
     }
@@ -50,7 +48,7 @@ main {
             
 
             i{
-            background-color: #97b9eb;
+            background-color: #eb9797;
             border-radius: 20px;
             color: #fff9;
             font-style: normal;
