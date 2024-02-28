@@ -4,12 +4,33 @@ body {background-color: #000000;
     background-attachment: fixed;
     background-size: cover;
     font-family: poppins, sans-serif;
-    color:rgb(255, 255, 255)
+    color:floralwhite;
 }
 
+nav.controls {
+    position: fixed;
+    a:is(:link, :visited) {
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: black;
+        height: 40px;
+        opacity: 0.6;
+        padding: 10px;
+        transform: escale (0.8);
+        transition: all 0.4s ease-in;
+        width: 40px;
+    }
+    a:is( :hover) {
+        opacity: 1;
+        transform: scale(1);
 
-    
-
+    }
+    svg{
+        width:40px;
+    }
+}
 
 main {
     align-items: center;
@@ -21,7 +42,7 @@ main {
 
     header{
         h1, h1{
-            color: 0;; ;
+            color: rgba(255, 255, 255, 0.6);
             text-align: center;
         }
         h1{font-size: 4rem; 
@@ -71,4 +92,32 @@ main {
             transform: scale(1.4) rotatey(360deg);
         }
     }
+
+    section {
+        background-color: width;
+        border-radius: 10px;
+        color:white;
+        padding: 10px;
+        width: 400px;
+        h3 {
+            color: white;
+            font-size: 1.6rem;
+            margin: 0;
+        }
+        
+        p { 
+font-size: 1.4rem;
+margin: 10px 0;
+        }
+
+        xmp { 
+            border-radius: 10px;
+            background-color: black;
+            color: white;
+            padding: 0 10px 10px 10px;
+        }
+    }
+        
+    
+    
 }
