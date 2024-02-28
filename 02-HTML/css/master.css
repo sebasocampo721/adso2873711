@@ -1,10 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
-body {background-color: #000000;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23220000' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23440000' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23660000' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23880000' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23A00' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+body {background-color: #FFBF04;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23ffb409' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23ffa90d' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23ff9e12' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23ff9316' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23FF881B' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
     background-attachment: fixed;
     background-size: cover;
-    font-family: poppins, sans-serif;
-    color:floralwhite;
+    color:black;
 }
 
 nav.controls {
@@ -42,7 +41,7 @@ main {
 
     header{
         h1, h1{
-            color: rgba(255, 255, 255, 0.6);
+            color: rgb(0, 0, 0);
             text-align: center;
         }
         h1{font-size: 4rem; 
@@ -61,10 +60,10 @@ main {
         
 
         a:is(:link,:visited){
-            background-color: #fff9;
+            background-color: black#fff9;
             border-radius: 50px;
             display: flex;
-            color: #fff9;
+            color: black;
             gap: 1rem;
             padding: 1rem;
             text-decoration: none;
@@ -73,9 +72,9 @@ main {
             
 
             i{
-            background-color: #eb9797;
+            background-color: black;
             border-radius: 20px;
-            color: #fff9;
+            color: white;
             font-style: normal;
             display: flex;
             align-items: center;
@@ -85,7 +84,7 @@ main {
         }
         a:is(:hover) i {
             transform: skew (10deg);
-            background-color: brown;
+            background-color: red;
         }
        
         a:is(:hover) i {
