@@ -41,7 +41,7 @@ main {
 
     header{
         h1, h1{
-            color: rgb(0, 0, 0);
+            color: rgba(255, 255, 255, 0.6);
             text-align: center;
         }
         h1{font-size: 4rem; 
@@ -60,7 +60,7 @@ main {
         
 
         a:is(:link,:visited){
-            background-color: black#fff9;
+            background-color: #fff9;
             border-radius: 50px;
             display: flex;
             color: black;
@@ -72,9 +72,9 @@ main {
             
 
             i{
-            background-color: black;
+            background-color: #fff9;
             border-radius: 20px;
-            color: white;
+            color: black;
             font-style: normal;
             display: flex;
             align-items: center;
@@ -84,7 +84,7 @@ main {
         }
         a:is(:hover) i {
             transform: skew (10deg);
-            background-color: red;
+            background-color: orangered;
         }
        
         a:is(:hover) i {
@@ -99,7 +99,7 @@ main {
         padding: 10px;
         width: 400px;
         h3 {
-            color: white;
+            color: black;
             font-size: 1.6rem;
             margin: 0;
         }
