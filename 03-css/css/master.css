@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
-body {background-color: #95A2AA;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%2380a48d' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%236ba570' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%2355a753' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%2340a836' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%232BAA19' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
-    background-attachment: fixed;
-    background-size: cover;
+body {
+    background-color: #2692AA;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%233e96aa' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%235699aa' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%236e9daa' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%2386a0aa' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%239EA4AA' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+background-attachment: fixed;
+background-size: cover;
     font-family: poppins, sans-serif;
     color:floralwhite;
 }
@@ -61,7 +62,7 @@ main {
         
 
         a:is(:link,:visited){
-            background-color: #fff9;
+            background-color: rgba(116, 112, 112, 0.6);
             border-radius: 50px;
             display: flex;
             color: #fff9;
@@ -73,7 +74,7 @@ main {
             
 
             i{
-            background-color: #eb9797;
+            background-color: #5e97d8;
             border-radius: 20px;
             color: #fff9;
             font-style: normal;
