@@ -1,0 +1,9 @@
+
+P.tittle { 
+    background-color: rgb(112, 184, 218);
+    border-radius: 1rem 0 1rem 0;
+    color: white;
+    font-size: 3rem;
+    padding: 10PX;
+    text-align: center;
+}
