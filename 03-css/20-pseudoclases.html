@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pseudo clases</title>
+    <link rel="stylesheet" href="css/master.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Indie+Flower&family=Satisfy&display=swap');    
+      nav {
+        margin-block: 1rem;
+      }
+      nav a:is(:link, :visited) {
+        background-color: #0009;
+        color: #fff9;
+        padding: 0.4rem 0.8rem;
+        text-decoration: none;
+      }
+
+      nav a:is(:hover) {
+        background-color: #0009;
+        color: #fff;
+      }
+      nav a:is(:active) {
+        background: #a00;
+      }
+      nav a:is(:first-child, :last-child) {
+        background-color: #009;
+      }
+      input {
+        margin-block: 0.4rem;
+        padding: 0.4rem 0.8rem;
+        outline: none;
+      }
+      input:is(:focus) {
+        border: 2px solid #009;
+      }
+
+      p.paragraph::first-line {
+        background-color: #0099;
+      }
+
+      p.paragraph:first-letter {
+        font-family:"Indie Flower";
+        font-size: 4rem;
+      }
+      div.heart {
+        background-color: transparent;
+        position: relative;
+        margin-block: 1rem;
+        height: 100px;
+        width: 50px;
+      }
+      div.heart::before {
+        background-color: #c00;
+        border-radius: 25px 25px 0 0;
+        position: absolute;
+        content: "";
+        height: 80px;
+        width: 50px;
+        transform-origin: center;
+        transform: rotate(-45deg) translateX(20px);
+        left: 100px;
+        top: 0;
+      }
+    
+      div.heart::after{
+        background-color: #c00;
+        border-radius: 25px 25px 0 0;
+        position: absolute;
+        content: "";
+        height: 80px;
+        width: 50px;
+        transform-origin: center;
+        transform: rotate(45deg) translateX(-20px);
+        left: 150px;
+        top: 0;
+      }
+      
+      </style>
+
+
+   
+</head>
+<body> 
+    <nav class="controls">
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+        </a>
+    </nav>
+    <main>
+        <header>
+            <h1>pseudo clases</h1>
+            <H2>es usado para definir un etado especial de un elemento 
+            </H2>
+        </header>
+        <section>
+          <h3>link|:hover|:active|:visited</h3>
+          <h4>first-child |: last-child </h4>
+          <nav>
+            <a href="#">option 1</a>
+            <a href="#">option 2</a>
+            <a href="#">option 3</a>
+            <a href="#">option 4</a>
+          </nav>
+          <h3>focus</h3>
+          <input type="text" placeholder="enter your name">
+          <br>
+          <input type="text" placeholder="enter your last name">
+          <h3>first-letter| : first-line</h3>
+          <p class="paragraph"> 
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, dolores?
+          </p>
+          <h3>before|:after</h3>
+          <div class="heart"></div>
+        </section>
+    </main>
+</body>
+    
+</body>
+</html>
