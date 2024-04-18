@@ -11,6 +11,7 @@
             background-color: #17a053;
             display: flex;
             justify-content: center;
+            align-items: center;
         
         }
         
@@ -33,21 +34,26 @@
         align-content: center;
         border-bottom: solid 4px;
         
+        
       }
       a:is(:hover) {
         background-color: black;
         color: whitesmoke;
         border-color: yellow;
       }
+      
+      
       div.box1{
         border: white solid; 
         padding: 1rem;
         height: 155px;
         margin: 30px auto;
-        width: 290px;
+        width: 270px;
         background: transparent url(imagenes/spriteweb.png);
         background-position: -472px -6px;
         display: flex;
+        position: absolute;
+        left: 210px;
       }
     
       div.box2{
@@ -55,11 +61,13 @@
         padding: 1rem;
         height: 155px;
         margin: 30px auto;
-        width: 290px;
+        width: 270px;
         background: transparent url(imagenes/spriteweb.png);
         background-position: -472px -6px;
         display: flex;
-        top:
+        position: relative;
+        left: 350px;
+        top: 31px;
       }
     
       div.box3{
@@ -67,13 +75,73 @@
         padding: 1rem;
         height: 155px;
         margin: 30px auto;
-        width: 290px;
+        width: 270px;
         background: transparent url(imagenes/spriteweb.png);
         background-position: -472px -6px;
         display: flex;
+        position: relative;
+        left: 20px;
+        top: -193px;
+      }
+      div.box4{
+        background-color: rgba(255, 255, 255, 0.418);
+        color: black;
+        padding: 1rem;
+        height: 30px;
+        margin: 30px auto;
+        width: 275px;
+        display: flex;
+        position: absolute;
+        text-align: center;
+        left: 210px;
+        top: 265px;
+        transition: all 0.4s ease-in;
         
       }
+      div.box4:is(:hover) {
+        background-color: black;
+        color: whitesmoke;
+      }
+      div.box5{
+        background-color: rgba(255, 255, 255, 0.418);
+        color: black;
+        padding: 1rem;
+        height: 30px;
+        margin: 30px auto;
+        width: 275px;
+        display: flex;
+        position: absolute;
+        text-align: center;
+        left: 540px;
+        top: 265px;
+        transition: all 0.4s ease-in;
+      }
+      div.box5:is(:hover) {
+        background-color: black;
+        color: whitesmoke;
+      }
       
+      div.box6{
+        background-color: rgba(255, 255, 255, 0.418);
+        color: black;
+        padding: 1rem;
+        height: 30px;
+        margin: 30px auto;
+        width: 275px;
+        display: flex;
+        position: absolute;
+        text-align: center;
+        left: 870px;
+        top: 265px;
+        transition: all 0.4s ease-in;
+      }
+      div.box6:is(:hover) {
+        background-color: black;
+        color: whitesmoke;
+      }
+      
+     
+    
     </style>
 
 
@@ -108,11 +176,29 @@
           <a>servicios</a>
           <a>contacto</a>
        </div>
+       <section class="color"></section>
        <section>
         <div class="box1"></div>
         <div class="box2"></div>
         <div class="box3"></div>
+
+        <div class="box4">Sprite 01</div>
+        <div class="box5">Sprite 02</div>
+        <div class="box6">Sprite 03</div>
+    </section>
+   
+    <section>
+      <div>
+        <p>
+        </p>
+        <div>
     </section>
  </main>
+ <section>
+  <div>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. At eum odio dolorum impedit facere neque illo, magnam veritatis similique incidunt cumque inventore quasi obcaecati totam blanditiis eius quibusdam magni quo!
+    </p>
+    <div>
+</section>
 </body>
 </html>
