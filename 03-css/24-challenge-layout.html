@@ -3,202 +3,235 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="">
-    <title></title>
+    <title>Ejemplo </title>
     
     <style>
-        body {
-            background-color: #17a053;
+       body {
+background-color: #17a053;
+
+       }
+       html {
+        border: 5px solid white;
+    }
+          
+
+div.sprite {
+    background: url(imagenes/spriteweb.png)no-repeat;
+    background-position: -10px -400px;
+    margin: 0 auto;
+    height: 180px;
+    width: 190px;
+}
+    div.menus{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+        align-items: center;
+    }
+
+      a:is(:link, :visited){
+        text-decoration: none;
+        background-color: rgba(0, 0, 0, 0.473);
+        border-bottom: solid 4px  white;
+        color: white;
+        font-size: 1rem;
+        width: 130px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    
+     div a:is(:hover){
+        background-color: rgba(0, 0, 0, 0.712);
+        border-color: gold;
+     }
+     div.box {
+        border: 2px solid rgba(61, 55, 55, 0.548);
+        height: 300px;
+        margin: 50px auto;
+        width: 600px;
+        justify-content: center;
+     }
+     
+     div.images{
             display: flex;
+            flex-direction: row;
+            gap: 1.5rem;
+            margin: auto;
+            margin-top: 20px;
             justify-content: center;
-            align-items: center;
-        
+            background-color: #0009;
+            padding: 1.5rem;
+            width: calc(230px * 3);
+            .imagn{
+                background: url(imagenes/spriteweb.png);
+                background-position: -530px -13px;
+                width: 200px;
+                height: 195px;
+                border: 2px solid #fff;
+                div{
+                    color: rgba(10, 10, 10, 0.6);
+                    background-color: rgba(240, 222, 222, 0.438);
+                    display: flex;
+                    justify-content: center;
+                    padding: 1.2rem;
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                    color: #000;
+                     
+                }
+                &:hover div {
+                    background-color: #c6ecc4;
+                }
+            }
         }
         
-      div.sprite {
-        background: url(imagenes/spriteweb.png) no-repeat;
-        background-position: -10px -400px;
+       
+
+        main.caja-negra {
+        background-color: rgba(0, 0, 0, 0.473);
+        border: 0.5px solid rgba(12, 54, 7, 0.075);
+        width: 750px;
+        margin: 20px auto;
+        align-items: center;
+        justify-content: center;
+    }
+
+    div.medio{
+        background-color: #fff;
+        height: 200px;
+        width: 730px;
+        margin: 10px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    div.imagen1 {
+        background: url(imagenes/spriteweb.png);
+        background-position: -280px -490px;
+        width: 200px;
+        height: 115px;   
+    }
+
+    div.imagen2 {
+        background: url(imagenes/spriteweb.png);
+        background-position: 0px -190px;
+        height: 199px;
+        width: 260px;
+    }
+
+    p {
+       
+        height: 199px;
+        width: 500px;
+        line-height: 1.6rem;
+        margin: 5px auto;
+        display: flex;
+        align-items: center;
+        font-size: 1.0rem;
+    }
+
+
+ main.caja-ultima {
+        width: 750px;
+        margin: 30px auto;
+        background-color: #fff;
+        height: 240px;
+
+    }
+
+    div.imagen-ultima {
+        background: url(imagenes/spriteweb.png);
+        background-position: -500px -421px;
         margin: 0 auto;
         height: 180px;
-        width: 190px;
-      }
-      a {
-        background-color: #3f423f;
-        color: white;
-        font-size: 1.4rem;
-        padding: 10px;
-        text-decoration: none;
-        text-align: center;
-        transition: all 0.4s ease-in;
-        width: 20%;
-        align-content: center;
-        border-bottom: solid 4px;
-        
-        
-      }
-      a:is(:hover) {
-        background-color: black;
-        color: whitesmoke;
-        border-color: yellow;
-      }
-      
-      
-      div.box1{
-        border: white solid; 
-        padding: 1rem;
-        height: 155px;
-        margin: 30px auto;
-        width: 270px;
-        background: transparent url(imagenes/spriteweb.png);
-        background-position: -472px -6px;
-        display: flex;
-        position: absolute;
-        left: 210px;
-      }
-    
-      div.box2{
-        border: white solid;
-        padding: 1rem;
-        height: 155px;
-        margin: 30px auto;
-        width: 270px;
-        background: transparent url(imagenes/spriteweb.png);
-        background-position: -472px -6px;
-        display: flex;
-        position: relative;
-        left: 350px;
-        top: 31px;
-      }
-    
-      div.box3{
-        border: white solid;
-        padding: 1rem;
-        height: 155px;
-        margin: 30px auto;
-        width: 270px;
-        background: transparent url(imagenes/spriteweb.png);
-        background-position: -472px -6px;
-        display: flex;
-        position: relative;
-        left: 20px;
-        top: -193px;
-      }
-      div.box4{
-        background-color: rgba(255, 255, 255, 0.418);
-        color: black;
-        padding: 1rem;
-        height: 30px;
-        margin: 30px auto;
-        width: 275px;
-        display: flex;
-        position: absolute;
-        text-align: center;
-        left: 210px;
-        top: 265px;
-        transition: all 0.4s ease-in;
-        
-      }
-      div.box4:is(:hover) {
-        background-color: black;
-        color: whitesmoke;
-      }
-      div.box5{
-        background-color: rgba(255, 255, 255, 0.418);
-        color: black;
-        padding: 1rem;
-        height: 30px;
-        margin: 30px auto;
-        width: 275px;
-        display: flex;
-        position: absolute;
-        text-align: center;
-        left: 540px;
-        top: 265px;
-        transition: all 0.4s ease-in;
-      }
-      div.box5:is(:hover) {
-        background-color: black;
-        color: whitesmoke;
-      }
-      
-      div.box6{
-        background-color: rgba(255, 255, 255, 0.418);
-        color: black;
-        padding: 1rem;
-        height: 30px;
-        margin: 30px auto;
-        width: 275px;
-        display: flex;
-        position: absolute;
-        text-align: center;
-        left: 870px;
-        top: 265px;
-        transition: all 0.4s ease-in;
-      }
-      div.box6:is(:hover) {
-        background-color: black;
-        color: whitesmoke;
-      }
-      
-     
-    
-    </style>
+        width: 290px;
+        }
 
+    nav.menus2 {
+        display: flex;
+        gap: 1.2rem;
+        justify-content: center;
+        width: 200px;
+        margin: 0.7px auto;
+    }
 
-   
-</head>
-<body> 
-    <main>
-        
-    <header>
+    section {
+        color: #000;
+        gap: 1rem;
+        align-items: center;
+        padding: 0.8rem;
+        width: 200px;
+        font-size: 0.9rem;
       
-     </header>
-       
-    </nav>
-    <main>
-        <header>
-            <h1></h1>
-            <H2>
-            </H2>
-        </header>
-        <section>
+    }
+
+    section:is(:hover) {
+        border-bottom: 4px solid rgb(17, 70, 1) 
+
+    }
+
             
-        </section>
-    </main>
-</body>
-
-  <main>
+        
+    </style>
+</head>
+<div>
     <div class="sprite"></div>
-       <div>
-          <a>inicio</a>
-          <a>nosotros</a>
-          <a>portafolio</a>
-          <a>servicios</a>
-          <a>contacto</a>
-       </div>
-       <section class="color"></section>
-       <section>
-        <div class="box1"></div>
-        <div class="box2"></div>
-        <div class="box3"></div>
 
-        <div class="box4">Sprite 01</div>
-        <div class="box5">Sprite 02</div>
-        <div class="box6">Sprite 03</div>
-    </section>
-   
-    <section>
-      <div>
-        <p>
-        </p>
-        <div>
-    </section>
- </main>
- <section>
-  <div>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. At eum odio dolorum impedit facere neque illo, magnam veritatis similique incidunt cumque inventore quasi obcaecati totam blanditiis eius quibusdam magni quo!
-    </p>
-    <div>
-</section>
+    <div class="menus">
+      <a href="menu1">INICIO</a>
+      <a href="menu1">NOSOTROS</a>
+      <a href="menu1">PORTAFOLIO</a>
+      <a href="menu1">SERVICIOS</a>
+      <a href="menu1">CONTACTO</a>
+    </div>
+
+      <div class="images">
+        <div class="imagn"><div>Sprite1</div></div>
+        <div class="imagn"><div>Sprite2</div></div>
+        <div class="imagn"><div>Sprite3</div></div>
+      </div>
+
+     
+      <main class="caja-negra">
+        <div class="medio">
+            <div class="imagen1"></div>
+           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam minima blanditis porro corporis incidunt dolorum quas, exercitationem quam voluptatibus máxime perspiciatis, hic iure quos cumque necessitatibus sit architecto facere aperiam fugit voluptates.  Cumque delectus error quod facilis odio suscipit culpa quis? Ullam autem maxime   nostrum reprehenderit mollitia</p>
+            <div class="imagen2"></div>
+        </div>
+        
+        <div class="medio">
+            <div class="imagen1"></div>
+           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam minima blanditis porro corporis incidunt dolorum quas, exercitationem quam voluptatibus máxime perspiciatis, hic iure quos cumque necessitatibus sit architecto facere aperiam fugit voluptates.  Cumque delectus error quod facilis odio suscipit culpa quis? Ullam autem maxime   nostrum reprehenderit mollitia</p>
+            <div class="imagen2"></div>
+        </div>
+        
+        <div class="medio">
+            <div class="imagen1"></div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam minima blanditis porro corporis incidunt dolorum quas, exercitationem quam voluptatibus máxime perspiciatis, hic iure quos cumque necessitatibus sit architecto facere aperiam fugit voluptates.  Cumque delectus error quod facilis odio suscipit culpa quis? Ullam autem maxime   nostrum reprehenderit mollitia</p>
+            <div class="imagen2"></div>
+        </div>
+
+    </main>
+
+
+    <main class="caja-ultima">
+        <div class="imagen-ultima"></div>
+        <nav class="menus2">
+            <section href="Menu2">INICIO</section>
+            <section href="menu2">NOSOTROS</section>
+            <section href="menu2">PORTAFOLIO</section>
+            <section href="menu2">SERVICIOS</section>
+            <section href="menu2">CONTACTO</section>
+        </nav>
+    </main>
+
+
+          
+
 </body>
 </html>
