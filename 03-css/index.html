@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS</title>
     <link rel="stylesheet" href="css/master.css">
+    <style>
+        div.menus {
+            display: flex;
+            gap: 1rem;
+        }
+        @media screen and (max-width: 580px){
+            div.menus{
+                flex-direction: column;
+            }
+
+        }
+    </style>
 </head>
 <body>
     <nav class="controls">
@@ -18,7 +30,9 @@
             <H2>ES UN LENGUALJE QUE USAMOS PARA DARLE ESTILO A UNA PAGINA WEB
             </H2>
         </header>
+        <div class="menus">
         <menu>
+            <h3>reference 2.1</h3>
             <a href="01-DocumentStyle.html">
                 <i>01</i>
                 <span>document style</span>   
@@ -124,6 +138,34 @@
             <i>24</i>
             <span>challenge layout with sprite</span> 
            </a>
+        </menu>
+        <menu>
+            <h3>reference 3</h3>
+        </a><a href="25-new-selectors.html">
+            <i>25</i>
+            <span>new selectors</span> 
+           </a>
+        </a><a href="26-border-radius.html">
+            <i>26</i>
+            <span>border radius</span> 
+           </a>
+        </a><a href="27-box-chadow.html">
+            <i>27</i>
+            <span>box chadow</span> 
+           </a>
+        </a><a href="28-challenge-shadow.html">
+            <i>28</i>
+            <span>challenge box chadow</span> 
+           </a>
+        </a><a href="29-new-background.html">
+            <i>29</i>
+            <span>new background props</span> 
+           </a>
+        </a><a href="30-text-chadow.html">
+            <i>30</i>
+            <span>tex chadow</span> 
+           </a>
+
         </menu>
     </main>
 </body>
