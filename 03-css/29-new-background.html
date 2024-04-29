@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>29-new-background
+    </title>
+    <link rel="stylesheet" href="css/master.css">
+    <style>
+      div.multiple{
+        border-radius: 10px;
+        border: 4px solid #fffd;
+        background: url(imagenes/bg3.png),
+                    url(imagenes/bg2.png),
+                    url(imagenes/bg1.png);
+        margin-inline: auto;
+        margin-block: 1rem;
+        height: 453px;
+        width: 320px;
+      }
+      section div{
+        border: 2px solid #fff9;
+        height: 200px;
+        margin-inline: auto;
+        width: 380px;
+      }
+      div.gradient1 {
+        background: linear-gradient(to top, orange, white);
+      }
+      
+      div.gradient2 {
+        background: linear-gradient(45deg, orange, white);
+      }
+      div.gradient3 {
+        background: linear-gradient(to bottom, #bb0 50%, #00b 50% ,#00b 75% , #b00 75% );
+      }
+      div.gradient4 {
+        background: linear-gradient(to right , #333 50%, #fff 0%);
+        background-size: 50px 100%;
+      }
+      
+      div.gradient5 {
+        background: radial-gradient(circle , orange , #fff );
+      }
+      div.gradient6 {
+        background: radial-gradient(circle ,  #fff 20%, #000 20%, #000 30%, #fff 30%,  #fff 50%, #000 50%, #000 70%, #fff 70%, #fff 90%,#000 80% , #000 100%   );
+
+      }
+      section h4 {
+        margin: 0;
+        text-align: center;
+        font-size: 8rem;
+      }
+      h4.text-clipe1{
+        background: linear-gradient(to right, red, blue  );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      h4.text-clipe2{
+        background: url(imagenes/agua.jpg) no-repeat center;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    </style>
+
+
+   
+</head>
+<body> 
+    <nav class="controls">
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+        </a>
+    </nav>
+    <main>
+        <header>
+            <h1>29-new-background</h1>
+            <H2>new feactures (multiple, gradients, clip-text)
+            </H2>
+        </header>
+        <section>
+          <h3>bg multiple</h3>
+          <div class="multiple"></div>
+          <h3>linear gradient 1</h3>
+          <h5>linear-gradient (to top, color1, color2)</h5>
+          <div class="gradient1"></div>
+          <h5>linear-gradient (degrees, color1, color2)</h5>
+          <div class="gradient2"></div>
+          <h5>colombia</h5>
+          <div class="gradient3"></div>
+          <h5>vertical lines</h5>
+          <div class="gradient4"></div>
+          <h5>radial-gradient (shape, color1, color2)</h5>
+          <div class="gradient5"></div>
+          <h5>bullsEye</h5>
+          <div class="gradient6"></div>
+          <h3>bg clip</h3>
+          <h4 class="text-clipe1">ADSO</h4>
+          <h4 class="text-clipe2">water</h4>
+        </section>
+    </main>
+</body>
+    
+</body>
+</html>
