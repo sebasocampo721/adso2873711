@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/master.css">
+    <style>
+      section img {
+        display: block;
+        margin: 1rem auto;
+      }
+      img.trans1 {
+        transition: transform 0.5s ease-in;
+      }
+      img.trans1:hover {
+        transform: scale(1.4);
+      }
+
+      img.trans2 {
+        transition: transform 1s ease-out;
+      }
+      img.trans2:hover {
+        transform: rotate(-100deg);
+      }
+      
+      img.trans3 {
+        transition: all ease-in-out;
+      }
+      img.trans3:hover {
+        transform: rotateY(100deg);
+      }
+
+      img.trans4 {
+        transition: all 0.5s linear;
+                    
+      }
+      img.trans4:hover {
+        transform: translateX(100px);
+      }
+      
+      img.trans5 {
+        transition: all 0.5s linear;
+                    
+      }
+      img.trans5:hover {
+        transform: translateY(100px);
+      }
+      
+    </style>
+
+
+   
+</head>
+<body> 
+    <nav class="controls">
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+        </a>
+    </nav>
+    <main>
+        <header>
+            <h1></h1>
+            <H2>permite definir una transicion entre dos estados de un elemento
+            </H2>
+        </header>
+        <section>
+          <H3>example 01</H3>
+          <img class="trans1" src="imagenes/Mini_Champi3Fn_Artwork.webp" width="200px">
+          <H3>example 02</H3>
+          <img class="trans2" src="imagenes/Mini_Champi3Fn_Artwork.webp" width="200px">
+          <H3>example 03</H3>
+          <img class="trans3" src="imagenes/Mini_Champi3Fn_Artwork.webp" width="200px">
+          <H3>example 04</H3>
+          <img class="trans4" src="imagenes/Mini_Champi3Fn_Artwork.webp" width="200px">
+          <H3>example 05</H3>
+          <img class="trans5" src="imagenes/Mini_Champi3Fn_Artwork.webp" width="200px">
+        </section>
+    </main>
+</body>
+    
+</body>
+</html>
