@@ -76,48 +76,99 @@
                 font-size: 2rem;
             }
         }
+          /*--------------*/
         section {
-            position: relative;
-            gap: 1rem;
             display: flex;
-            align-items: center;
-            top: 20px auto;
-            left: 650px auto;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            
+           
         }
-        div section{
-            background-color: bisque;
-            height: 200px;
+        section div {
+            background-color: #fff9;
             position: relative;
-            width: 200px;
+            height: 200px;
+            width: 260px;
+            top: 30px;
+            
         }
-        div section p {
-            background-color: blanchedalmond;
+        section div p {
+            background-color: #fff9;
             position: absolute;
             text-align: center;
             color: black;
             height: 40px;
             bottom: -16px;
+            transition: all 0.4s ease-in;
+            width: 100%;
+            
         }
-        div section:hover{ 
-            transition: all 0.3s ease-in;
+        section div:hover p{ 
+            height: 70px;
+            
         }
         
 
-        article p{
-        font-size: 2rem;
-        text-align: justify;
+        section article img{
+            width: 270px;
+            left: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;  
+            
         }
+
+        article img.image1{
+        margin-top: 1px;
+        width: 270px;
+        margin-left: -50px;
+        }
+        article img.image2{
+        margin-top: 20px;
+        width: 270px;
+        top: 30px;
+        
+        }
+        article img.image3{
+        margin-top: 10px;
+        width: 270px;
+        top: 30px;
+        margin-left: -200px;
+        }
+        
         article img{
+        float: left;
+      }
+        
+
+      article h4 {
+        clear: left;
+        height: 199px;
+        width: 500px;
+        line-height: 1.6rem;
+        margin: 5px auto;
+        display: flex;
         align-items: center;
-        flex-direction: column;
-        float: left;
-        }
-        article p+p{
-        float: left;
-        }
-        article p+p+p{
-        float: left;
-        }
+        font-size: 1.5rem;
+        text-align: left;
+      }
+        article p{
+        font-size: 1.5rem;
+        height: 199px;
+        width: 500px;
+        line-height: 1.6rem;
+        margin: 5px auto;
+        display: flex;
+        align-items: center;
+       
+
+      }
+
+
+        
+        
       
 
     </style>
@@ -130,38 +181,40 @@
         <section>   
                 <div>
                     <img src="imagenes/ted.jfif" alt="ted">
-                    <p>ted (season1)</p>
+                    <p>TED (season1)</p>
                 </div>
                 <div>
                     <img src="imagenes/unnamed.png" alt="ted">
-                    <p>ted (season2)</p>
+                    <p>TED (season2)</p>
                 </div>
                 <div>
                     <img src="imagenes/ted.jfif" alt="ted">
-                    <p>ted (season3)</p>
+                    <p>TED (season3)</p>
                 </div>
                 <div>
                     <img src="imagenes/unnamed.png" alt="ted">
-                    <p>ted (season4)</p>
+                    <p>TED (season4)</p>
                 </div>
-        </section>
         
         <article>
-            <img src="imagenes/unnamed.png" width="300px">
-            <h1>ted</h1>
+            <h4></h4>
+            <img class="image1" src="imagenes/unnamed.png" width="150px">
             <p>
-                pato Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit, cupiditate ut eaque tempora porro facere sapiente harum doloribus. Reiciendis minima non tempora laborum optio deleniti molestiae, hic aspernatur fugit suscipit?
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit, cupiditate ut eaque tempora porro facere sapiente harum doloribus. Reiciendis minima non tempora laborum optio deleniti molestiae, hic aspernatur fugit suscipit?
             </p>
-            <img src="imagenes/unnamed.png" width="300px">
+            <h4>ted</h4>
+            <img class="image2" src="imagenes/unnamed.png" width="150px">
             <p>
-                pato Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit, cupiditate ut eaque tempora porro facere sapiente harum doloribus. Reiciendis minima non tempora laborum optio deleniti molestiae, hic aspernatur fugit suscipit?
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit, cupiditate ut eaque tempora porro facere sapiente harum doloribus. Reiciendis minima non tempora laborum optio deleniti molestiae, hic aspernatur fugit suscipit?
             </p>
-            <img src="imagenes/unnamed.png" width="300px">
+            <h4>ted</h4>
+            <img class="image3" src="imagenes/unnamed.png" width="150px">
             <p>
-                pato Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit, cupiditate ut eaque tempora porro facere sapiente harum doloribus. Reiciendis minima non tempora laborum optio deleniti molestiae, hic aspernatur fugit suscipit?
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit, cupiditate ut eaque tempora porro facere sapiente harum doloribus. Reiciendis minima non tempora laborum optio deleniti molestiae, hic aspernatur fugit suscipit?
             </p>
+            
           </article>
-        
+        </section>
     </main>
 </body>
 </html>
