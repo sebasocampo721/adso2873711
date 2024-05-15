@@ -36,6 +36,16 @@
         main h1 span.medium{
             display: none;
         }
+        div.tex{
+            display: block;
+        }
+        article p{
+            align-items: center;
+            color:  #fff;
+            margin: 20px;
+            text-align: justify;
+            width: 600px;
+        }
         
         /* --------------*/
         /*m e d i a   q u e r i e s */
@@ -46,15 +56,31 @@
                 width: 220px;
                 height: 117px;
             }
+            article.ted{
+                justify-content: center;
+                align-items: center;
+            }
             main h1 span.small,
             main h1 span.large {
                 display: none;
             }
+            
             main h1 span.medium {
                 display: inline;
             }
             main h1 {
                 font-size: 2.8rem;
+            }
+            .image1,.image2{
+            margin: 0 auto;
+            }
+            article p{
+                box-sizing: border-box;
+                height: 145px;
+                justify-content: center;
+                overflow-y: scroll;
+                text-align: justify;
+                width: 250px;
             }
         }
 
@@ -65,6 +91,9 @@
                 width: 190px;
                 height: 101px;
             }
+            
+
+                
             main h1 span.medium,
             main h1 span.large {
                 display: none;
@@ -75,7 +104,19 @@
             main h1 {
                 font-size: 2rem;
             }
+            .image1,.image2{
+            margin: 0 auto;
+            }
+            article p{
+                box-sizing: border-box;
+                height: 200px;
+                justify-content: center;
+                overflow-y: scroll;
+                text-align: justify;
+                width: 200px;
+            }
         }
+        
           /*--------------*/
         section {
             display: flex;
@@ -119,6 +160,7 @@
             flex-direction: center;  
             
         }
+        
 
         
         
@@ -192,14 +234,18 @@
                     <p>TED (season4)</p>
                 </div>
         
-        <article>
-            <h4></h4>
-            <img class="image1" src="imagenes/unnamed.png" width="150px">
-            <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit, cupiditate ut eaque tempora porro facere sapiente harum doloribus. Reiciendis minima non tempora laborum optio deleniti molestiae, hic aspernatur fugit suscipit?
-            </p>
-            <h4></h4>
+        <article class="tedy">
+            <div>
+                <img class="image1" src="imagenes/unnamed.png" width="150px">
+                    <div class="text">
+                    <h4></h4>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit, cupiditate ut eaque tempora porro facere sapiente harum doloribus. Reiciendis minima non tempora laborum optio deleniti molestiae, hic aspernatur fugit suscipit?
+                    </p>
+                </div>
+            </div>
             <img class="image2" src="imagenes/unnamed.png" width="150px">
+            <h4></h4>
             <p>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit, cupiditate ut eaque tempora porro facere sapiente harum doloribus. Reiciendis minima non tempora laborum optio deleniti molestiae, hic aspernatur fugit suscipit?
             </p>
