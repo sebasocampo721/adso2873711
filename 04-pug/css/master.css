@@ -1,9 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
-body {background-color: #FFBF04;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23ffb409' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23ffa90d' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23ff9e12' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23ff9316' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23FF881B' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
-    background-attachment: fixed;
-    background-size: cover;
-    color:black;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;800&display=swap');
+body {
+    background-color: #FFD900;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23eec100' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23dda900' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23cc9100' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23bb7900' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23AA6100' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+background-attachment: fixed;
+background-size: cover;
+    font-family: poppins, sans-serif;
+    color:floralwhite;
 }
 
 nav.controls {
@@ -71,7 +73,6 @@ main {
     }
     
 
-
     menu{
         display: flex;
         flex-direction: column;
@@ -80,10 +81,10 @@ main {
         
 
         a:is(:link,:visited){
-            background-color: #fff9;
+            background-color: rgba(116, 112, 112, 0.6);
             border-radius: 50px;
             display: flex;
-            color: black;
+            color: #fff9;
             gap: 1rem;
             padding: 1rem;
             text-decoration: none;
@@ -92,9 +93,9 @@ main {
             
 
             i{
-            background-color: #fff9;
+            background-color: #5e97d8;
             border-radius: 20px;
-            color: black;
+            color: #fff9;
             font-style: normal;
             display: flex;
             align-items: center;
@@ -104,7 +105,7 @@ main {
         }
         a:is(:hover) i {
             transform: skew (10deg);
-            background-color: orangered;
+            background-color: brown;
         }
        
         a:is(:hover) i {
@@ -113,13 +114,14 @@ main {
     }
 
     section {
-        background-color: width;
+        
+        background-color: rgba(70, 61, 61, 0.6);
         border-radius: 10px;
         color:white;
         padding: 10px;
         width: 400px;
         h3 {
-            color: black;
+            color: white;
             font-size: 1.6rem;
             margin: 0;
         }
@@ -136,5 +138,4 @@ margin: 10px 0;
             padding: 0 10px 10px 10px;
         }
     }
-    
 }

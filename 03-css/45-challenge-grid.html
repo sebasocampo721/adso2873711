@@ -3,46 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>challenge Grid</title>
+    <title>Challenge Grid</title>
     <link rel="stylesheet" href="css/master.css">
     <style>
-        section{
+        div.grid1 {
             display: grid;
-            grid-template-columns: 1fr 2fr 3fr;
-            grid-gap: 1rem;
-            grid-template-areas: "one two three"
+            margin-bottom: 0.4rem;
+            grid-gap: 0.4rem;
+            grid-template-areas: "one  two three"
                                  "four two five"
                                  "six six seven";
         }
-        section div.box{
-            border: 2px solid red;
-            background-color: #fff9;
-            width: 120px;
-            height: 120px;
+        div.grid1 img {
+            border-radius: 4px;
+            outline: 2px solid #fffc;
+            height: 128px;
+            object-fit: cover;
+            width: 128px;
         }
+        div.grid1 img.img01 { grid-area: one; }
+        div.grid1 img.img02 { 
+            height: calc(128px * 2 + 0.4rem);
+            grid-area: two;  
+        }
+        div.grid1 img.img03 { grid-area: three; }
+        div.grid1 img.img04 { grid-area: four; }
+        div.grid1 img.img05 { grid-area: five; }
+        div.grid1 img.img06 { 
+            grid-area: six; 
+            width: calc(128px * 2 + 0.4rem);
+        }
+        div.grid1 img.img07 { grid-area: seven; }
+
+        div.grid2 {
+            display: grid;
+            margin-bottom: 0.4rem;
+            grid-gap: 0.4rem;
+            grid-template-areas: "one one two three"
+                                 "one one four four"
+                                 "five six four four";
+        }
+
+        div.grid2 img {
+            border-radius: 4px;
+            outline: 2px solid #fffc;
+            height: 94px;
+            object-fit: cover;
+            width: 94px;
+        }
+        div.grid2 img.img01 { 
+            height: calc(94px * 2 + 0.4rem);
+            width: calc(94px * 2 + 0.4rem);
+            grid-area: one; 
+        }
+        div.grid2 img.img02 { grid-area: two; }
+        div.grid2 img.img03 { grid-area: three; }
+        div.grid2 img.img04 { 
+            height: calc(94px * 2 + 0.4rem);
+            width: calc(94px * 2 + 0.4rem);
+            grid-area: four; 
+        }
+        div.grid2 img.img05 { grid-area: five; }
+        div.grid2 img.img06 { grid-area: six; }
+
+
+
     </style>
 </head>
 <body>
     <nav class="controls">
         <a href="index.html">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
         </a>
     </nav>
     <main>
         <header>
-            <h1>45-challenge-grid </h1>
-            <h2>
-                irregular galeria
-            </h2>
+            <h1>Challenge Grid</h1>
+            <h2>Irregular Gallery</h2>
         </header>
-        <section class="atribute">
-           <div class="box box1">1</div>
-           <div class="box box2">2</div>
-           <div class="box box3">3</div>
-           <div class="box box4">4</div>
-           <div class="box box5">5</div>
-           <div class="box box6">6</div>
-           <div class="box box7">7</div>
+        <section>
+            <div class="grid1">
+                <img class="img01" src="imagenes/pato.png" alt="01">
+                <img class="img02" src="imagenes/ted.jfif" alt="02">
+                <img class="img03" src="imagenes/ted9-1701289406718_ufpr.600.webp" alt="03">
+                <img class="img04" src="images/grid/ani04.png" alt="04">
+                <img class="img05" src="images/grid/ani05.png" alt="05">
+                <img class="img06" src="images/grid/ani06.png" alt="06">
+                <img class="img07" src="images/grid/ani07.png" alt="07">
+            </div>
+            
         </section>
     </main>
 </body>
