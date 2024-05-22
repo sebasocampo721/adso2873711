@@ -2,7 +2,7 @@ html(lang="en")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title comments
+        title challenge
         link(rel="stylesheet", href="../css/master.css")
     body 
         nav.controls 
@@ -10,19 +10,7 @@ html(lang="en")
 
         main 
             header 
-                h1 comments
+                h1 challenge
             section 
-                article 
-                    // this is a comment  & is viseble in html
-                    h3 there are 3 types of comments
-                    ol 
-                        li line comment (//)
-                        li pug comment (//-)
-                        li multi-line (//)
-                    //- this is a pug comment  thats not visible in html
-
-                // 
-                    this is a 
-                    comment 
-                    multi-line
-                
+                    each val, linex in ['white', '#e1e2fa', '#c8c8fa','#afaff9','#9696fa','#7d7dfa','#6464fa','#4b4bfa','#3232fa','#1f18fa']
+                        div(style='padding: 30px; background-color: '+val)

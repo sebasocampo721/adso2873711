@@ -2,7 +2,7 @@ html(lang="en")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title comments
+        title maxin
         link(rel="stylesheet", href="../css/master.css")
     body 
         nav.controls 
@@ -10,19 +10,12 @@ html(lang="en")
 
         main 
             header 
-                h1 comments
+                h1 maxin
             section 
-                article 
-                    // this is a comment  & is viseble in html
-                    h3 there are 3 types of comments
-                    ol 
-                        li line comment (//)
-                        li pug comment (//-)
-                        li multi-line (//)
-                    //- this is a pug comment  thats not visible in html
-
-                // 
-                    this is a 
-                    comment 
-                    multi-line
-                
+                mixin pet(name)
+                    li.pet=name 
+                ul 
+                    +pet('firulais')
+                    +pet('misifu')
+                    +pet('pinky')
+                    +pet('hawk')
