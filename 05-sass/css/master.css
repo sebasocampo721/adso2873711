@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;800&display=swap');
+body {
+    background-color: #FFD7F9;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%23cb67cc' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%23aa789d' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%23c576c6' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%23a36e98' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%23bf83c0' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%239b6394' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%23b890b9' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%23935990' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%23b19bb2' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%238a508c' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%23aaa6aa' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%23814688' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: poppins, sans-serif;
+    color:floralwhite;
+}
+
+nav.controls {
+    position: fixed;
+    a:is(:link, :visited) {
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: black;
+        height: 40px;
+        opacity: 0.6;
+        padding: 10px;
+        transform: escale (0.8);
+        transition: all 0.4s ease-in;
+        width: 40px;
+    }
+    a:is( :hover) {
+        opacity: 1;
+        transform: scale(1);
+
+    }
+    svg{
+        width:40px;
+    }
+}
+
+
+main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    min-height: 100vh;
+
+    header{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h1, h1{
+            color: 0;; ;
+            text-align: center;
+        }
+        h1{font-size: 4rem; 
+        font-weight: 400;
+    }
+        h2{font-size: 1, 4rem;
+            font-weight: 300;
+        }
+        h3{
+            border-radius: 20px;
+            background-color: #0009;
+            color: antiquewhite;
+            padding: 2px 12px;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        img{
+            background-color: pink;
+            border-radius: 50%;
+            width: 160px;
+            border: 10px solid #0009;
+        }
+    }
+    
+
+    menu{
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        gap: 1rem;
+        
+
+        a:is(:link,:visited){
+            background-color: rgba(116, 112, 112, 0.6);
+            border-radius: 50px;
+            display: flex;
+            color: #fff9;
+            gap: 1rem;
+            padding: 1rem;
+            text-decoration: none;
+            transition: all 0.5 ease-in;
+            width: 200px;
+            
+
+            i{
+            background-color: #5e97d8;
+            border-radius: 20px;
+            color: #fff9;
+            font-style: normal;
+            display: flex;
+            align-items: center;
+            height: 34px;
+            width: 34px
+            }
+        }
+        a:is(:hover) i {
+            transform: skew (10deg);
+            background-color: brown;
+        }
+       
+        a:is(:hover) i {
+            transform: scale(1.4) rotatey(360deg);
+        }
+    }
+
+    section {
+        
+        background-color: rgba(70, 61, 61, 0.6);
+        border-radius: 10px;
+        color:white;
+        padding: 10px;
+        width: 400px;
+        h3 {
+            border-bottom: 2px dotted white;
+            color: white;
+            font-size: 1.6rem;
+            margin: 0;
+            width: fit-content;
+        }
+        
+        p { 
+        font-size: 1.4rem;
+        margin: 10px 0;
+        }
+
+        xmp { 
+            border-radius: 10px;
+            background-color: black;
+            color: white;
+            padding: 0 10px 10px 10px;
+        }
+    }
+}
