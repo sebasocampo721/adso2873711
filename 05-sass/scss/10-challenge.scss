@@ -34,6 +34,47 @@
   .nav > #nav-check {
       display: none;
   }
+  .video-container{
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    video{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+    &::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0,0,0,0.82);
+    }
+}
+nav h1{
+    padding: 100px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: white;
+}
+nav p{
+    padding: 100px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: white;
+}
+
+            
+
+    
+
   @media (max-width: 600px) {
     .nav {
       padding: 1rem;
@@ -77,4 +118,5 @@
     .nav > #nav-check:checked ~ .nav-list {
       height: calc(100vh - 50px);
     }
-  }
+}
+  

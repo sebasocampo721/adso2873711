@@ -88,5 +88,9 @@ main {
         a:is(:hover) i {
             transform: scale(1.4) rotatey(360deg);
         }
+        a.disabled{
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
     }
 }
