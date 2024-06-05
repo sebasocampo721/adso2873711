@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;800&display=swap');
 body {
-    background-color: #CD6DFF;
-background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3Crect fill='none' stroke-width='100' id='a' x='-400' y='-300' width='800' height='600'/%3E%3C/defs%3E%3Cg transform='rotate(0 0 0)' style='transform-origin:center'%3E%3Cg transform='rotate(0 0 0)' style='transform-origin:center'%3E%3Cg transform='rotate(0 0 0)' style='transform-origin:center'%3E%3Cg transform='translate(1000 750)'%3E%3Cuse stroke='%23C2A1FF' href='%23a' transform='rotate(0 0 0)'/%3E%3Cuse stroke='%23b596ee' href='%23a' transform='rotate(0 0 0)'/%3E%3Cuse stroke='%23a88cdd' href='%23a' transform='rotate(0 0 0)'/%3E%3Cuse stroke='%239b81cc' href='%23a' transform='rotate(0 0 0)'/%3E%3Cuse stroke='%238e76bb' href='%23a' transform='rotate(0 0 0)'/%3E%3Cuse stroke='%23816baa' href='%23a' transform='rotate(0 0 0)'/%3E%3Cuse stroke='%23746199' href='%23a' transform='rotate(0 0 0)'/%3E%3Cuse stroke='%23675688' href='%23a' transform='rotate(0 0 0)'/%3E%3Cuse stroke='%235b4b77' href='%23a' transform='rotate(0 0 0)'/%3E%3Cuse stroke='%234e4066' href='%23a' transform='rotate(0 0 0)'/%3E%3Cuse stroke='%23413655' href='%23a' transform='rotate(0 0 0)'/%3E%3Cuse stroke='%23342b44' href='%23a' transform='rotate(0 0 0)'/%3E%3Cuse stroke='%23272033' href='%23a' transform='rotate(0 0 0)'/%3E%3Cuse stroke='%231a1522' href='%23a' transform='rotate(0 0 0)'/%3E%3Cuse stroke='%230d0b11' href='%23a' transform='rotate(0 0 0)'/%3E%3Cuse stroke='%23000000' href='%23a' transform='rotate(0 0 0)'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-color: #FFAAF6;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='88' y1='88' x2='0' y2='0'%3E%3Cstop offset='0' stop-color='%238e007a'/%3E%3Cstop offset='1' stop-color='%23c343ab'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='75' y1='76' x2='168' y2='160'%3E%3Cstop offset='0' stop-color='%23a2299a'/%3E%3Cstop offset='0.09' stop-color='%23bf47b6'/%3E%3Cstop offset='0.18' stop-color='%23d25ac8'/%3E%3Cstop offset='0.31' stop-color='%23e168d6'/%3E%3Cstop offset='0.44' stop-color='%23ec72e0'/%3E%3Cstop offset='0.59' stop-color='%23f47ae9'/%3E%3Cstop offset='0.75' stop-color='%23fb80ef'/%3E%3Cstop offset='1' stop-color='%23FF84F3'/%3E%3C/linearGradient%3E%3Cfilter id='c' x='0' y='0' width='200%25' height='200%25'%3E%3CfeGaussianBlur in='SourceGraphic' stdDeviation='12' /%3E%3C/filter%3E%3C/defs%3E%3Cpolygon fill='url(%23a)' points='0 174 0 0 174 0'/%3E%3Cpath fill='%23000' fill-opacity='.5' filter='url(%23c)' d='M121.8 174C59.2 153.1 0 174 0 174s63.5-73.8 87-94c24.4-20.9 87-80 87-80S107.9 104.4 121.8 174z'/%3E%3Cpath fill='url(%23b)' d='M142.7 142.7C59.2 142.7 0 174 0 174s42-66.3 74.9-99.3S174 0 174 0S142.7 62.6 142.7 142.7z'/%3E%3C/svg%3E");
 background-attachment: fixed;
-background-size: cover;
+background-repeat: no-repeat;
+background-position: top left;
     font-family: poppins, sans-serif;
     color:floralwhite;
 }
@@ -117,7 +118,7 @@ main {
         
         background-color: rgba(70, 61, 61, 0.6);
         border-radius: 10px;
-        color:white;
+        color:rgb(255, 255, 255);
         padding: 10px;
         width: 400px;
         h3 {
