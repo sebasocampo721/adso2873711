@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>overflow</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/master.css">
 </head>
@@ -15,12 +15,25 @@
     </nav>
     <main>
         <header>
-            <h1></h1>
-            <h2>
+            <h1>overflow</h1>
+            <h2>Utilice estas utilidades abreviadas para configurar rápidamente cómo el contenido desborda un elemento.
             </h2>
         </header>
         <section class="content">
-
+            <div class="overflow-auto d-flex flex-column gap-4 mx-auto">
+            <div class="overflow-auto p-3 mb-3 mb-md-0 me-md-3 bg-body-tertiary" style="max-width: 260px; max-height: 100px;">
+                This is an example of using <code>.overflow-auto</code> on an element with set width and height dimensions. By design, this content will vertically scroll.
+              </div>
+              <div class="overflow-hidden p-3 mb-3 mb-md-0 me-md-3 bg-body-tertiary" style="max-width: 260px; max-height: 100px;">
+                This is an example of using <code>.overflow-hidden</code> on an element with set width and height dimensions.
+              </div>
+              <div class="overflow-visible p-3 mb-3 mb-md-0 me-md-3 bg-body-tertiary" style="max-width: 260px; max-height: 100px;">
+                This is an example of using <code>.overflow-visible</code> on an element with set width and height dimensions.
+              </div>
+              <div class="overflow-scroll p-3 bg-body-tertiary" style="max-width: 260px; max-height: 100px;">
+                This is an example of using <code>.overflow-scroll</code> on an element with set width and height dimensions.
+              </div>
+            </div>
         </section>
     </main>
 </body>
