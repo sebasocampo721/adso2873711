@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <style>
+
+        section.content {
+            background: url(../images/bg.png) no-repeat;
+            background-size: 100%;
+            height: 100vh;
+            padding: 10px; 
+        }
+
+        .img_name {
+            display: flex;
+            align-items: center; 
+            gap: 10px; 
+        }
+
+        .img_name img {
+            width: 50px; 
+            height: 50px; 
+            border-radius: 50%;
+        }
+
+        .img_name .name {
+            font-size: 1.7rem;
+        }
+
+        .navbar {
+            display: flex; 
+            align-items: center; 
+            justify-content: flex-end; 
+            margin-top: -65px;
+            margin-left: 500px;
+        }
+
+        .navbar-nav {
+            display: flex; 
+            gap: 20px; 
+            font-size: 1.7rem;
+        }
+
+        .nav-link {
+            color: #000; 
+        }
+        .col-md-6{
+            background-size: #f4a6ac;
+            margin-top: 150px;
+        }
+      
+
+        
+
+      
+
+        .fotos {
+            height: 100vh;
+            margin-left: 570px;
+            margin-top: -215px;
+        }
+
+        button {
+            color: #ffffff;
+            background-color: #f4a6ac;
+            border-radius: 10px;
+            border: none;
+            height: 50px;
+            width: 100px;
+        }
+
+        /*part 2-----------------------------------------------------------------*/
+        section {
+            background: url(../images/Rectangle\ 32.png) no-repeat;
+            background-size: 100%;
+            height: 100vh;
+            padding: 10px; 
+        }
+        section.parte2{
+            margin-left: 900px;
+            margin-top: 100px;
+        }
+        section.fotos2{
+            margin-left: -680px;
+            margin-top: -450px;
+
+        }
+        section.fotos3{
+            margin-left: -790px;
+            margin-top: -860px;
+
+        }
+        
+        /*part 3-----------------------------------------------------------------*/
+        section.parte3 {
+            background: url(../images/Rectangle\ 014.png) no-repeat;
+            background-size: 100%;
+            height: 100vh;
+            padding: 10px; 
+        }
+        section.parte003{
+            text-align: center;
+        }
+        
+         /*part 4-----------------------------------------------------------------*/
+         section.parte3 {
+            background: url(../images/Rectangle\ 014.png) no-repeat;
+            background-size: 100%;
+            height: 100vh;
+            padding: 10px; 
+        }
+        section.parte004 img{
+            text-align: center;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        /*part 5-----------------------------------------------------------------*/
+        section.parte5 {
+            background: url(../images/Rectangle\ 31.png) no-repeat;
+            background-size: 100%;
+            height: 100vh;
+            padding: 10px; 
+        }
+        section.parte005 div {
+            text-align: center;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        div.redes{
+            align-items: center;
+        }
+        div.correo{
+            align-items: center;
+        }
+        
+        div.autor{
+            align-items: center;
+        }
+
+        /* Media queries para ajuste responsive */
+        @media (max-width: 991px) {
+            .navbar {
+                justify-content: center;
+                margin-left: 0;
+            }
+
+            .fotos {
+                margin-left: 0;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .img_name {
+                flex-direction: auto;
+                text-align: auto;
+
+            }
+
+            .img img {
+                margin-top: 0; /* Ajustar según necesidad */
+            }
+
+            .fotos {
+                height: auto;
+                margin-left: auto;
+                
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <section class="content">
+                <div class="img_name">
+                    <img src="../images/imagen.png" alt="perfil">
+                    <h2 class="name p-2">Jose Sebastian </h2>
+                    <h2 class="last name p-2">Ocampo Lopez</h2>
+                </div>
+                
+                <nav class="navbar navbar-expand-lg">
+                    <div class="navbar-nav">
+                        <a class="nav-link" href="#home">Home</a>
+                        <a class="nav-link" href="#about-me">About</a>
+                        <a class="nav-link" href="#services">Services</a>
+                        <a class="nav-link" href="#portfolio">Portafolio</a>
+                    </div>
+                </nav>
+                <div class="col-md-6">
+                    <h4 class="text-purple">Hello I'm</h4>
+                    <h1 class="display-4 fw-bold">Sebastian Ocampo</h1>
+                    <p class="lead">Professional Freelance Web Designer</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
+                </div>
+                <button type="button" class="btn btn-primary ">Hire Me</button>
+                <div class="fotos">
+                    <img src="../images/image.png" alt="foto1">
+                </div>
+            </section>
+            <section class="about-me d-flex flex-column">
+                <section class="parte2">
+                <p class="lead">About</p>
+                <h1 class="display-6 fw-bold">Why you Hire Me?</h1>
+                <p>Software developer with 1 year of experience. Passionate about technological </p>
+                <p>innovation and creating efficient solutions that improve user experience and </p>
+                <p>optimize business processes.</p>
+                <br><br>
+                    <p>ui/ux Design</p>
+                    <div class="progress bg-morado-claro" role="progressbar" aria-label="Default striped example" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar bg-morado" style="width: 75%">75%</div>
+                    </div>
+
+                    <p>Web design</p>
+                    <div class="progress bg-morado-claro" role="progressbar" aria-label="Default striped example" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar bg-morado" style="width: 65%">65%</div>
+                    </div>
+
+                    <p>HTML/CSS</p>
+                    <div class="progress --bs-danger-bg-subtle" role="progressbar" aria-label="Default striped example" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar --bs-danger-bg-subtle" style="width: 90%">90%</div>
+                    </div>
+
+                    <p>Sketch</p>  
+                    <div class="progress bg-morado-claro" role="progressbar" aria-label="Default striped example" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar bg-morado" style="width: 50%">50%</div>
+                    </div>
+                    <section class="fotos2">
+                        <img src="../images/Subtract.png" alt="">
+                    </section>
+                    <section class="fotos3">
+                        <img src="../images/WhatsApp_Image_2024-06-25_at_7.38.09_PM-removebg-preview 2.png" alt="">
+                    </section>
+                </section>  
+            </section>  
+            
+            <section class="parte03">
+                <section class="parte003">
+                <p class="lead">services</p>
+                <h1 class="display-6 fw-bold">Service I Provide</h1>
+                    
+                <img src="../images/Group 6 (3).png" class="rounded float-start" alt="...">
+                <img src="../images/Group 6 (3).png" class="rounded float-end" alt="...">
+                <img src="../images/Group 6 (3).png" class="rounded mx-auto d-block" alt="...">
+                <br><br>
+                <img src="../images/Group 6 (3).png" class="rounded float-start" alt="...">
+                <img src="../images/Group 6 (3).png" class="rounded float-end" alt="...">
+                <img src="../images/Group 6 (3).png" class="rounded mx-auto d-block" alt="...">
+
+                </section>
+            </section>
+            <section class="parte4">
+                <section class="parte004">
+                    <p class="lead">Portafolio</p>
+                    <h1 class="display-6 fw-bold">Last Projects</h1>
+
+                    <img src="../images/analyst-working-business-analytics-data-260nw-2301201807 1.png" class="rounded float-start" alt="...">
+                    <img src="../images/gestion-de-proyectos-e1681731412655 1.png" class="rounded float-end" alt="...">
+                    <img src="../images/aplicacion-de-la-inteligencia-artificial-para-el-financiamiento-automotriz-1024x683 1.png" class="rounded mx-auto d-block" alt="...">
+                </section>
+                <section class="parte5">
+                    <section class="parte005">
+                <div class="img_name">
+                    <img src="../images/imagen.png" alt="perfil">
+                    <h2 class="name p-2">Jose Sebastian </h2>
+                    <h2 class="last name p-2">Ocampo Lopez</h2>
+                </div>
+                <div class="redes">
+                <img src="../images/Group 7 (1).png" alt="redes">
+                </div>
+                <div class="correo">
+                <img src="../images/SEBASOCAMPO721@GMAIL.COM.png" alt="redes">
+                </div>
+
+                <nav class=" navbar-expand">
+                    <div class="navbar-nav">
+                        <a class="nav-link" href="">Home</a>
+                        <a class="nav-link" href="">About</a>
+                        <a class="nav-link" href="">Services</a>
+                        <a class="nav-link" href="">Portafolio</a>
+                    </div>
+                </nav>
+
+                <div class="autor">
+                <img src="../images/© All rights reserved 2024.png" alt="redes">
+                </div>
+            </section>
+           </section>
+        </header>
+    </main>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        // Smooth scroll functionality for anchor links
+        document.querySelectorAll('a.nav-link').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
