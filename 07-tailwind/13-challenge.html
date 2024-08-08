@@ -1,39 +1,132 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>challenge</title>
-    <link rel="stylesheet" href="css/master.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Oculta todas las pantallas */
+        .screen {
+            display: none;
+        }
+
+        /* Muestra la pantalla correspondiente cuando el radio button está seleccionado */
+        #screen1:checked ~ .screen1,
+        #screen2:checked ~ .screen2,
+        #screen3:checked ~ .screen3 {
+            display: block;
+        }
+    </style>
 </head>
-<body>
-    <nav class="controls">
-        <a href="index.html">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
-        </a>
-    </nav>
-    <main>
-        <header>
-           
-        </header>
-        <section class="content">
-            
-        </section>
-    </main>
+
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+    <!-- Radios ocultos para la navegación -->
+    <input type="radio" name="screens" id="screen1" class="hidden" checked>
+    <input type="radio" name="screens" id="screen2" class="hidden">
+    <input type="radio" name="screens" id="screen3" class="hidden">
+
+    <!-- Pantalla 1 -->
+    <div class="screen screen1 bg-white rounded-lg shadow-lg p-8 w-96">
+        <div class="flex flex-col items-center">
+            <!-- Imagen o ilustración -->
+            <img src="images/ferrari.jpg" alt="Ferrari" class="rounded-lg mb-4">
+            <!-- Texto -->
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">THE EVOLUTION</h1>
+            <p class="text-gray-600 text-center mb-6">
+                If you can imagine it, you can achieve it
+            </p>
+            <!-- Botón -->
+            <label for="screen2" class="bg-gray-500 text-white px-6 py-2 rounded-full hover:bg-gray-800 cursor-pointer">
+                Get started
+            </label>
+        </div>
+    </div>
+
+    <!-- Pantalla 2 -->
+    <div class="screen screen2 bg-white rounded-lg shadow-lg p-8 w-96">
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+            <div class="flex items-center mb-4">
+                <!-- Flecha para retroceder -->
+                <label for="screen1" class="text-gray-700 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                        class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </label>
+                <h2 class="text-2xl font-bold text-gray-800 ml-4">Ferrari</h2>
+            </div>
+            <ul>
+                <li class="flex items-center mb-4">
+                    <div class="bg-red-500 text-white font-bold rounded-full w-10 h-10 flex items-center justify-center">
+                        100%
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="text-lg font-semibold text-gray-800">LaFerrari</h3>
+                        <p class="text-gray-600">Calidad</p>
+                    </div>
+                </li>
+                <img src="images/Ferrari1.jpg" alt="Ferrari Laferrari" class="ml-auto rounded-lg mb-4">
+                <li class="flex items-center mb-4">
+                    <div class="bg-red-600 text-white font-bold rounded-full w-10 h-10 flex items-center justify-center">
+                        100%
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="text-lg font-semibold text-gray-800">LaFerrari</h3>
+                        <p class="text-gray-600">Velocidad</p>
+                    </div>
+                </li>
+                <li class="flex items-center mb-4">
+                    <div class="bg-red-700 text-white font-bold rounded-full w-10 h-10 flex items-center justify-center">
+                        100%
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="text-lg font-semibold text-gray-800">LaFerrari</h3>
+                        <p class="text-gray-600">Lujo</p>
+                    </div>
+                </li>
+                <li class="flex items-center mb-4">
+                    <div class="bg-red-800 text-white font-bold rounded-full w-10 h-10 flex items-center justify-center">
+                        100%
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="text-lg font-semibold text-gray-800">LaFerrari</h3>
+                        <p class="text-gray-600">Innovación</p>
+                    </div>
+                </li>
+            </ul>
+            <label for="screen3" class="bg-gray-500 text-white px-6 py-2 rounded-full hover:bg-gray-800 w-full mt-4 text-center cursor-pointer">
+                Next
+            </label>
+        </div>
+    </div>
+
+    <!-- Pantalla 3 -->
+    <div class="screen screen3 bg-white rounded-lg shadow-lg p-8 w-96">
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <div class="flex items-center mb-4">
+                <!-- Flecha para retroceder -->
+                <label for="screen2" class="text-gray-700 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                        class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </label>
+                <h2 class="text-2xl font-bold text-gray-800 ml-4">Categories</h2>
+            </div>
+            <ul class="mb-6">
+                <li class="bg-red-500 text-white rounded-lg p-4 mb-4">1 - LaFerrari</li>
+                <li class="bg-red-600 text-white rounded-lg p-4 mb-4">2 - Ferrari F8 Tributo</li>
+                <li class="bg-red-700 text-white rounded-lg p-4 mb-4">3 - Ferrari Tributo</li>
+                <li class="bg-red-800 text-white rounded-lg p-4">4 - Ferrari 458</li>
+            </ul>
+            <p class="text-gray-600 text-center mb-4">You only fail when you stop trying</p>
+            <button class="bg-gray-500 text-white px-6 py-2 rounded-full hover:bg-gray-800 w-full">
+                Start test
+            </button>
+        </div>
+    </div>
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
