@@ -7,12 +7,10 @@
     <title>challenge</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Oculta todas las pantallas */
         .screen {
             display: none;
         }
 
-        /* Muestra la pantalla correspondiente cuando el radio button está seleccionado */
         #screen1:checked ~ .screen1,
         #screen2:checked ~ .screen2,
         #screen3:checked ~ .screen3 {
@@ -21,34 +19,37 @@
     </style>
 </head>
 
-<body class="flex items-center justify-center min-h-screen bg-gray-100">
-    <!-- Radios ocultos para la navegación -->
+<body class="flex items-center justify-center min-h-screen bg-[url(images/fondo11.png)] bg-no-repeat bg-cover">
     <input type="radio" name="screens" id="screen1" class="hidden" checked>
     <input type="radio" name="screens" id="screen2" class="hidden">
     <input type="radio" name="screens" id="screen3" class="hidden">
 
-    <!-- Pantalla 1 -->
     <div class="screen screen1 bg-white rounded-lg shadow-lg p-8 w-96">
         <div class="flex flex-col items-center">
-            <!-- Imagen o ilustración -->
             <img src="images/ferrari.jpg" alt="Ferrari" class="rounded-lg mb-4">
-            <!-- Texto -->
-            <h1 class="text-3xl font-bold text-gray-800 mb-2">THE EVOLUTION</h1>
+                <div class="flex gap-2 items-center">
+                    <div class="flex flex-col items-center shrink-0">
+                        <div class="p-4 shadow-sm bg-red-400 w-5 h-5 rounded-full"></div>
+                    </div>
+                    <div class=" flex flex-col items-center shrink-0">
+                        <div class="p-4 shadow-sm bg-red-400 w-5 h-5 rounded-full"></div>
+                    </div>
+                    <div class="flex flex-col items-center shrink-0">
+                        <div class="p-4 shadow-sm bg-red-300 w-10 h-15 rounded-full"></div>
+                    </div>
+                </div>
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">FERRARI</h1>
             <p class="text-gray-600 text-center mb-6">
                 If you can imagine it, you can achieve it
             </p>
-            <!-- Botón -->
             <label for="screen2" class="bg-gray-500 text-white px-6 py-2 rounded-full hover:bg-gray-800 cursor-pointer">
                 Get started
             </label>
         </div>
     </div>
 
-    <!-- Pantalla 2 -->
-    <div class="screen screen2 bg-white rounded-lg shadow-lg p-8 w-96">
-        <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+    <div class="screen screen2 bg-white rounded-lg shadow-lg p-9 w-96">
             <div class="flex items-center mb-4">
-                <!-- Flecha para retroceder -->
                 <label for="screen1" class="text-gray-700 cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                         class="w-6 h-6">
@@ -99,14 +100,11 @@
             <label for="screen3" class="bg-gray-500 text-white px-6 py-2 rounded-full hover:bg-gray-800 w-full mt-4 text-center cursor-pointer">
                 Next
             </label>
-        </div>
     </div>
 
-    <!-- Pantalla 3 -->
-    <div class="screen screen3 bg-white rounded-lg shadow-lg p-8 w-96">
+    <div class="screen screen3 bg-white rounded-lg shadow-lg p-9 w-96">
         <div class="bg-white rounded-lg shadow-lg p-6">
             <div class="flex items-center mb-4">
-                <!-- Flecha para retroceder -->
                 <label for="screen2" class="text-gray-700 cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                         class="w-6 h-6">
