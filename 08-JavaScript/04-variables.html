@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-variables</title>
+    <link rel="stylesheet" href="css/master.css">
+    <style>
+      main section h3 {
+        margin-bottom: 1rem;
+      }
+      
+    </style>
+
+
+   
+</head>
+<body> 
+    <nav class="controls">
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+        </a>
+    </nav>
+    <main>
+        <header>
+            <h1>04-variables</h1>
+            <H2>almacena valores de datos que pueden cambiar
+            </H2>
+        </header>
+        <section>
+          <h3>type String: <small id="typeString"></small></h3>
+          <h3>type Number: <small id="typeNumber"></small></h3>
+          <h3>type Boolean: <small id="typeBoolean"></small></h3>
+          <h3>type Null: <small id="typeNull"></small></h3>
+          <h3>type TypeUnderfined: <small id="typeUnderfined"></small></h3>
+          <h3>type Array: <small id="typeArray"></small></h3>
+          <h3>type Object: <small id="typeObject"></small></h3>
+        </section>
+    </main>
+    <script>
+        // IDs
+        const typeString = document.getElementById('typeString')
+        const typeNumer = document.getElementById('typeNumber')
+        const typeBoolean = document.getElementById('typeBoolean')
+        const typeNull = document.getElementById('typeNull')
+        const typeUnderfined = document.getElementById('typeUnderfined')
+        const typeArray = document.getElementById('typeArray')
+        const typeObject = document.getElementById('typeObject')
+        // TYPE STRING
+        let string1 = 'hello'
+        let string2 = 'ADSO'
+        // typeString.textContent = string1 + `` + string2 
+        typeString.textContent = `${string1} ${string2}`
+        let number1 = 34.56
+        let number2 = '32'
+        typeNumer.textContent = number1+parseInt(number2)
+        // type booton
+        typeBoolean.textContent = (120>256)
+        // type null
+        let valueNull = null
+        typeNull.textContent = '' + valueNull
+        // type Underfined
+        let valueUnderfined = undefined
+        typeUnderfined.textContent = '' + valueUnderfined
+        //type array 
+        let emojis = ['🎈', '🎇', '🎈', '🎇'] 
+        typeArray.textContent = emojis
+        //type object
+        let hashira = {
+            name: 'kiojuro rangoku',
+            element: 'fire',
+            age: 23
+        }
+        typeObject.textContent = hashira.name
+        //typeObject.textContent += hashira.element
+        //typeObject.textContent += hashira.age
+
+
+    </script>
+</body>
+</html>
