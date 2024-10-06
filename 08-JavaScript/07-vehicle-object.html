@@ -3,11 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>vehicle object</title>
     <link rel="stylesheet" href="css/master.css">
     <style>
+      section {
+        background-color: #429AFE;
+        border-radius: 80px;
+        
+      }
+
+      .header {
+        display: flex;
+        justify-content: center; 
+        align-items: center;     
+        position: relative;      
+        height: 100px;           
+      }
+
+      .logo {
+        width: 100px;            
+      }
+
+      .btn-light {
+        position: absolute;
+        right: 0;                
+        margin-right: 20px;    
+        border-radius: 20px;
+        background-color: rgb(223, 216, 216);
+      }
+      .btn-light:hover {
+        background: gray;
+        border: 1px solid white;
+      }
+      .btn-light:active {
+        background: rgb(255, 255, 255);
+      }
+        
+      .persona {
+        width: 30px;            
+      }
+
+      div.object{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        height: 100px;
+        margin-left: -40px;
+        margin-top: -30px;
+      }
+      .object .cuadro{
+        margin-right: -30px;
+      }
+      .object .linea1{
+        margin-right: -25px;
+        right: 0;
+      }
+      div.atributos{
+        align-items: center;
+        justify-content: center;
+        display: flex;
+      }
+
+      div.atributes{
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        position: relative;
+        gap: 30px;
+        margin-top: 20px;
+      }
+      span.color{
+        position:absolute;
+        margin-top: 100px;
+        margin-left: 150px;
+      }
+      span.model{
+        position:absolute;
+        margin-top: 100px;
+        margin-left: -150px;
+      }
+
+      div.televisor{
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        margin-top: 70px;
+        position: relative;
+      }
+      div.televisor button img{
+        position: absolute;
+        margin-top: 80px;
+      }
+      button.flecha1{
+        position: absolute;
+        margin-top: 1px;
+        margin-left: 70px;
+      }
+      button.flecha2{
+        position: absolute;
+        margin-top: 1px;
+        margin-left: -90px;
+      }
+
+      div.metodos{
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        margin-top: 30px;
+      }
+
+      div.methods{
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        position: relative;
+        margin-top: 50px;
+        gap: 5px;
+      }
       
-      
+      div.methods button{
+        border-radius: 30%;
+        background-color: black;
+      }
+      div.final{
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        margin-top: 20px;
+      }
     </style>
 
 
@@ -21,33 +145,83 @@
     </nav>
     <main>
         <header>
-            <h1></h1>
+            <h1>vehicle object</h1>
             <H2>
             </H2>
         </header>
         <section class="light">
           <div class="header">
-            <img src="avion/Group 14.svg" alt="logo">
-            <button class="btn-light"></button>
+            <img src="avion/Group 14.png" alt="logo" class="logo">
+            <button class="btn-light">
+              <img src="avion/Vector (1).png" alt="persona" class="persona">
+            </button>
           </div>
-          <div class="atributes">
-            <span class="brand"></span>
-            <span class="refer"></span>
-            <span class="model"></span>
-            <span class="color"></span>
+
+          <div class="object">
+            <img src="avion/Group 41.png" alt="" class="linea1">
           </div>
-          <div class="landscape">
-            <button class="btn-prev"></button>
-            <button class="btn-next"></button>
+
+          <div class="atributos">
+          <img src="avion/Group 18 (1).svg" alt="">
           </div>
+
+          <div class="atributes"> 
+            <span class="brand">
+              <img src="avion/Group 33.png" alt="">
+            </span>
+
+            <span class="refer">
+              <img src="avion/Group 20.svg" alt="">
+            </span>
+
+            <span class="model">
+              <img src="avion/Group 34.png" alt="">
+            </span>
+
+            <span class="color">
+              <img src="avion/Group 37.png" alt="">
+            </span>
+          </div>
+
+          
+
+          <div class="televisor">
+          <img src="avion/Vector (1).svg" alt="">
+          <button class="flecha1"><img src="avion/Vector (3).png" alt=""></button>
+          <button class="flecha2"><img src="avion/Vector (4).png" alt=""></button>
+          </div>
+
+
+          <div class="metodos">
+          <img src="avion/Group 23.svg" alt="">
+          </div>
+
           <div class="methods">
-            <button class="btn-on"></button>
-            <button class="btn-fwd"></button>
-            <button class="btn-pause"></button>
-            <button class="btn-bwd"></button>
-            <button class="btn-off"></button>
+            <button class="btn-on">
+              <img src="avion/Group 29.png" alt="">
+            </button>
+            <button class="btn-fwd">
+              <img src="avion/Group 25.svg" alt="">
+            </button>
+            <button class="btn-pause">
+              <img src="avion/Group 38.png" alt="">
+            </button>
+            <button class="btn-bwd">
+              <img src="avion/Group 27.svg" alt="">
+            </button>
+            <button class="btn-off">
+              <img src="avion/Group (3).svg" alt="">
+            </button>
           </div>
+
+          <div class="final">
+            <img src="avion/Group (2).png" alt="">
+          </div>
+
+
+          
+         
         </section>
-    </main>
+      </main>
 </body>
 </html>
