@@ -8,7 +8,9 @@
     <style>
       section {
         background-color: #429AFE;
-        border-radius: 80px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgb(0, 0, 0);
+
       }
 
       .header {
@@ -23,18 +25,19 @@
         width: 100px;            
       }
 
-      .btn-light {
+      .btn-mode {
         position: absolute;
         right: 0;                
         margin-right: 20px;    
         border-radius: 20px;
         background-color: rgb(223, 216, 216);
+        transition: all 0.3s;
       }
-      .btn-light:hover {
+      .btn-mode:hover {
         background: gray;
         border: 1px solid white;
       }
-      .btn-light:active {
+      .btn-mode:active {
         background: rgb(255, 255, 255);
       }
         
@@ -64,7 +67,7 @@
         display: flex;
       }
 
-      div.atributes {
+      div.attributes {
         align-items: center;
         justify-content: center;
         display: flex;
@@ -93,7 +96,7 @@
         z-index: 1;
       }
       div.televisor img {
-        margin-right: 20px; /* Espacio entre la imagen y los botones */
+        margin-right: 20px; 
       }
 
       div.container{
@@ -125,7 +128,7 @@
         align-items: center;
         justify-content: center;
         display: flex;
-        margin-top: -205px;
+        margin-top: -200px;
         margin-left: 7px;
         width: 270px;
         z-index: 0;
@@ -171,6 +174,17 @@
       div.methods button {
         border-radius: 30%;
         background-color: black;
+        
+      }
+      div.methods button:hover {
+        border-radius: 30%;
+        background-color: rgb(27, 25, 25);
+        
+      }
+      div.methods button:active {
+        border-radius: 30%;
+        background-color: rgb(255, 255, 255);
+        
       }
 
       div.final {
@@ -178,6 +192,30 @@
         justify-content: center;
         display: flex;
         margin-top: 20px;
+      }
+      /*dark mode*/
+      section.dark{
+        background-color: #373e46;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgb(0, 0, 0);
+
+        .btn-mode {
+        position: absolute;
+        right: 0;                
+        margin-right: 20px;    
+        border-radius: 20px;
+        background-color: rgb(32, 30, 30);
+        transition: all 0.3s;
+        color: white;
+      }
+      .btn-mode:hover {
+        background: gray;
+        border: 1px solid white;
+      }
+      .btn-mode:active {
+        background: rgb(255, 255, 255);
+      }
+      
       }
     </style>
 </head>
@@ -194,78 +232,123 @@
             <h1>vehicle object</h1>
         </header>
         <section class="light">
-          <div class="header">
-            <img src="avion/Group 14.png" alt="logo" class="logo">
-            <button class="btn-light">
-              <img src="avion/Vector (1).png" alt="persona" class="persona">
-            </button>
-          </div>
+            <div class="header">
+              <img src="avion/Group 14.png" alt="logo" class="logo">
+              <button class="btn-mode">
+                <img src="avion/Vector (1).png" alt="persona" class="persona">
+              </button>
+            </div>
 
-          <div class="object">
-            <img src="avion/Group 41.png" alt="" class="linea1">
-          </div>
+            <div class="object">
+              <img src="avion/Group 41.png" alt="" class="linea1">
+            </div>
 
-          <div class="atributos">
-            <img src="avion/Group 18 (1).svg" alt="">
-          </div>
+            <div class="atributos">
+              <img src="avion/Group 18 (1).svg" alt="">
+            </div>
 
-          <div class="atributes"> 
-            <span class="brand">
-              <img src="avion/Group 33.png" alt="">
-            </span>
+            <div class="attributes"> 
+              <span class="brand">
+                <img src="avion/atributes.png" alt="">
+              </span>
 
-            <span class="refer">
-              <img src="avion/Group 20.svg" alt="">
-            </span>
+              <span class="refer">
+                <img src="avion/atributes.png" alt="">
+              </span>
 
-            <span class="model">
-              <img src="avion/Group 34.png" alt="">
-            </span>
+              <span class="model">
+                <img src="avion/atributes.png" alt="">
+              </span>
 
-            <span class="color">
-              <img src="avion/Group 37.png" alt="">
-            </span>
-          </div>
+              <span class="color">
+                <img src="avion/atributes.png" alt="">
+              </span>
+            </div>
 
-          <div class="televisor">
-            <img src="avion/Vector (1).svg" alt="">
-            <button class="flecha1"><img src="avion/Vector (3).png" alt=""></button>
-            <button class="flecha2"><img src="avion/Vector (4).png" alt=""></button>
-          </div>
+            <div class="televisor">
+              <img src="avion/avion1.svg" alt="">
+              <button class="flecha1"><img src="avion/Vector (3).png" alt=""></button>
+              <button class="flecha2"><img src="avion/Vector (4).png" alt=""></button>
+            </div>
 
-          <div class="container">
-            <img class="capa1" src="images/image 42.png" alt="">
-            <img class="capa2" src="images/image 43.png" alt="">
-            <img class="capa3" src="images/image 44.png" alt="">
-            <img class="avion" src="images/image 15.png" alt="">
-          </div>
+            <div class="container">
+              <img class="capa1" src="images/image 42.png" alt="">
+              <img class="capa2" src="images/image 43.png" alt="">
+              <img class="capa3" src="images/image 44.png" alt="">
+              <img class="avion" src="images/image 15.png" alt="">
+            </div>
 
-          <div class="metodos">
-            <img src="avion/Group 23.svg" alt="">
-          </div>
+            <div class="metodos">
+              <img src="avion/Group 23.svg" alt="">
+            </div>
 
-          <div class="methods">
-            <button class="btn-on">
-              <img src="avion/Group 29.png" alt="">
-            </button>
-            <button class="btn-fwd">
-              <img src="avion/Group 25.svg" alt="">
-            </button>
-            <button class="btn-pause">
-              <img src="avion/Group 38.png" alt="">
-            </button>
-            <button class="btn-bwd">
-              <img src="avion/Group 27.svg" alt="">
-            </button>
-            <button class="btn-off">
-              <img src="avion/Group (3).svg" alt="">
-            </button>
-          </div>
+            <div class="methods">
+              <button class="btn-on">
+                <img src="avion/Group 29.png" alt="">
+              </button>
+              <button class="btn-fwd">
+                <img src="avion/Group 25.svg" alt="">
+              </button>
+              <button class="btn-pause">
+                <img src="avion/Group 38.png" alt="">
+              </button>
+              <button class="btn-bwd">
+                <img src="avion/Group 27.svg" alt="">
+              </button>
+              <button class="btn-off">
+                <img src="avion/Group (3).svg" alt="">
+              </button>
+            </div>
 
-          <div class="final">
-            <img src="avion/Group (2).png" alt="">
-          </div>
+            <div class="final">
+              <img src="avion/Group (2).png" alt="">
+            </div>
         </section>
       </main>
+      <script> 
+        const btnMode = document.querySelector('.btn-mode');
+        const section = document.querySelector('section');
+
+        const brand = document.querySelector('.brand')
+        const refer = document.querySelector('.refer')
+        const model = document.querySelector('.model')
+        const color = document.querySelector('.color')
+        const image = document.querySelector('image')
+    
+        btnMode.addEventListener('click', function() {
+            vehicle.mode()
+        });
+
+        const vehicle = {
+          attributes: [
+            { brand: 'airbus',refer: 'a320',model: 2000,color: 'yellow', Image: 'avion/avion1.svg'},
+            { brand: 'airbus',refer: 'a320',model: 2000,color: 'black', Image: 'avion/avion2.svg'},
+            { brand: 'airbus',refer: 'a320',model: 2000,color: 'blue', Image: 'avion/avion3.svg'},
+            { brand: 'airbus',refer: 'a320',model: 2000,color: 'green'}
+            
+          ],
+          mode: function() {
+            section.classList.toggle('dark')
+          },
+          detecMode: function(){
+            if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+            }else{
+              section.classList.remove('dark')
+            }
+          },
+          showAttributes: function(i) {
+            brand.textContent=this.attributes[i].brand
+            refer.textContent=this.attributes[i].refer
+            model.textContent=this.attributes[i].model
+            color.textContent=this.attributes[i].color
+            image.setAttribute=('src', this.attributes[i].image)
+          }
+        }
+        vehicle.showAttributes()
+        window.matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', vehicle.detecMode())
+
+    </script>
+    
 </body>
 </html>
