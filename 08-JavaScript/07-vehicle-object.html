@@ -3,352 +3,413 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>vehicle object</title>
+    <title>07- Vehicle Object</title>
     <link rel="stylesheet" href="css/master.css">
     <style>
-      section {
-        background-color: #429AFE;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-        border: 1px solid rgb(0, 0, 0);
-
-      }
-
-      .header {
-        display: flex;
-        justify-content: center; 
-        align-items: center;     
-        position: relative;      
-        height: 100px;           
-      }
-
-      .logo {
-        width: 100px;            
-      }
-
-      .btn-mode {
-        position: absolute;
-        right: 0;                
-        margin-right: 20px;    
-        border-radius: 20px;
-        background-color: rgb(223, 216, 216);
-        transition: all 0.3s;
-      }
-      .btn-mode:hover {
-        background: gray;
-        border: 1px solid white;
-      }
-      .btn-mode:active {
-        background: rgb(255, 255, 255);
-      }
-        
-      .persona {
-        width: 30px;            
-      }
-
-      div.object {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        height: 100px;
-        margin-left: -40px;
-        margin-top: -30px;
-      }
-      .object .cuadro {
-        margin-right: -30px;
-      }
-      .object .linea1 {
-        margin-right: -25px;
-        right: 0;
-      }
-      div.atributos {
-        align-items: center;
-        justify-content: center;
-        display: flex;
-      }
-
-      div.attributes {
-        align-items: center;
-        justify-content: center;
-        display: flex;
-        position: relative;
-        gap: 30px;
-        margin-top: 20px;
-      }
-      span.color {
-        position: absolute;
-        margin-top: 100px;
-        margin-left: 150px;
-      }
-      span.model {
-        position: absolute;
-        margin-top: 100px;
-        margin-left: -150px;
-      }
-
-      div.televisor {
-        position: absolute;
-        align-items: center;
-        justify-content: center;
-        display: flex;
-        margin-top: 70px;
-        position: relative;
-        z-index: 1;
-      }
-      div.televisor img {
-        margin-right: 20px; 
-      }
-
-      div.container{
-        position: relative;
-      }
-      .capa1{
-        position: absolute;
-        align-items: center;
-        justify-content: center;
-        display: flex;
-        margin-top: 0px;
-        margin-top: -179px;
-        margin-left: 7px;
-        width: 270px;
-        z-index: 0;
-      }
-      .capa2{
-        position: absolute;
-        align-items: center;
-        justify-content: center;
-        display: flex;
-        margin-top: -200px;
-        margin-left: 7px;
-        width: 270px;
-        z-index: 0;
-      }
-      .capa3{
-        position: absolute;
-        align-items: center;
-        justify-content: center;
-        display: flex;
-        margin-top: -200px;
-        margin-left: 7px;
-        width: 270px;
-        z-index: 0;
-      }
-      .avion{
-        position: absolute;
-        align-items: center;
-        justify-content: center;
-        display: flex;
-        margin-top: -220px;
-        margin-left: 20px;
-        width: 240px;
-      }
-      button.flecha1, button.flecha2 {
-        position: relative;
-        background: transparent; /* Fondo transparente para los botones */
-        border: none; /* Quitar borde */
-        cursor: pointer; /* Cambiar cursor al pasar sobre el botón */
-        padding: 5px; /* Espacio alrededor de la imagen */
-      }
-    
-
-      button.flecha1:hover, button.flecha2:hover {
-        transform: scale(1.1); 
-      }
-
-      div.metodos {
-        align-items: center;
-        justify-content: center;
-        display: flex;
-        margin-top: 30px;
-      }
-
-      div.methods {
-        align-items: center;
-        justify-content: center;
-        display: flex;
-        position: relative;
-        margin-top: 50px;
-        gap: 5px;
-      }
       
-      div.methods button {
-        border-radius: 30%;
-        background-color: black;
-        
-      }
-      div.methods button:hover {
-        border-radius: 30%;
-        background-color: rgb(27, 25, 25);
-        
-      }
-      div.methods button:active {
-        border-radius: 30%;
-        background-color: rgb(255, 255, 255);
-        
-      }
+        section {
+            position: relative;
+        }
+        section div.header {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            width: 380px;
+            margin-left: -40px;
 
-      div.final {
-        align-items: center;
-        justify-content: center;
-        display: flex;
-        margin-top: 20px;
-      }
-      /*dark mode*/
-      section.dark{
-        background-color: #373e46;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-        border: 1px solid rgb(0, 0, 0);
+            
+        }
+        section div.header button.btn-hidden {
+            visibility: hidden;
+        }
+        section div.header button {
+            border: none;
+            cursor: pointer;
+            height: 44px;
+            width: 44px;
+        }
+        section div.header button.btn-mode {
+            background: transparent url(avion/botonCambio.png) no-repeat;
+            margin-top: -100px;
+            margin-left: -100px;
+        }
+        section img.image {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 154px;
+            z-index: 4;
+        }
+        section button {
+            transition: all 0.2s ease-in;
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+        section div.attributes {
+            background: url(avion/atributos.svg) no-repeat;
+            height: 120px;
+            margin: 1rem auto;
+            position: relative;
+            width: 380px;
+            
+        }
+        section div.attributes span {
+            position: absolute;
+        }
+        section div.attributes span.brand {
+            top: 47px;
+            left: 66px;
+        }
+        section div.attributes span.refer {
+            top: 87px;
+            left: 60px;
+        }
+        section div.attributes span.model {
+            top: 47px;
+            left: 256px;
+        }
+        section div.attributes span.color {
+            top: 87px;
+            left: 250px;
+        }
+        section div.landscape {
+            border: 3px solid #714eaa;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+            height: 260px;
+            margin: 0 auto;
+            width: 374px;
+        }
+        section div.landscape div {
+            position: absolute;
+            height: 260px;
+            width: 760px;
+        }
+        section div.landscape div.bg-sky {
+            background: url(avion/capa1.png) repeat-x 0 bottom;
+            z-index: 1;
+        }
+        section div.landscape div.bg-mountains {
+            background: url(avion/capa2.png) repeat-x 0 bottom;
+            z-index: 2;
+        }
+        section div.landscape div.bg-route {
+            background: url(avion/capa3.png) repeat-x 0 bottom;
+            z-index: 3;
+        }
+        @keyframes animParallax {
+            100% {
+                background-position: -1520px bottom;
+            }
+        }
 
-        .btn-mode {
-        position: absolute;
-        right: 0;                
-        margin-right: 20px;    
-        border-radius: 20px;
-        background-color: rgb(32, 30, 30);
-        transition: all 0.3s;
-        color: white;
-      }
-      .btn-mode:hover {
-        background: gray;
-        border: 1px solid white;
-      }
-      .btn-mode:active {
-        background: rgb(255, 255, 255);
-      }
-      
-      }
+        section div.landscape button {
+            border: none;
+            cursor: pointer;
+            height: 44px;
+            width: 44px;
+            z-index: 5;
+        }
+        section div.landscape button.btn-prev {
+            margin-left: 4px;
+            background: url(avion/flecha1.png) no-repeat;
+        }
+        section div.landscape button.btn-next {
+            margin-right: 4px;
+            background: url(avion/flecha2.png) no-repeat;
+        }
+        section div.methods {
+            background: url(avion/metodos.svg) no-repeat;
+            width: 380px;
+            height: 110px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin: 1rem auto;
+        }
+        section div.methods button {
+            border: none;
+            cursor: pointer;
+            margin-top: 2.3rem;
+            height: 50px;
+            width: 60px;
+        }
+        section div.methods button.btn-on {
+            background: url(avion/metodo1.png) no-repeat;
+        }
+        section div.methods button.btn-fwd {
+            background: url(avion/metodo2.svg) no-repeat;
+        }
+        section div.methods button.btn-stop {
+            background: url(avion/metodo3.svg) no-repeat;
+        }
+        section div.methods button.btn-bwd {
+            background: url(avion/metodo4.svg) no-repeat;
+        }
+        section div.methods button.btn-off {
+            background: url(avion/metodo5.svg) no-repeat;
+        }
+        /* Dark Mode */
+        section.dark {
+            div.header button.btn-mode {
+                background: transparent url(avion/darkBoton.png) no-repeat;
+            }
+            div.attributes {
+                background: url(avion/atributos.svg) no-repeat;
+                span {
+                    color: #e6d6ff;
+                }
+            }
+            div.landscape div.bg-sky {
+                background: url(avion/darkCapa1.png) repeat-x 0 bottom;
+            }
+            div.landscape div.bg-mountains {
+                background: url(avion/darkCapa2.png) repeat-x 0 bottom;
+            }
+            div.landscape div.bg-route {
+                background: url(avion/darkCapa3.png) repeat-x 0 bottom;
+            }
+            div.landscape button.btn-prev {
+                background: url(avion/flecha1.png) no-repeat;
+            }
+            div.landscape button.btn-next {
+                background: url(avion/flecha2.png) no-repeat;
+            }
+            div.methods {
+                background: url(avion/metodos.svg) no-repeat;
+            }
+            div.methods button.btn-on {
+                background: url(avion/metodo1.png) no-repeat;
+            }
+            div.methods button.btn-fwd {
+                background: url(avion/metodo2.svg) no-repeat;
+            }
+            div.methods button.btn-stop {
+                background: url(avion/metodo3.svg) no-repeat;
+            }
+            div.methods button.btn-bwd {
+                background: url(avion/metodo4.svg) no-repeat;
+            }
+            div.methods button.btn-off {
+                background: url(avion/metodo5.svg) no-repeat;
+            }
+        }
+
+        /* Methods */
+        .start {
+            animation: animStart 0.1s ease-in infinite;
+        }
+        @keyframes animStart {
+            100% {
+                bottom: 156px;
+            }
+        }
+
+
     </style>
 </head>
-<body> 
+<body>
     <nav class="controls">
         <a href="index.html">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                <path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/>
-            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
         </a>
     </nav>
     <main>
         <header>
-            <h1>vehicle object</h1>
+            <h1>07- Object</h1>
+            <h2>Vehicle</h2>
         </header>
-        <section class="light">
+        <section>
+          
             <div class="header">
-              <img src="avion/Group 14.png" alt="logo" class="logo">
-              <button class="btn-mode">
-                <img src="avion/Vector (1).png" alt="persona" class="persona">
-              </button>
+                <button class="btn-hidden"></button>
+                <img src="avion/logo.png" alt="Logo">
+                <button class="btn-mode"></button>
             </div>
-
-            <div class="object">
-              <img src="avion/Group 41.png" alt="" class="linea1">
+            <div class="attributes">
+                <span class="brand"></span>
+                <span class="refer"></span>
+                <span class="model"></span>
+                <span class="color"></span>
             </div>
-
-            <div class="atributos">
-              <img src="avion/Group 18 (1).svg" alt="">
+            <img src="" class="image">
+            <div class="landscape">
+                <div class="layer bg-sky"></div>
+                <div class="layer bg-mountains"></div>
+                <div class="layer bg-route"></div>
+                <button class="btn-prev"></button>
+                <button class="btn-next"></button>
             </div>
-
-            <div class="attributes"> 
-              <span class="brand">
-                <img src="avion/atributes.png" alt="">
-              </span>
-
-              <span class="refer">
-                <img src="avion/atributes.png" alt="">
-              </span>
-
-              <span class="model">
-                <img src="avion/atributes.png" alt="">
-              </span>
-
-              <span class="color">
-                <img src="avion/atributes.png" alt="">
-              </span>
-            </div>
-
-            <div class="televisor">
-              <img src="avion/avion1.svg" alt="">
-              <button class="flecha1"><img src="avion/Vector (3).png" alt=""></button>
-              <button class="flecha2"><img src="avion/Vector (4).png" alt=""></button>
-            </div>
-
-            <div class="container">
-              <img class="capa1" src="images/image 42.png" alt="">
-              <img class="capa2" src="images/image 43.png" alt="">
-              <img class="capa3" src="images/image 44.png" alt="">
-              <img class="avion" src="images/image 15.png" alt="">
-            </div>
-
-            <div class="metodos">
-              <img src="avion/Group 23.svg" alt="">
-            </div>
-
             <div class="methods">
-              <button class="btn-on">
-                <img src="avion/Group 29.png" alt="">
-              </button>
-              <button class="btn-fwd">
-                <img src="avion/Group 25.svg" alt="">
-              </button>
-              <button class="btn-pause">
-                <img src="avion/Group 38.png" alt="">
-              </button>
-              <button class="btn-bwd">
-                <img src="avion/Group 27.svg" alt="">
-              </button>
-              <button class="btn-off">
-                <img src="avion/Group (3).svg" alt="">
-              </button>
-            </div>
-
-            <div class="final">
-              <img src="avion/Group (2).png" alt="">
+                <button class="btn-on"></button>
+                <button class="btn-fwd"></button>
+                <button class="btn-stop"></button>
+                <button class="btn-bwd"></button>
+                <button class="btn-off"></button>
             </div>
         </section>
-      </main>
-      <script> 
-        const btnMode = document.querySelector('.btn-mode');
-        const section = document.querySelector('section');
-
-        const brand = document.querySelector('.brand')
-        const refer = document.querySelector('.refer')
-        const model = document.querySelector('.model')
-        const color = document.querySelector('.color')
-        const image = document.querySelector('image')
-    
+    </main>
+    <script>
+        // Values
+        var   index         = 0
+        var   isOn          = false
+        var   isPaused      = false
+        var   isReversed    = false
+        var   lastTimestamp = 0
+        const speedFactors  = [0.04, 0.08, 0.25]
+        // DarkMode
+        const darkMode = window.matchMedia('(prefers-color-scheme: dark)')
+        // Elements
+        const btnMode   = document.querySelector('.btn-mode')
+        const section   = document.querySelector('section')
+        const landscape = document.querySelector('.landscape')
+        const layers    = document.querySelectorAll('.layer')
+        const btnPrev   = document.querySelector('.btn-prev')
+        const btnNext   = document.querySelector('.btn-next')
+        const btnOn     = document.querySelector('.btn-on')
+        const btnStop   = document.querySelector('.btn-stop')
+        const btnOff    = document.querySelector('.btn-off')
+        const btnFwd    = document.querySelector('.btn-fwd')
+        const btnBwd    = document.querySelector('.btn-bwd')
+        // Attributes
+        const brand     = document.querySelector('.brand')
+        const refer     = document.querySelector('.refer')
+        const model     = document.querySelector('.model')
+        const color     = document.querySelector('.color')
+        const image     = document.querySelector('.image')
+        // Btns: Events
         btnMode.addEventListener('click', function() {
             vehicle.mode()
-        });
-
+        })
+        btnOn.addEventListener('click', function() {
+            vehicle.start()
+        })
+        btnOff.addEventListener('click', function() {
+            vehicle.off()
+        })
+        btnFwd.addEventListener('click', function() {
+            vehicle.fordward()
+        })
+        btnStop.addEventListener('click', function() {
+            vehicle.stop()
+        })
+        btnBwd.addEventListener('click', function() {
+            vehicle.reverse()
+        })
+        // Onject
         const vehicle = {
-          attributes: [
-            { brand: 'airbus',refer: 'a320',model: 2000,color: 'yellow', Image: 'avion/avion1.svg'},
-            { brand: 'airbus',refer: 'a320',model: 2000,color: 'black', Image: 'avion/avion2.svg'},
-            { brand: 'airbus',refer: 'a320',model: 2000,color: 'blue', Image: 'avion/avion3.svg'},
-            { brand: 'airbus',refer: 'a320',model: 2000,color: 'green'}
-            
-          ],
-          mode: function() {
-            section.classList.toggle('dark')
-          },
-          detecMode: function(){
-            if(window.matchMedia('(prefers-color-scheme: dark)').matches){
-            }else{
-              section.classList.remove('dark')
+            attributes: [
+                { brand: 'Airbus', refer: 'a320',  model: 2020, color: 'Green', image: 'avion/avion1.png'},
+                { brand: 'Airbus', refer: 'a330',  model: 2016, color: 'Blue',   image: 'avion/avion2.png'},
+                { brand: 'Airbus', refer: 'a340',  model: 2010, color: 'Black',    image: 'avion/avion3.png'},
+                { brand: 'Airbus', refer: 'a350',  model: 2024, color: 'yellow',  image: 'avion/avion4.png'}
+            ],
+            mode: function() {
+                section.classList.toggle('dark')
+            },
+            showAttributes: function(i) {
+                brand.textContent = this.attributes[i].brand
+                refer.textContent = this.attributes[i].refer
+                model.textContent = this.attributes[i].model
+                color.textContent = this.attributes[i].color
+                image.setAttribute('src', this.attributes[i].image)
+            },
+            start: function() {
+                if(!isOn) {
+                    image.classList.add('start')
+                    isOn     = true
+                    isPaused = true
+                }
+            },
+            off: function() {
+                if(isOn && isPaused) {
+                    image.classList.remove('start')
+                    isOn = false
+                }
+            },
+            fordward: function() {
+                if(isOn) {
+                    lastTimestamp = 0
+                    isPaused      = false
+                    isReversed    = false
+                    requestAnimationFrame(animateParallax)
+                }
+            },
+            stop: function() {
+                if(isOn && !isPaused) {
+                    isPaused = true
+                }
+            },
+            reverse: function() {
+                if(isOn) {
+                    lastTimestamp = 0
+                    isReversed    = true
+                    isPaused      = false
+                    requestAnimationFrame(animateParallax)
+                }
             }
-          },
-          showAttributes: function(i) {
-            brand.textContent=this.attributes[i].brand
-            refer.textContent=this.attributes[i].refer
-            model.textContent=this.attributes[i].model
-            color.textContent=this.attributes[i].color
-            image.setAttribute=('src', this.attributes[i].image)
-          }
         }
-        vehicle.showAttributes()
-        window.matchMedia('(prefers-color-scheme: dark)')
-        .addEventListener('change', vehicle.detecMode())
+
+        vehicle.showAttributes(0)
+        darkModeChange(darkMode)
+        btnPrev.style.opacity = '0.2'
+
+        // Next & Prev Buttons
+        btnNext.addEventListener('click', function() {
+            console.log(vehicle.attributes.length)
+            if (index < (vehicle.attributes.length)-1) {
+                btnPrev.style.opacity = '1'
+                vehicle.showAttributes(++index)
+                if (index == (vehicle.attributes.length)-1) {
+                    this.style.opacity = '0.2'
+                }
+            }
+        })
+        btnPrev.addEventListener('click', function() {
+            if (index > 0) {
+                btnNext.style.opacity = '1'
+                vehicle.showAttributes(--index)
+                if (index == 0) {
+                    this.style.opacity = '0.2'
+                }
+            }
+        })
+        // DarkMode Change
+        function darkModeChange(dmq) {
+            if(dmq.matches) {
+                section.classList.add('dark')
+            } else {
+                section.classList.remove('dark')
+            }
+        }
+        // animate Parallax
+        layers.forEach(layer => {
+            layer.dataset.pos = '0'
+        })
+        function animateParallax(timestamp) {
+            if (!isPaused) {
+                const delta   = timestamp - (lastTimestamp || timestamp)
+                lastTimestamp = timestamp
+
+                layers.forEach((layer, index) => {
+                let currentPos = (parseFloat(layer.dataset.pos) || 0) 
+                                 + speedFactors[index] 
+                                 * (isReversed ? delta : -delta)
+                layer.style.backgroundPositionX = `${currentPos}px`
+                layer.dataset.pos = currentPos
+                })
+            }
+            requestAnimationFrame(animateParallax)
+        }
+        //
+        darkMode.addListener(darkModeChange)
 
     </script>
-    
 </body>
 </html>
