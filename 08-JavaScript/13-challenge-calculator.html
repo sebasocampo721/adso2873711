@@ -6,8 +6,241 @@
     <title></title>
     <link rel="stylesheet" href="css/master.css">
     <style>
+      div.calculator{
+        background: url(cal/Rectangle\ 26.png);
+        height: 542px;
+        margin: 1rem auto;
+        width: 283px;
+
+        header.display{
+            position: relative;
+            height: 229px;
+            button.mode{
+                background: url(cal/Group\ 43.png);
+                border-radius: 0;
+                border: none;
+                background-color: transparent;
+                height: 20px;
+                position: absolute;
+                transition: transform 0.4s ease-in;
+                top: 20px;
+                width: 80px;
+                &:hover{
+                    cursor: pointer;
+                    transform: scale(1.1);
+                }
+            }
+            input.operation{
+                background-color: transparent;
+                border: none;
+                outline: none;
+                position: absolute;
+                font-size: 18px;
+                font-family: Poppins, sans-serif;
+                font-weight: 500;
+                top: 94px;
+                text-align: right;
+                right: 14px;
+                width: 326px;
+            }
+            h4.result{
+                position: absolute;
+                font-size: 40px;
+                font-weight: 400;
+                margin: 0;
+                top: 120px;
+                text-align: right;
+                right: 14px;
+                width: 326px;
+            }
+        }
+        footer.buttons{
+            display: grid;
+            grid-template-columns: repeat(4, 40px);
+            justify-content: center;
+            margin-top: 0.2rem;
+            gap: 1.5rem;
+            button{
+                border: none;
+                cursor: pointer;
+                height: 37px;
+                transform: scale(0.98);
+                transition: transform 0.4s ease-in;
+                width: 38px;
+                &:hover{
+                    cursor: pointer;
+                    transform: scale(1.05);
+                }
+                &.btn-clear{
+                    background: url(cal/Group\ 34.png);
+                }
+                &.btn-back{
+                    background: url(cal/Group\ 33.png);
+                }
+                &.btn-pow{
+                    background: url(cal/Group\ 35.png);
+                }
+                &.btn-mod{
+                    background: url(cal/Group\ 36.png);
+                }
+
+
+                &.btn-1{
+                    background: url(cal/Group\ 26.png);
+                }
+                &.btn-2{
+                    background: url(cal/Group\ 25.png);
+                }
+                &.btn-3{
+                    background: url(cal/Group\ 24.png);
+                }
+                &.btn-prod{
+                    background: url(cal/Group\ 37.png);
+                }
+
+
+                &.btn-4{
+                    background: url(cal/Group\ 27.png);
+                }
+                &.btn-5{
+                    background: url(cal/Group\ 28.png);
+                }
+                &.btn-6{
+                    background: url(cal/Group\ 29.png);
+                }
+                &.btn-subs{
+                    background: url(cal/Group\ 38.png);
+                }
+
+
+                &.btn-7{
+                    background: url(cal/Group\ 32.png);
+                }
+                &.btn-8{
+                    background: url(cal/Group\ 31.png);
+                }
+                &.btn-9{
+                    background: url(cal/Group\ 30.png);
+                }
+                &.btn-add{
+                    background: url(cal/Group\ 39.png);
+                }
+
+
+                &.btn-div{
+                    background: url(cal/Group\ 41.png);
+                }
+                &.btn-0{
+                    background: url(cal/Group\ 23.png);
+                }
+                &.btn-dot{
+                    background: url(cal/Group\ 22.png);
+                }
+                &.btn-equal{
+                    background: url(cal/Group\ 40.png);
+                }
+            }
+
+        }
+      }
+
+
+
+        div.calculator.dark{
+        background: url(cal1/Group\ 42.png);
+        
+
+        header.display{
+            
+            button.mode{
+                
+                }
+            }
+            input.operation{
+                
+            }
+            h4.result{
+                
+            }
+        }
+        footer.buttons{
+            
+            button{
+                
+                }
+                &.btn-clear{
+                    background: url(cal1/Group\ 4.dark.png);
+                }
+                &.btn-back{
+                    background: url(cal/Group\ 33.png);
+                }
+                &.btn-pow{
+                    background: url(cal/Group\ 35.png);
+                }
+                &.btn-mod{
+                    background: url(cal/Group\ 36.png);
+                }
+
+
+                &.btn-1{
+                    background: url(cal/Group\ 26.png);
+                }
+                &.btn-2{
+                    background: url(cal/Group\ 25.png);
+                }
+                &.btn-3{
+                    background: url(cal/Group\ 24.png);
+                }
+                &.btn-prod{
+                    background: url(cal/Group\ 37.png);
+                }
+
+
+                &.btn-4{
+                    background: url(cal/Group\ 27.png);
+                }
+                &.btn-5{
+                    background: url(cal/Group\ 28.png);
+                }
+                &.btn-6{
+                    background: url(cal/Group\ 29.png);
+                }
+                &.btn-subs{
+                    background: url(cal/Group\ 38.png);
+                }
+
+
+                &.btn-7{
+                    background: url(cal/Group\ 32.png);
+                }
+                &.btn-8{
+                    background: url(cal/Group\ 31.png);
+                }
+                &.btn-9{
+                    background: url(cal/Group\ 30.png);
+                }
+                &.btn-add{
+                    background: url(cal/Group\ 39.png);
+                }
+
+
+                &.btn-div{
+                    background: url(cal/Group\ 41.png);
+                }
+                &.btn-0{
+                    background: url(cal/Group\ 23.png);
+                }
+                &.btn-dot{
+                    background: url(cal/Group\ 22.png);
+                }
+                &.btn-equal{
+                    background: url(cal/Group\ 40.png);
+                }
+            }
+
+        
       
-      
+       
     </style>
 
 
@@ -26,9 +259,121 @@
             </H2>
         </header>
         <section>
-          <img src="avion/Group 14.png" alt="">
-          <img src="avion/Group 41.png" alt="">
+          <div class="calculator">
+            <header class="display">
+                <button class="mode"></button>
+                <input type="text" class="operation"  readonly>
+                <h4 class="result"></h4>
+            </header>
+            <footer class="buttons">
+                <button class="btn-clear"></button>
+                <button class="btn-back"></button>
+                <button class="btn-pow" data-opr="**"></button>
+                <button class="btn-mod" data-opr="%"></button>
+               
+                <button class="btn-1" data-num="1"></button>
+                <button class="btn-2" data-num="2"></button>
+                <button class="btn-3" data-num="3"></button>
+                <button class="btn-prod" data-opr="*"></button>
+
+                <button class="btn-4" data-num="4"></button>
+                <button class="btn-5" data-num="5"></button>
+                <button class="btn-6" data-num="6"></button>
+                <button class="btn-subs" data-num="-"></button>
+
+                <button class="btn-7" data-num="7"></button>
+                <button class="btn-8" data-num="8"></button>
+                <button class="btn-9" data-num="9"></button>
+                <button class="btn-add"data-opr="+"></button>
+
+                <button class="btn-div" data-opr="/"></button>
+                <button class="btn-0" data-num="0"></button>
+                <button class="btn-dot" data-opr="."></button>
+                <button class="btn-equal"></button>
+            </footer>
+          </div>
         </section>
     </main>
+    <script>
+    const calculator = document.querySelector('.calculator');
+    const btnMode = document.querySelector('.mode');
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    
+    function detectMode() {
+        if (isDarkMode.matches) {
+            calculator.classList.add('dark');
+        } else {
+            calculator.classList.remove('dark');
+        }
+    }
+
+    detectMode(); 
+    isDarkMode.addListener(detectMode); 
+    
+    btnMode.addEventListener('click', () => {
+        calculator.classList.toggle('dark');
+    });
+
+    // --- Button Actions ---
+    const btnsNumbers = document.querySelectorAll('button[data-num]');
+    const btnsOpers   = document.querySelectorAll('button[data-opr]');
+    const btnClear    = document.querySelector('.btn-clear');
+    const btnBack     = document.querySelector('.btn-back');
+    const btnEqual    = document.querySelector('.btn-equal');
+    const operation   = document.querySelector('.operation');
+    const result      = document.querySelector('.result');
+    let isOper        = false; 
+
+
+    function addToOperation(c) {
+        if (validateLength()) {
+            operation.value += c;
+        }
+    }
+
+   
+    function validateLength() {
+        return operation.value.length < 28;
+    }
+
+
+    btnsNumbers.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            isOper = true;
+            addToOperation(btn.dataset.num); 
+        });
+    });
+
+    
+    btnsOpers.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            if (isOper) {
+                addToOperation(btn.dataset.opr); 
+                isOper = false; 
+            }
+        });
+    });
+
+    btnClear.addEventListener('click', () => {
+        operation.value = ''; 
+        result.textContent = ''; 
+    });
+
+    btnEqual.addEventListener('click', () => {
+        result.textContent = '=123'; 
+    });
+
+    btnBack.addEventListener('click', () => {
+        operation.value = operation.value.slice(0, -1); // Remove the last character
+        if (isNaN(operation.value.slice(-1))) {
+            isOper = false;
+        } else {
+            isOper = true;
+        }
+    });
+
+
+    </script>
 </body>
 </html>
