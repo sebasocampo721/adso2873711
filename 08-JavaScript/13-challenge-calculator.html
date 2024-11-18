@@ -147,35 +147,25 @@
 
 
         div.calculator.dark{
-        background: url(cal1/Group\ 42.png);
-        
+            div.calculator{
+        background: url(cal1/Rectangle\ 23.dark.png);
 
         header.display{
-            
             button.mode{
-                
+                background: url(cal1/Group\ 42.png);
                 }
-            }
-            input.operation{
-                
-            }
-            h4.result{
-                
             }
         }
         footer.buttons{
-            
             button{
-                
-                }
                 &.btn-clear{
                     background: url(cal1/Group\ 4.dark.png);
                 }
                 &.btn-back{
-                    background: url(cal/Group\ 33.png);
+                    background: url(cal1/Group\ 3.dark.png);
                 }
                 &.btn-pow{
-                    background: url(cal/Group\ 35.png);
+                    background: url(cal1/Group\ 5.dark.png);
                 }
                 &.btn-mod{
                     background: url(cal/Group\ 36.png);
@@ -237,6 +227,10 @@
                     background: url(cal/Group\ 40.png);
                 }
             }
+
+        }
+      }
+
 
         
       
@@ -361,7 +355,7 @@
     });
 
     btnEqual.addEventListener('click', () => {
-        result.textContent = '=123'; 
+        result.textContent = eval(operation.value); // evalua la operacion
     });
 
     btnBack.addEventListener('click', () => {
@@ -373,7 +367,84 @@
         }
     });
 
+    //key events
+    document.addEventListener('keyup', (event) => {
+        //console.log(event.keyCode)
+        // 0-9 => keycode: 48, 48, 50, 51, 52, 53, 54, 55, 56, 57
+        //backspace => keycode: 8
+        //enter => keycode: 13
+        //delete => keycode: 46
+        //%      => keyCode:16-53
+        //+      => keyCode:187
+        //-      => keyCode:189
+        //.      => keyCode:190
+        // /     => keyCode:16-55
+        //^      => keyCode:219
+        //*      => keyCode:221
 
+        switch (event.keyCode){
+            case 48:
+            isOper = true;
+            addToOperation(0);
+            break;
+            case 49:
+            isOper = true;
+            addToOperation(1);
+            break;
+            case 50:
+            isOper = true;
+            addToOperation(2);
+            break;
+            case 51:
+            isOper = true;
+            addToOperation(3);
+            break;
+            case 52:
+            isOper = true;
+            addToOperation(4);
+            break;
+            case 53:
+                if (event.shiftKey){
+
+                    else{
+
+                        isOper = true;
+                        addToOperation(5);
+                    }
+
+                }
+            break;
+            case 54:
+            isOper = true;
+            addToOperation(6);
+            break;
+            case 55:
+            isOper = true;
+            addToOperation(7);
+            break;
+            case 56:
+            isOper = true;
+            addToOperation(8);
+            break;
+            case 57:
+            isOper = true;
+            addToOperation(9);
+            break;
+
+
+            default:
+                break;
+        }
+        switch (event.keyCode){
+            case 48:
+
+
+            default:
+                break;
+        }
+        
+
+    })
     </script>
 </body>
 </html>
