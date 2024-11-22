@@ -3,20 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>challenge</title>
+    <title></title>
     <link rel="stylesheet" href="css/master.css">
     <style>
-        section h4{
-            font-size: 4rem;
-            text-align: center;
-            margin: 0;
-        }
-        section img.Icon{
-            display: block;
+      section div.query {
+        border: 4px solid;
+        margin: 0 auto;
+        width: 260px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 0.4rem;
+        input{
+            background-color: #f0db4f;
+            border: 2px solid #fff;
+            outline: none;
+            padding: 0.4rem;
+            border-radius: 10px;
+            transition: background-color 0.4s ease-in;
+            font-family: 'Poppins';
             width: 200px;
-            margin: 0 auto;
-            
+            &:focus{
+                background-color: #fff6;
+            }
         }
+        h5 {
+            margin: 0;
+            font-size: 1rem;
+        }
+        button{
+            border: none;
+            border-radius: 8px;
+            background-color: #0009;
+            color: #fff;
+            cursor: pointer;
+            font-family: 'Poppins';
+            padding: 0.4rem;
+            width: 216px;
+            transition: background-color 0.4s ease-in;
+            &:hover{
+                background-color: #000c;
+            }
+
+        }
+      }
+      section h4{
+        font-size: 4rem;
+        text-align: center;
+        margin: 0;
+      }
+      section img.icon{
+        display: block;
+        width: 200px;
+        margin: 0 auto;
+      }
+
+      div.widget {
+        height: 319px;
+        margin: 0.8rem auto;
+        position: relative;
+        perspective: 1000px;
+        transform-style: preserve-3d;
+        width: 300px;
+        &.day {
+            background: url(weather/Group\ 9.png)no-repeat;
+        }
+        &.night {
+            background: url(weather/noche.png)no-repeat;
+        }
+        h4{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            margin: 0;
+            &.country{
+                font-size: 10px;
+                top: 7px;
+                color: black;
+            }
+            &.city{
+                font-size: 20px;
+                top: 20px;
+                color: black;
+            }
+            &.datetime{
+                font-size: 20px;
+                top: 250px;
+                color: black;
+            }
+            &.condition,
+            &.humidity,
+            &.cloud{
+                font-size: 20px;
+                color: black;
+            }
+            &.condition{
+                top: 195px;
+                left: 250px;
+            }
+            &.humidity{
+                top: 195px;
+                left: 150px;
+                
+            }
+            &.cloud{
+                top: 195px;
+                left: 45px;
+            }
+        }
+        figure.icon {
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position-y: -10px;
+            position: absolute;
+            left: 30%;
+            margin: 0;
+            transform: translateX(90%);
+            top: 30px;
+            width: 90px;
+            height: 90px;
+            figcaption {
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position-y: -10px;
+                position: absolute;
+                left: -100%;
+                margin: 0;
+                transform: translateX(90%);
+                top: 10px;
+                width: 120px;
+                height: 128px;
+
+                font-size: 30px;
+                color: rgb(108, 207, 174);
+                top: 20px;
+            }
+        }
+      }
+      
+      /*night*/
+      div.widget {
+        &.day {
+            background: url(weather/Group\ 9.png)no-repeat;
+        }
+        &.night {
+            background: url(weather/noche.png)no-repeat;
+        }
+        h4{
+            
+            &.country{
+                
+                color: black;
+            }
+            &.city{
+                
+                color: black;
+            }
+            &.datetime{
+                
+                color: black;
+            }
+            &.condition,
+            &.humidity,
+            &.cloud{
+                
+                color: black;
+            }
+            &.condition{
+               
+            }
+            &.humidity{
+                
+            }
+            &.cloud{
+               
+            }
+        }
+        figure.icon {
+         
+            figcaption {
+                
+                
+                color: rgb(108, 207, 174);
+             
+            }
+        }
+      }
       
     </style>
 
@@ -31,28 +203,89 @@
     </nav>
     <main>
         <header>
-            <h1>challenge</h1>
-            <H2>widget weather app
+            <h1>Challenge</h1>
+            <H2>
             </H2>
         </header>
         <section>
-            <h4 class="temp"></h4>
-            <img src="" alt="Icon" class="Icon">
+          <div class="query">
+            <h5>Type City:</h5>
+            <input type="text">
+            <button>Show</button>
+          </div>
+
+          <div class="widget">
+              <h4 class="country"></h4>
+              <h4 class="city"></h4>
+              <h4 class="datetime"></h4>
+              <figure class="icon">
+                <figcaption class="temp"></figcaption>
+              </figure>
+              <h4 class="condition"></h4>
+              <h4 class="humidity"></h4>
+              <h4 class="cloud"></h4>
+          </div>
+
+          <h4 class="temp"></h4>
         </section>
     </main>
     <script>
-        const Icon = document.querySelector('.temp')
-        const temp = document.querySelector('.temp')
+        const query = document.querySelector('.query input')
+        const show = document.querySelector('.query button')
+        let   q = 'Manizales'
 
-        const url = ''
-        const loadWeather = async () => {
-            const response = await fetch(url)
-            const data = await response.json()
-            temp.textContent = data.current.temp_c
-            temp.setAttribute('src', data.current.condition.icon) 
+        show.addEventListener('click', (e) =>{
+            e.preventDefault()
+            if (query.value != '') {
+                q = query.value
+                loadWeather(q)
+                query.value = ''
+            }
+        })
+
+        const widget   = document.querySelector('.widget')
+        const country  = document.querySelector('.country')
+        const city     = document.querySelector('.city')
+        const datetime = document.querySelector('.datetime')
+        const icon     = document.querySelector('.icon')
+        const temp     = document.querySelector('.temp')
+        const condition     = document.querySelector('.condition')
+        const humidity     = document.querySelector('.humidity')
+        const cloud     = document.querySelector('.cloud')
+
+
+        const loadWeather = async (q) => { 
+        const url = 'https://api.weatherapi.com/v1/current.json?key=1e7eff63737b4ac5bd5154322242011&q='+q 
+        const response = await fetch(url)
+        const data = await response.json()
+
+        let isDay = data.current.is_day ? true : false
+            widget.classList.remove('day', 'night')
+        if (isDay){
+            widget.classList.add('day')
+        }else{
+            widget.classList.add('night')
         }
+        // country- city-datetime
+        country.textContent = data.location.country
+        city.textContent = data.location.name
+        datetime.textContent = data.location.localtime
+        icon.style.backgroundImage = 'url('+data.current.condition.icon+')'
+        temp.textContent = data.current.temp_c  + '°'
+        //icon.setAttribute('src', data.current.condition.icon) //console.log(data.current.temp_c) } loadWeather(q)
+        condition.textContent ='' + data.current.condition.text
+        humidity.textContent = data.current.humidity + '%' 
+        cloud.textContent = data.current.cloud + '%' 
+    }
+    loadWeather(q)
 
-        loadWeather()
+    // Card 3D 
+    const section = document.querySelector('section'); 
+    section.addEventListener('mousemove', function(e) { 
+    let xAxis = (window.innerWidth / 2 - e.pageX) / 20; 
+    let yAxis = (window.innerHeight / 2 - e.pageY) / 10; 
+    widget.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`; 
+    });
     </script>
 </body>
 </html>

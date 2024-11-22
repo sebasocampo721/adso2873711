@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widget Clima y Hora Manizales</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+        #widget {
+            padding: 20px;
+            background-color: #4753f3;
+            border-radius: 20px;
+            box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+            width: 300px;
+        }
+        #weather-image {
+            width: 100px;
+            height: 100px;
+            margin: 10px 0;
+        }
+        #date-time {
+            margin: 10px 0;
+            font-size: 20px;
+        }
+        .weather-info {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .weather-info div {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body> 
+    <nav class="controls">
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/>
+            </svg>
+        </a>
+    </nav>
+    <main>
+        <header>
+            <h1>Widget Clima y Hora Manizales</h1>
+        </header>
+        <section>
+            <div id="widget">
+                <div id="date-time"></div>
+                <img id="weather-image" src="" alt="Clima" />
+                <div id="weather-description"></div>
+                <div class="weather-info">
+                    <div id="temperature"></div>
+                    <div id="humidity"></div>
+                    <div id="cloudiness"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // API Key de OpenWeatherMap (reemplazar con tu propia clave)
+        const apiKey = 'a80c04aed43e0fa1a0faa57956b358b7'; // Tu clave aquí
+        const city = 'Manizales,co';
+        
+        const weatherImages = {
+            'Clear': 'https://openweathermap.org/img/wn/01d.png', // Soleado
+            'Clouds': 'https://openweathermap.org/img/wn/03d.png', // Nublado
+            'Partly Cloudy': 'https://openweathermap.org/img/wn/02d.png', // Parcialmente Nublado
+            'Rain': 'https://openweathermap.org/img/wn/09d.png', // Lluvia
+            'Thunderstorm': 'https://openweathermap.org/img/wn/11d.png', // Tormenta eléctrica
+            'Drizzle': 'https://openweathermap.org/img/wn/09d.png' // Lluvia ligera
+        };
+    
+        // Función para actualizar la fecha y hora
+        function updateDateTime() {
+            const options = {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric',
+                second: 'numeric',
+                hour12: true,
+                timeZone: 'America/Bogota' // Zona horaria de Colombia
+            };
+    
+            const date = new Date();
+            const dateTimeString = new Intl.DateTimeFormat('es-CO', options).format(date);
+    
+            document.getElementById('date-time').textContent = dateTimeString;
+        }
+    
+        // Función para obtener y mostrar el clima
+        function fetchWeather() {
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=es`;
+    
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Respuesta de la API:', data); // Ver los datos completos
+    
+                    if (data && data.weather && data.main) {
+                        const weather = data.weather[0];
+                        const weatherDescription = weather.main;
+                        const weatherIcon = weatherImages[weatherDescription] || weatherImages['Clouds']; // Usar imagen de "Clouds" por defecto si no se encuentra
+    
+                        // Mostrar la imagen del clima
+                        document.getElementById('weather-image').src = weatherIcon;
+                        document.getElementById('weather-image').alt = weatherDescription;
+    
+                        // Mostrar la descripción del clima
+                        document.getElementById('weather-description').textContent = `Condición: ${weatherDescription}`;
+    
+                        // Mostrar la temperatura, humedad y nubosidad
+                        document.getElementById('temperature').textContent = `Temperatura: ${Math.round(data.main.temp)}°C`; // Redondear la temperatura
+                        document.getElementById('humidity').textContent = `Humedad: ${data.main.humidity}%`;
+                        document.getElementById('cloudiness').textContent = `Nubes: ${data.clouds.all}%`;
+                    } else {
+                        console.error("No se encontraron datos válidos para el clima");
+                        document.getElementById('weather-description').textContent = 'No se pudo obtener el clima.';
+                        document.getElementById('temperature').textContent = '';
+                        document.getElementById('humidity').textContent = '';
+                        document.getElementById('cloudiness').textContent = '';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error al obtener el clima:', error);
+                    document.getElementById('weather-description').textContent = 'No se pudo obtener el clima.';
+                    document.getElementById('temperature').textContent = '';
+                    document.getElementById('humidity').textContent = '';
+                    document.getElementById('cloudiness').textContent = '';
+                });
+        }
+    
+        setInterval(updateDateTime, 1000); // Actualizar cada segundo
+        updateDateTime(); // Inicializar el reloj
+        fetchWeather(); // Obtener el clima al cargar
+    </script>
+    
+</body>
+</html>

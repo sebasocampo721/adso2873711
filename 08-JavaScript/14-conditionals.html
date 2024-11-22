@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditionals</title>
+    <link rel="stylesheet" href="css/master.css">
+    <style>
+        section input,
+        section button{
+            border: none;
+            border-radius: 10px;
+            display: block;
+            margin: 1rem auto;
+            padding: 0.4rem;
+            width: 200px;
+        }
+        section button{
+            background-color: #f0db4f;
+            width: 220px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        section hr{
+            border: 2px solid #f0db4f;
+            margin: 2rem 0;
+        }
+        section h4.day,
+        section h4.member{
+            background-color: #f0db4f;
+            font-size: 1.4rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black;
+            padding: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="controls">
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+        </a>
+    </nav>
+    <main>
+        <header>
+            <h1>14- Conditionals</h1>
+            <h2>IF - ELSE - SWITCH</h2>
+        </header>
+        <section>
+            <h3>How much is 3*5/5 ?</h3>
+            <input type="number" class="answer">
+            <button class="validate">Validate</button>
+            <hr>
+            <h4 class="day"></h4>
+            <h4 class="member"></h4>
+        </section>
+    </main>
+    <script>
+        // Elements
+        const answer   = document.querySelector(".answer")
+        const validate = document.querySelector(".validate")
+        const day      = document.querySelector(".day")
+        //Btn action
+        validate.addEventListener("click", () =>{
+            //Conditional IF
+            if (answer.value != "") {
+                if (parseInt(answer.value) === 3) {
+                    alert("congrants: Its correct! ✅")
+                }else{
+                    alert("Sorry: Its incorrect! ❌")
+                }
+            }else{
+                alert("Please: Enter a value! 🙏🏼")
+            }
+        })
+        //Conditional SWITCH
+        const today = new Date
+        switch (today.getDay()) {
+            case 1:
+                day.textContent = "Today is: Monday 😥"
+                break;
+            case 2:
+                day.textContent = "Today is: Tuesday 😕"
+                break;
+            case 3:
+                day.textContent = "Today is Wednesday 🙂"
+                break
+            case 4:
+                day.textContent = "Today is: Thursday 😀"
+                break
+            case 5:
+                day.textContent = "Today is: Friday 🥳"
+                break
+            default:
+                day.textContent = "Today is: Weekend 😎"
+                break;
+        }
+
+        let isMember = true
+        member.textContent = isMember ? 'True: Is Member' : 'False: Is Member'
+
+        if (isMember == true) {
+            member.textContent = 'True: is Member'
+        }else {
+            member.textContent = 'False: is not member'
+        }
+    </script>
+</body>
+</html>
