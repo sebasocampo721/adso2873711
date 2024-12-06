@@ -270,6 +270,7 @@
         country.textContent = data.location.country
         city.textContent = data.location.name
         datetime.textContent = data.location.localtime
+        
         icon.style.backgroundImage = 'url('+data.current.condition.icon+')'
         temp.textContent = data.current.temp_c  + '°'
         //icon.setAttribute('src', data.current.condition.icon) //console.log(data.current.temp_c) } loadWeather(q)
