@@ -6,40 +6,217 @@
     <title>Pokedex</title>
     <link rel="stylesheet" href="css/master.css">
     <style>
-      section ul.pokemons{
-        list-style: none;
-        padding: 0;
-        display: grid;
-        gap: 0.2rem;
-        grid-template-columns: repeat(4, 1fr);
-        li{
-            background-color: aquamarine;
-            border-radius: 4px;
-            width: 100px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100px;
-            span{
-                background-color: #0009;
-                font-size: 0.8rem;
-                display: block;
-                justify-content: center;
-                width: 100%;
-            }
+
+        .pika img{
+            position: absolute;
+            margin-top: 140px;
+            margin-left: 205px;
         }
+        .pika img:hover{
+            transform: scale(1.1);
+        }
+
+        .tortuG img{
+            position: absolute;
+            margin-top: 200px;
+            margin-left: 30px;
+        }
+        .tortuG img:hover{
+            transform: scale(1.1);
+
+        }
+        .tortuP img{
+            position: absolute;
+            margin-top: 320px;
+            margin-left: 210px;
+        }
+        .tortuP img:hover{
+            transform: scale(1.1);
+
+        }
+        .flecha button{
+            position: absolute;
+            margin-top: 20px;
+            margin-left: 30px;
+            background: transparent;  
+            border: none;            
+            padding: 0;               
+            cursor: pointer; 
+        }
+        .flecha button:hover{
+            transform: scale(1.2);
+        }
+        .fondo img{
+        }
+
+      .fondo button{
+        background-color: black;
+        color: white;
+        padding: 10px;
+        width: 35%;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        margin-left: 130px;
+        margin-top: -60px;
+        position: relative;
+        border: 5px;
+        border-radius: 5px;
+        cursor: pointer; 
+      }
+      .fondo button:hover{
+        background-color: rgb(175, 255, 228);
+        color: black;
+      }
+      .esconder{
+        display: none;
       }
       
+      .section2 {
+    position: relative; 
+    height: 500px; 
+}
+
+    .section2 .fondo img {
+        width: 100%; 
+        height: 100%; 
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1; 
+    }
+
+    .section2 ul.pokemons {
+    list-style: none;
+    position: absolute;
+    top: 60px;
+    bottom: 0;
+    left: 0;
+    right: 10px;
+    padding: 2rem;
+    display: grid;
+    gap: 0.2rem;
+    grid-template-columns: repeat(2, 4fr);
+    z-index: 1;
+    overflow-y: scroll; 
+    max-height: 100%;
+    scrollbar-width: thin; 
+    scrollbar-color: transparent transparent; 
+    gap: 1rem;
+
+}
+
+.section2 ul.pokemons::-webkit-scrollbar {
+    width: 8px; 
+}
+
+.section2 ul.pokemons::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+.section2 ul.pokemons::-webkit-scrollbar-track {
+    background: transparent; 
+}
+
+    
+
+    .section2 ul.pokemons li {
+        border-radius: 4px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100px;
+        justify-content: center;
+        margin-top: 50px;
+        margin-left: 20px;
+        background-color: rgb(197, 248, 208);   
+        height: 120px;   
+        border-radius: 5px;  
+    }
+
+        
+    .section2 ul.pokemons li span1 {
+        font-size: 0.8rem;
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+        margin-left: 20px;
+        color: black;
+    }
+    .section2 ul.pokemons li span2 {
+        font-size: 0.8rem;
+        display: block;
+        width: 100%;
+        margin-top: -110px;
+        margin-left: 20px;
+        color: black;
+        
+    }
+    .section3 {
+    position: relative; 
+    height: 500px; 
+    background-image: url('./poke/section3.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    z-index: 0; 
+    overflow: hidden; 
+}
+#pokemon-image {
+    position: absolute; 
+    top: 40%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    z-index: 1; 
+    width: 40%;
+}
+#pokemon-name, #pokemon-info {
+    position: absolute; 
+    top: 1%; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    color: white; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+}
+
+#pokemon-info {
+    top: 60%; 
+    left: 50%;
+}
+
+.stat-bar-container {
+    background: #ddd;
+    width: 130px;
+    height: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    margin-left: 100px;
+    margin-top: -22px;
+
+}
+
+.stat-bar {
+    height: 100px;
+    background: #70e974;
+    transition: width 0.3s ease;
+    
+}
+
+.stat-label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    position: relative;
+    margin-left: -80px;
+    margin-top: 10px;
+}
+
     </style>
-
-
-   
 </head>
 <body> 
     <nav class="controls">
-        <a href="index.html">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
-        </a>
+        
     </nav>
     <main>
         <header>
@@ -47,46 +224,138 @@
             <H2>consume api rest
             </H2>
         </header>
-        <section>
-            <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://embed.figma.com/design/WCeMd6SPjHQwzSWVb0DZdl/Untitled?node-id=0-1&embed-host=share" allowfullscreen></iframe>
-          <ul class="pokemons">
-                
-          </ul>
+        <section class="section1" id="clase1">
+            <div class="flecha">
+                <button><img src="./poke/flecha.png" alt="Retroceder"></button>
+            </div>
+            <div class="pika">
+                <img src="./poke/pika.png" alt="">
+            </div>
+            <div class="tortuG">
+                <img src="./poke/tortuG.png" alt="">
+            </div>
+            <div class="tortuP">
+                <img src="./poke/torutuP.png" alt="">
+            </div>
+            <div class="fondo">
+                <img src="./poke/fondo.png" alt="">
+                <button class="button1">Enter</button>
+            </div>
+        </section>
+        <!-- Sección 2 -->
+        <section class="section2 esconder" id="clase2">
+            <div class="flecha">
+                <button><img src="./poke/flecha.png" alt="Retroceder"></button>
+            </div>
+            <div class="fondo">
+                <img src="./poke/fondo.png" alt="">
+            </div>
+            <ul class="pokemons"></ul>
+        </section>
+        <!-- Sección 3 -->
+        <section class="section3 esconder" id="clase3">
+            <div class="flecha">
+                <button><img src="./poke/flecha.png" alt="Retroceder"></button>
+            </div>
+            <div class="fondo">
+                <img src="./poke/section3.png" alt="" id="pokemon-image">
+            </div>
+            <h2 id="pokemon-name">Pokemon Name</h2>
+            <p id="pokemon-info">Pokemon info</p>
+
+            
         </section>
     </main>
     <script>
-
-        const season1= [1, 151];
-        const season2= [152, 251];
-
+        const section1 = document.querySelector('.section1');
+        const section2 = document.querySelector('.section2');
+        const section3 = document.querySelector('.section3');
+        const button1 = document.querySelector('.button1');
         const pks = document.querySelector('.pokemons');
-        
-        const loadPokemons = async (pk) => {
-
-          for (let pk = season1[0]; pk <= season1[1]; pk++) {
-            
-            const url = 'https://pokeapi.co/api/v2/pokemon/' + pk;
-            
-            await fetch(url)
-              .then((response) => response.json())
-              .then((data) => {
-                console.log(data);
-                //(pk < 100) ? '00'+pk : pk
-                if (pk < 10) {pk = '00' + pk}
-                if (pk < 100 && pk > 9) {pk = '0' + pk}
-                const image = 'https://www.serebii.net/swordshield/pokemon/' + pk + '.png';
-                pks.innerHTML += 
-                  "<li style='background: #fffa url(" + image + ") no-repeat center / contain'> \
-                    <span>" + data.id + "</span> \
-                    <span>" + data.name + "</span> \
-                  </li>";
-              });
-          }
+    
+        const backButtons = document.querySelectorAll('.flecha button ');
+        const goBackToSection1 = () => {
+            section1.classList.remove("esconder");
+            section2.classList.add("esconder");
+            section3.classList.add("esconder");
         };
-      
-        loadPokemons();
-      </script>
-      
-
+        
+    
+        backButtons.forEach(button => {
+            button.addEventListener("click", goBackToSection1);
+        });
+    
+        button1.addEventListener("click", function () {
+            section1.classList.add("esconder");
+            section2.classList.remove("esconder");
+            section3.classList.add("esconder");
+        });
+    
+        const season1 = [1, 151]; // Rango de IDs para los Pokémon de la primera generación
+    
+        const loadPokemons = async () => {
+            for (let pk = season1[0]; pk <= season1[1]; pk++) {
+                const url = 'https://pokeapi.co/api/v2/pokemon/' + pk;
+                await fetch(url)
+                    .then((response) => response.json())
+                    .then((data) => {
+                        let pkStr = pk;
+                        if (pk < 10) pkStr = '00' + pk;
+                        if (pk >= 10 && pk < 100) pkStr = '0' + pk;
+    
+                        const image = 'https://www.serebii.net/swordshield/pokemon/' + pkStr + '.png';
+    
+                        const li = document.createElement('li');
+                        li.classList.add('pokemon-card');
+                        li.style.background = `rgb(197, 248, 200) url(${image}) no-repeat  80% 70% / 60%`;
+                        li.innerHTML = `
+                            <span1>#${data.id}</span1>
+                            <span2>${data.name}</span2>
+                        `;
+    
+                        li.addEventListener('click', () => {
+                            showPokemonInfo(data);
+                        });
+    
+                        pks.appendChild(li);
+                    });
+            }
+        };
+    
+        const showPokemonInfo = (data) => {
+            // Referencias a elementos HTML
+            const name = document.getElementById('pokemon-name');
+            const info = document.getElementById('pokemon-info');
+            const pokemonImage = document.getElementById('pokemon-image');
+    
+            // Mostrar nombre del Pokémon
+            name.textContent = data.name.charAt(0).toUpperCase() + data.name.slice(1);
+    
+            // Mostrar estadísticas base
+            info.innerHTML = data.stats.map(stat => {
+            const statName = stat.stat.name.replace('-', ' ').toUpperCase();
+            const statValue = stat.base_stat;
+            const percentage = Math.min(statValue, 100);
+            return `
+                <div style="margin-bottom: 10px;">
+                    <p class="stat-label">${statName}: ${statValue}</p>
+                    <div class="stat-bar-container">
+                        <div class="stat-bar" style="width: ${percentage}%;"></div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    
+            // Actualizar imagen del Pokémon
+            pokemonImage.src = `https://www.serebii.net/swordshield/pokemon/${data.id.toString().padStart(3, '0')}.png`;
+    
+            // Cambiar entre secciones
+            section2.classList.add("esconder");
+            section3.classList.remove("esconder");
+        };
+    
+        loadPokemons(); // Cargar los Pokémon
+    </script>
+    
 </body>
 </html>
