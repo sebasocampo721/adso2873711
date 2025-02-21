@@ -6,55 +6,56 @@
     <title>methods</title>
     <link rel="stylesheet" href="css/master.css">
     <style>
-      textarea{
+      textarea {
         width: 100%;
         height: 80px;
         border: 2px solid black;
         border-radius: 5px;
         padding: 0.5rem;
       }
-      div.row{
+
+      div.row {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 0.6rem;
-        input[type=text]{
-            border: 2px solid black;
-            border-radius: 5px;
-            padding: 0.5rem;
-            width: 130px;
-        }
-        input[type=radio]{
-            accent-color: black;
-        }
       }
-      button.btn-generate{
-            background-color: rgb(241, 225, 152);
-            border-radius: 5px;
-            border: none;
-            cursor: pointer;
-            padding: 0.6rem;
-            display: flex;
-            margin: 0 auto;
-            width: 100px;
-        }
-      
+
+      input[type=text] {
+        border: 2px solid black;
+        border-radius: 5px;
+        padding: 0.5rem;
+        width: 130px;
+      }
+
+      input[type=radio] {
+        accent-color: black;
+      }
+
+      button.btn-generate {
+        background-color: rgb(241, 225, 152);
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        padding: 0.6rem;
+        display: flex;
+        margin: 0 auto;
+        width: 100px;
+      }
     </style>
-
-
-   
 </head>
 <body> 
     <nav class="controls">
         <a href="index.html">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/>
+            </svg>
         </a>
     </nav>
     <main>
         <header>
             <h1></h1>
-            <H2>
-            </H2>
+            <h2></h2>
         </header>
         <section>
           <textarea placeholder="Enter a paragraph"></textarea>
@@ -68,7 +69,6 @@
                 <input type="radio" class="lower" name="txt">
                 lowercase
             </label>
-
           </div>
           <div class="row">
             <input type="text" class="word-ori" placeholder="word Origin">
@@ -76,43 +76,68 @@
             <input type="text" class="word-rep" placeholder="word Replace">
           </div>
           <div class="row">
-            <input type="text" class="" placeholder="start pos">
+            <input type="text" class="start-pos" placeholder="start pos">
             <p>To</p>
-            <input type="text" class="" placeholder="final pos">
+            <input type="text" class="end-pos" placeholder="final pos">
           </div>
           <button class="btn-generate">Generate</button>
           <ul class="output"></ul>
         </section>
     </main>
     <script>
-        // elemets
-        const string = document.querySelector('textarea')
-        const upper = document.querySelector('.upper')
-        const lower = document.querySelector('.lower')
+        // elements
+        const string = document.querySelector('textarea');
+        const upper = document.querySelector('.upper');
+        const lower = document.querySelector('.lower');
+        const wordOrigin = document.querySelector('.word-ori');
+        const wordReplace = document.querySelector('.word-rep');
+        const pStr = document.querySelector('.start-pos');
+        const pFnl = document.querySelector('.end-pos');
         
-        const btn = document.querySelector('.btn-generate')
-        const output = document.querySelector('.output')
+        const btn = document.querySelector('.btn-generate');
+        const output = document.querySelector('.output');
 
-        //variables
-        let isUpper = false
+        // variables
+        let isUpper = false;
 
-        //event 
-        btn.addEventListener('click', () =>{
-            if(string.value.length >0){
-                output.innerHTML = "<li><strong>Original string:</strong>"+strong.value+"</li>"
+        // events
+        upper.addEventListener('click', function() {
+            isUpper = true;
+        });
+        lower.addEventListener('click', function() {
+            isUpper = false;
+        });
 
-            }
-                if(isUpper){
-                    output.innerHTML = "<li><strong>Original string:</strong>"+strong.value+"</li>"
-                    
-                } else{
-                    output.innerHTML = "<li><strong>Original string:</strong>"+strong.value+"</li>"
+        // event 
+        btn.addEventListener('click', () => {
+            if (string.value.length > 0) {
+                let result = "";
 
+                // Original String
+                result += "<li><strong>Original String:</strong>" + string.value + "</li>";
+
+                // Length of String
+                result += "<li><strong>Length String:</strong>" + string.value.length + "</li>";
+
+                // Uppercase or lowercase
+                if (isUpper) {
+                    result += "<li><strong>UpperCase String:</strong>" + string.value.toUpperCase() + "</li>";
+                } else {
+                    result += "<li><strong>Lowercase String:</strong>" + string.value.toLowerCase() + "</li>";
                 }
-            else{
-                alert('please enter a paragraph!')
+
+                // Replacement of word
+                result += "<li><strong>Replacement String:</strong>" + string.value.replace(wordOrigin.value, wordReplace.value) + "</li>";
+
+                // Substring (Cut string)
+                result += "<li><strong>Cut String:</strong>" + string.value.substring(parseInt(pStr.value), parseInt(pFnl.value)) + "</li>";
+
+                output.innerHTML = result;
+
+            } else {
+                alert('Please enter a paragraph!');
             }
-        })
+        });
     </script>
 </body>
 </html>

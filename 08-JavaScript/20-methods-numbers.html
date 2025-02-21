@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>methods-numbersk</title>
+    <link rel="stylesheet" href="css/master.css">
+    <style>
+      section{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+      button {
+        background-color: rgb(241, 225, 152);
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        padding: 0.6rem;
+        width: 100px;
+      }
+      input{
+        border: 2px solid black;
+        border-radius: 5px;
+        padding: 0.5rem;
+        width: 140px;
+      }
+    </style>
+</head>
+<body> 
+    <nav class="controls">
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/>
+            </svg>
+        </a>
+    </nav>
+    <main>
+        <header>
+            <h1></h1>
+            <H2></H2>
+        </header>
+        <section>
+            <input type="number" class="num-float" placeholder="Enter a float number">
+            <button class="btn-calc">calculator</button>
+            <ul class="output"></ul>
+        </section>
+    </main>
+    <script>
+        // elements
+        const numFloat = document.querySelector('.num-float');
+        const btnCalc = document.querySelector('.btn-calc'); // corregido aquí
+        const output = document.querySelector('.output');
+
+        // events
+        btnCalc.addEventListener('click', function(){
+            const num = numFloat.value;
+            if (isFloat(num)) {
+                let result = ""; // Variable para almacenar los resultados
+
+                result += "<li><strong>toString:</strong>" + num.toString() + "</li>"; // corregido
+                result += "<li><strong>toFixed:</strong>" + num.toFixed(2) + "</li>"; // corregido
+                result += "<li><strong>toPrecision:</strong>" + num.toPrecision(2) + "</li>"; // corregido
+                result += "<li><strong>parseInt:</strong>" + parseInt(num) + "</li>"; // corregido
+                result += "<li><strong>parseFloat:</strong>" + parseFloat(num) + "</li>"; // corregido
+
+                output.innerHTML = result; // mostrar todo el resultado de una vez
+
+            } else {
+                alert('You must enter a float with decimals');
+            }
+        });
+
+        // Verificar si el número es un float
+        function isFloat(num) {
+            return num % 1 !== 0;
+        }
+    </script>
+</body>
+</html>

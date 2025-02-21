@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>methods-mathematics</title>
+    <link rel="stylesheet" href="css/master.css">
+    <style>
+      button{
+        border: none;
+        background-color: transparent;
+        appearance: none;
+        cursor: pointer;
+        margin: 1rem auto 2rem auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+        line-height: 0 !important;
+        width: 100px;
+        font-size: 12rem;
+        transition: transform 0.2s ease-in;
+        
+      }
+
+      button:hover {  /* Cambié el selector & hover por :hover */
+        transform: scale(1.2); /* Corregí la sintaxis */
+      }
+      
+    </style>
+</head>
+<body> 
+    <nav class="controls">
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+        </a>
+    </nav>
+    <main>
+        <header>
+            <h1></h1>
+            <H2>
+            </H2>
+        </header>
+        <section>
+            <h3>Random (roll)</h3> <!-- Corregí el texto "rool" por "roll" -->
+            <button class="btn-dice">⚀</button>
+            <h3> Random (counter up)</h3>
+            <button class="btn-counter">1</button>
+            <h3> min | max</h3>
+            <p class="out-min"></p>
+            <p class="out-max"></p>
+        </section>
+    </main>
+    <script>
+        const btnDice = document.querySelector('.btn-dice');
+        const arrDice = ['⚀','⚁','⚂','⚃','⚄','⚅'];
+        const btnCounter = document.querySelector('.btn-counter');
+        const outMin = document.querySelector('.out-min');
+        const outMax = document.querySelector('.out-max');
+
+        btnDice.addEventListener('click', function(){
+            let rand = Math.floor(Math.random() * arrDice.length);  /* Corregí 'Match' por 'Math' y el error en 'Math.random()' */
+            console.log(arrDice.length);
+            this.textContent = arrDice[rand]; /* Corregí la sintaxis de acceso al arreglo */
+        });
+
+        btnCounter.addEventListener('click', function(){
+        let rand = Math.ceil(Math.random() * 99); // Usé Math.ceil() correctamente
+        let cont = 1;
+        let elm = this;
+        const interval = setInterval(function(){  // Cambié Interval a interval en minúsculas
+        if(cont == rand){
+            clearInterval(interval);  // Usé interval en minúsculas
+        }
+        elm.textContent = cont;
+        cont++;
+    }, 100);
+    });
+
+
+
+    outMin.textContent= 'Min: 4, 10, -8, 3 =>'+Math.min(4, 10, -8, 3)
+    outMax.textContent= 'Max: 4, 10, -8, 3 =>'+Math.max(4, 10, -8, 3)
+    </script>
+</body>
+</html>
