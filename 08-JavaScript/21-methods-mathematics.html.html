@@ -23,8 +23,8 @@
         
       }
 
-      button:hover {  /* Cambié el selector & hover por :hover */
-        transform: scale(1.2); /* Corregí la sintaxis */
+      button:hover {  
+        transform: scale(1.2); 
       }
       
     </style>
@@ -42,7 +42,7 @@
             </H2>
         </header>
         <section>
-            <h3>Random (roll)</h3> <!-- Corregí el texto "rool" por "roll" -->
+            <h3>Random (roll)</h3> 
             <button class="btn-dice">⚀</button>
             <h3> Random (counter up)</h3>
             <button class="btn-counter">1</button>
@@ -59,18 +59,18 @@
         const outMax = document.querySelector('.out-max');
 
         btnDice.addEventListener('click', function(){
-            let rand = Math.floor(Math.random() * arrDice.length);  /* Corregí 'Match' por 'Math' y el error en 'Math.random()' */
+            let rand = Math.floor(Math.random() * arrDice.length);  
             console.log(arrDice.length);
-            this.textContent = arrDice[rand]; /* Corregí la sintaxis de acceso al arreglo */
+            this.textContent = arrDice[rand]; 
         });
 
         btnCounter.addEventListener('click', function(){
-        let rand = Math.ceil(Math.random() * 99); // Usé Math.ceil() correctamente
+        let rand = Math.ceil(Math.random() * 99); 
         let cont = 1;
         let elm = this;
-        const interval = setInterval(function(){  // Cambié Interval a interval en minúsculas
+        const interval = setInterval(function(){  
         if(cont == rand){
-            clearInterval(interval);  // Usé interval en minúsculas
+            clearInterval(interval);  
         }
         elm.textContent = cont;
         cont++;

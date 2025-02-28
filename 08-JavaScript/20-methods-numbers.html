@@ -51,7 +51,7 @@
     <script>
         // elements
         const numFloat = document.querySelector('.num-float');
-        const btnCalc = document.querySelector('.btn-calc'); // corregido aquí
+        const btnCalc = document.querySelector('.btn-calc'); 
         const output = document.querySelector('.output');
 
         // events
@@ -60,11 +60,11 @@
             if (isFloat(num)) {
                 let result = ""; // Variable para almacenar los resultados
 
-                result += "<li><strong>toString:</strong>" + num.toString() + "</li>"; // corregido
-                result += "<li><strong>toFixed:</strong>" + num.toFixed(2) + "</li>"; // corregido
-                result += "<li><strong>toPrecision:</strong>" + num.toPrecision(2) + "</li>"; // corregido
-                result += "<li><strong>parseInt:</strong>" + parseInt(num) + "</li>"; // corregido
-                result += "<li><strong>parseFloat:</strong>" + parseFloat(num) + "</li>"; // corregido
+                result += "<li><strong>toString:</strong>" + num.toString() + "</li>"; 
+                result += "<li><strong>toFixed:</strong>" + num.toFixed(2) + "</li>"; 
+                result += "<li><strong>toPrecision:</strong>" + num.toPrecision(2) + "</li>"; 
+                result += "<li><strong>parseInt:</strong>" + parseInt(num) + "</li>"; 
+                result += "<li><strong>parseFloat:</strong>" + parseFloat(num) + "</li>"; 
 
                 output.innerHTML = result; // mostrar todo el resultado de una vez
 
