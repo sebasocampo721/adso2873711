@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>methods array</title>
+    <link rel="stylesheet" href="css/master.css">
+    <style>
+      
+      section ul {
+        padding: 0;
+      }
+      section ul.emojis li{
+        display: grid;
+        grid-template-columns: 340px 570px;
+        
+
+      }
+    </style>
+
+
+   
+</head>
+<body> 
+    <nav class="controls">
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+        </a>
+    </nav>
+    <main>
+        <header>
+            <h1>methods array</h1>
+            <H2>manipula arreglos usando metodos
+            </H2>
+        </header>
+        <section>
+            <ul class="emojis"></ul>
+        </section>
+    </main>
+    <script>
+        const emojis = document.querySelector('.emojis')
+
+        emojis.style.fontSize = '1.6rem'
+        
+        let arrEmojis = ['🤺', '🥷', '🧑‍⚕️', '🧑‍🍳']
+        emojis.innerHTML = `<li> valueOf: ${arrEmojis.valueOf()}</li>`
+        emojis.innerHTML += `<li> String: ${arrEmojis.toString()}</li>`
+        emojis.innerHTML += `<li> join: ${arrEmojis.join('🕵️')}</li>`
+        emojis.innerHTML += `<li> sort: ${arrEmojis.sort()}</li>`
+        arrEmojis.unshift()
+        emojis.innerHTML += `<li> unshift: ${arrEmojis.valueOf()}</li>`
+        arrEmojis.push()
+        emojis.innerHTML += `<li> push: ${arrEmojis.valueOf()}</li>`
+        arrEmojis.shift()
+        emojis.innerHTML += `<li> shift: ${arrEmojis.valueOf()}</li>`
+    </script>
+</body>
+</html>
