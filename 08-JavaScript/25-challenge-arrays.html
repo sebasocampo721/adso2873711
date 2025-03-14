@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>challenge</title>
+    <link rel="stylesheet" href="css/master.css">
+    <style>
+      
+    *{
+        background-color: rgb(117, 114, 114);
+    }
+    
+    div.container {
+    align-items: center;
+    justify-content: center;
+    background: url(/08-JavaScript/image25/Group\ 1.png) no-repeat;
+    width: 400px;
+    height: 600px; 
+    display: flex; 
+    position: relative;
+    margin-top: -20%;
+    }
+
+    img.uno{
+        position: absolute;
+        left: 68px;
+        top: 197px;
+        background: transparent;
+
+    }
+    img.dos{
+        position: absolute;
+        left: 200px;
+        top: 197px;
+        background: transparent;
+
+    }
+     img.tres{
+        position: absolute;
+        left: 73px;
+        top: 347px;
+        background: transparent;
+
+    }
+     img.cuatro{
+        position: absolute;
+        left: 188px;
+        top: 344px;
+        background: transparent;
+    }
+    button img{
+        border: none;
+        outline: none;
+        background: none;
+    }
+    button.btn-1{
+        position: absolute;
+        left: 80px;
+        top: 280px;
+        border: none;
+        outline: none;
+        background: none;
+        padding: 0;
+        cursor: pointer;
+    }
+    button.btn-2{
+        position: absolute;
+        left: 215px;
+        top: 280px;
+        border: none;
+        outline: none;
+        background: none;
+        padding: 0;
+        cursor: pointer;
+    }
+    button.btn-3{
+        position: absolute;
+        left: 70px;
+        top: 408px;
+        border: none;
+        outline: none;
+        background: none;
+        padding: 0;
+        cursor: pointer;
+        font-size: 16px;
+        
+    }
+    button.btn-4{
+        position: absolute;
+        left: 145px;
+        top: 408px;
+        border: none;
+        outline: none;
+        background: none;
+        padding: 0;
+        cursor: pointer;
+        font-size: 16px;
+
+    }
+  
+    div input{
+        position: absolute;
+        top: 409px;
+        left: 190px;
+        width: 55px;
+        height: 8px;
+        background: transparent;
+        border: 1px solid white;
+    }
+    
+
+
+    /*--------SWICH----------*/
+    
+    div.result{
+        position: absolute;
+        top: 570px;
+        left: 260px;
+    }
+    </style>
+
+
+   
+</head>
+<body> 
+    <nav class="controls">
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+        </a>
+    </nav>
+    <main>
+        <section>
+            <div class="container">
+                <img class="uno" src="/08-JavaScript/image25/image.png" alt="">
+                <img class="dos" src="/08-JavaScript/image25/image 5.png" alt="">
+                <img class="tres" src="/08-JavaScript/image25/image 6.png" alt="">
+                <img class="cuatro" src="/08-JavaScript/image25/image 7.png" alt="">
+                <button class="btn-1"><img src="/08-JavaScript/image25/Group 1 (1).png" alt=""></button>
+                <button class="btn-2"><img src="/08-JavaScript/image25/Group 2.png" alt=""></button>
+                <button class="btn-3"><img src="/08-JavaScript/image25/Group 3.png" alt=""></button>
+                <button class="btn-4"><img src="/08-JavaScript/image25/Group 4.png" alt=""></button>
+                <input type="text" placeholder="">
+            </div>
+
+            <div class="result"></div>
+            
+        </section>
+    </main>
+    <script>
+        // Obtener los botones
+        const uno = document.querySelector('.uno');
+        const dos = document.querySelector('.dos');
+        const tres = document.querySelector('.tres');
+        const cuatro = document.querySelector('.cuatro');
+
+        // Obtener el contenedor donde se mostrará la imagen seleccionada
+        const resultContainer = document.querySelector('.result');
+
+        // Función para agregar la imagen seleccionada al contenedor 'result'
+        function displayImage(imgElement) {
+            const imgSrc = imgElement.querySelector('img').src; // Obtener la fuente de la imagen dentro del botón
+            const img = document.createElement('img');
+            img.src = imgSrc; // Establecer la fuente de la imagen
+            img.alt = "Imagen seleccionada"; // Asegurarse de que tenga un alt
+            resultContainer.innerHTML = ''; // Limpiar el contenedor
+            resultContainer.appendChild(img); // Agregar la nueva imagen
+        }
+
+        // Añadir evento de clic a cada botón para mostrar la imagen seleccionada
+        btn1.addEventListener('click', () => displayImage(btn1));
+        btn2.addEventListener('click', () => displayImage(btn2));
+        btn3.addEventListener('click', () => displayImage(btn3));
+        btn4.addEventListener('click', () => displayImage(btn4));
+    </script>
+</body>
+</html>
