@@ -115,8 +115,8 @@
     
     div.result{
         position: absolute;
-        top: 570px;
-        left: 260px;
+        top: 465px;
+        left: 60px;
     }
     </style>
 
@@ -141,37 +141,28 @@
                 <button class="btn-3"><img src="/08-JavaScript/image25/Group 3.png" alt=""></button>
                 <button class="btn-4"><img src="/08-JavaScript/image25/Group 4.png" alt=""></button>
                 <input type="text" placeholder="">
+                <div class="result"></div>
             </div>
-
-            <div class="result"></div>
             
         </section>
     </main>
     <script>
-        // Obtener los botones
-        const uno = document.querySelector('.uno');
-        const dos = document.querySelector('.dos');
-        const tres = document.querySelector('.tres');
-        const cuatro = document.querySelector('.cuatro');
-
-        // Obtener el contenedor donde se mostrará la imagen seleccionada
+        // Obtener las imágenes
+        const images = document.querySelectorAll('.container img');
         const resultContainer = document.querySelector('.result');
 
-        // Función para agregar la imagen seleccionada al contenedor 'result'
-        function displayImage(imgElement) {
-            const imgSrc = imgElement.querySelector('img').src; // Obtener la fuente de la imagen dentro del botón
-            const img = document.createElement('img');
-            img.src = imgSrc; // Establecer la fuente de la imagen
-            img.alt = "Imagen seleccionada"; // Asegurarse de que tenga un alt
-            resultContainer.innerHTML = ''; // Limpiar el contenedor
-            resultContainer.appendChild(img); // Agregar la nueva imagen
+        // Función para mostrar la imagen seleccionada en el div .result
+        function displayImage(event) {
+            const imgSrc = event.target.src; // Obtener la fuente de la imagen clicada
+            resultContainer.innerHTML = `<img src="${imgSrc}" alt="Imagen seleccionada" style="max-width: 100px; max-height: 100px;">`;
         }
 
-        // Añadir evento de clic a cada botón para mostrar la imagen seleccionada
-        btn1.addEventListener('click', () => displayImage(btn1));
-        btn2.addEventListener('click', () => displayImage(btn2));
-        btn3.addEventListener('click', () => displayImage(btn3));
-        btn4.addEventListener('click', () => displayImage(btn4));
+        // Agregar evento a cada imagen
+        images.forEach(img => {
+            img.addEventListener('click', displayImage);
+        });
     </script>
 </body>
 </html>
+
+
