@@ -6,10 +6,6 @@
     <title>challenge</title>
     <link rel="stylesheet" href="css/master.css">
     <style>
-      
-    *{
-        background-color: rgb(117, 114, 114);
-    }
     
     div.container {
     align-items: center;
@@ -28,6 +24,11 @@
         left: 68px;
         top: 197px;
         background: transparent;
+        cursor: pointer;
+        &:hover{
+            transition: all ease-in 0.2s;
+            transform: scale(1.2);
+        }
 
     }
     img.dos{
@@ -35,6 +36,11 @@
         left: 200px;
         top: 197px;
         background: transparent;
+        cursor: pointer;
+        &:hover{
+            transition: all ease-in 0.2s;
+            transform: scale(1.2);
+        }
 
     }
      img.tres{
@@ -42,6 +48,11 @@
         left: 73px;
         top: 347px;
         background: transparent;
+        cursor: pointer;
+        &:hover{
+            transition: all ease-in 0.2s;
+            transform: scale(1.2);
+        }
 
     }
      img.cuatro{
@@ -49,6 +60,11 @@
         left: 188px;
         top: 344px;
         background: transparent;
+        cursor: pointer;
+        &:hover{
+            transition: all ease-in 0.2s;
+            transform: scale(1.2);
+        }
     }
     button img{
         border: none;
@@ -111,14 +127,25 @@
     }
     
 
-
-    /*--------SWICH----------*/
     
-    div.result{
-        position: absolute;
-        top: 465px;
-        left: 60px;
-    }
+    div.result {
+    position: absolute;
+    top: 465px;
+    left: 50px;
+    width: 220px;
+    overflow-x: auto;  
+    white-space: nowrap;  
+}
+
+div.result img {
+    background: transparent;
+    border: none;
+    outline: none;
+    background: none;
+    padding: 0;
+    min-width: 50px;
+    display: inline-block;  
+}
     </style>
 
 
@@ -148,77 +175,73 @@
         </section>
     </main>
     <script>
-    let selectedImages = []; // Lista de imágenes seleccionadas
-let tempSelectedImage = null; // Imagen temporalmente seleccionada
-const resultContainer = document.querySelector('.result');
-const btn1 = document.querySelector('.btn-1');
-const btn2 = document.querySelector('.btn-2');
-const inputPosition = document.querySelector('input'); // Obtener el input
+    let selectImages = []; 
+    let selectIma = null; 
+    const resultContainer = document.querySelector('.result');
+    const btn1 = document.querySelector('.btn-1');
+    const btn2 = document.querySelector('.btn-2');
+    const inputPosition = document.querySelector('input'); 
 
-// Función para actualizar el contenedor de resultados
-function updateResult() {
-    resultContainer.innerHTML = ""; // Limpiar el resultado antes de actualizar
-    selectedImages.forEach((src, index) => {
-        const imgElement = document.createElement('img');
-        imgElement.src = src;
-        imgElement.alt = "Imagen seleccionada";
-        imgElement.style.maxWidth = "80px";
-        imgElement.style.margin = "5px";
-        imgElement.style.cursor = "pointer";
+    function updateResult() {
+        resultContainer.innerHTML = ""; 
+        selectImages.forEach((src, index) => {
+            const imgElement = document.createElement('img');
+            imgElement.src = src;
+            imgElement.alt = "Imagen seleccionada";
+            imgElement.style.maxWidth = "80px";
+            imgElement.style.margin = "5px";
+            imgElement.style.cursor = "pointer";
 
-        // Evento para eliminar la imagen al hacer clic en ella dentro del resultado
-        imgElement.addEventListener('click', () => {
-            selectedImages.splice(index, 1); // Eliminar imagen de la lista
-            updateResult(); // Actualizar la vista
+            imgElement.addEventListener('click', () => {
+                selectImages.splice(index, 1); 
+                updateResult(); 
+            });
+
+            resultContainer.appendChild(imgElement);
         });
-
-        resultContainer.appendChild(imgElement);
-    });
-}
-
-// Función para seleccionar temporalmente una imagen
-function handleImageClick(event) {
-    if (event.target.tagName === "IMG" && !event.target.closest("button")) { 
-        tempSelectedImage = event.target.src; // Guardar la imagen seleccionada
-        console.log("Imagen seleccionada:", tempSelectedImage);
     }
-}
 
-// Función para agregar la imagen en una posición específica
-function addImageToList() {
-    if (tempSelectedImage) {
-        let position = parseInt(inputPosition.value); // Obtener la posición del input
-        
-        if (isNaN(position) || position < 0 || position > selectedImages.length) {
-            position = selectedImages.length; // Si el input es inválido, agregar al final
+    function imageClick(event) {
+        if (event.target.tagName === "IMG" && !event.target.closest("button")) { 
+            selectIma = event.target.src;
+            images.forEach(img => {
+                img.style.transform = "scale(1)";
+            });
+            event.target.style.transform="scale(1.2)"
+            console.log("Imagen seleccionada:", selectIma);
         }
-
-        selectedImages.splice(position, 0, tempSelectedImage); // Insertar en la posición deseada
-        updateResult(); // Actualizar la vista
     }
-}
 
-// Función para eliminar una imagen en una posición específica
-function removeImageFromList() {
-    let position = parseInt(inputPosition.value); // Obtener la posición del input
+    function addImageToList() {
+        if (selectIma) {
+            let position = parseInt(inputPosition.value); 
+            
+            if (isNaN(position) || position < 0 || position > selectImages.length) {
+                position = selectImages.length; 
+            }
 
-    if (!isNaN(position) && position >= 0 && position < selectedImages.length) {
-        selectedImages.splice(position, 1); // Eliminar en la posición indicada
-        updateResult(); // Actualizar la vista
+            selectImages.splice(position, 0, selectIma); 
+            updateResult(); 
+        }
     }
-}
 
-// Agregar eventos a las imágenes (excepto las que están dentro de botones)
-const images = document.querySelectorAll('.container img');
-images.forEach(img => {
-    img.addEventListener('click', handleImageClick);
-});
+    function removeImageFromList() {
+        let position = parseInt(inputPosition.value); 
 
-// Evento para el botón 1 (agregar imagen seleccionada)
-btn1.addEventListener('click', addImageToList);
+        if (!isNaN(position) && position >= 0 && position < selectImages.length) {
+            selectImages.splice(position, 1); 
+            updateResult(); 
+        }
+    }
 
-// Evento para el botón 2 (eliminar imagen en la posición especificada)
-btn2.addEventListener('click', removeImageFromList);
+    const images = document.querySelectorAll('.container img');
+    images.forEach(img => {
+        img.addEventListener('click', imageClick);
+    });
+
+    btn1.addEventListener('click', addImageToList);
+
+    btn2.addEventListener('click', removeImageFromList);
 
 </script>
 
