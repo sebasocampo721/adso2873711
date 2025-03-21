@@ -183,23 +183,24 @@ div.result img {
     const inputPosition = document.querySelector('input'); 
 
     function updateResult() {
-        resultContainer.innerHTML = ""; 
-        selectImages.forEach((src, index) => {
-            const imgElement = document.createElement('img');
-            imgElement.src = src;
-            imgElement.alt = "Imagen seleccionada";
-            imgElement.style.maxWidth = "80px";
-            imgElement.style.margin = "5px";
-            imgElement.style.cursor = "pointer";
+    resultContainer.innerHTML = ""; 
+    selectImages.forEach((src, index) => {
+        const imgElement = document.createElement('img');
+        imgElement.src = src;
+        imgElement.alt = "Imagen seleccionada";
+        imgElement.style.maxWidth = "80px";
+        imgElement.style.margin = "5px";
+        imgElement.style.cursor = "pointer";
 
-            imgElement.addEventListener('click', () => {
-                selectImages.splice(index, 1); 
-                updateResult(); 
-            });
-
-            resultContainer.appendChild(imgElement);
+        // Eliminar la funcionalidad de eliminar la imagen al hacer clic
+        // Si quieres agregar alguna otra funcionalidad, puedes hacerlo aquí.
+        imgElement.addEventListener('click', () => {
+            console.log("Imagen seleccionada:", src);
         });
-    }
+
+        resultContainer.appendChild(imgElement);
+    });
+}
 
     function imageClick(event) {
         if (event.target.tagName === "IMG" && !event.target.closest("button")) { 
