@@ -120,38 +120,31 @@
         let leftPosition = 140
         document.addEventListener('keyup', (event) => {
             console.log(event.keyCode)
-            if (event.keyCode == 37) { //left
-                if (leftPosition > -120) {
-                    leftPosition -=50
-                    avion.style.transform = `rotateY(180deg)`
-                    avion.style.left = `${leftPosition}px`
-                    
-                }
-            }else{
-                leftPosition = 310
-                avion.style.display = `none`
+            if (event.keyCode == 37) { // Izquierda
+            if (leftPosition > -120) {
+                leftPosition -= 50;
+                avion.style.transform = `rotateY(180deg)`;
+                avion.style.left = `${leftPosition}px`;
+            }
+        } else if (event.keyCode == 39) { // Derecha
+            if (leftPosition < 250) {
+                avion.style.display = "none";
+                leftPosition += 50;
+                avion.style.transform = `rotateY(0deg)`;
+                avion.style.left = `${leftPosition}px`;
                 setTimeout(() => {
-                    avion.style.display = `block`
-                },200)
-                avion.style.left = `${leftPosition}px`
+                    avion.style.display = "block";
+                }, 200);
+            } else {
+                leftPosition = 0;
+                avion.style.display = "none";
+                setTimeout(() => {
+                    avion.style.display = "block";
+                }, 200);
+                avion.style.left = `${leftPosition}px`;
             }
+        }
 
-            if (event.keyCode == 39) { //right
-                if (leftPosition < 250) {
-                    avion.style.display = `none`
-                    
-                    leftPosition +=50
-                    avion.style.transform = `rotateY(0deg)`
-                    avion.style.left = `${leftPosition}px`
-                }else{
-                    leftPosition = 0
-                    nave.style.display = `none`
-                    setTimeout(() => {
-                        avion.style.display = `block`
-                    },200)
-                    avion.style.left = `${leftPosition}px`
-                }
-            }
         })
     </script>
 </body>

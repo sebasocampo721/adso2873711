@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/master.css">
+    <style>
+      
+      
+    </style>
+
+
+   
+</head>
+<body> 
+    <nav class="controls">
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+        </a>
+    </nav>
+    <main>
+        <header>
+            <h1></h1>
+            <H2>
+            </H2>
+        </header>
+        <section>
+          
+        </section>
+    </main>
+    <script>
+        btn1.addEventListener('click', () => {
+            document.querySelector(".contenedor-1").style.display = "none"; 
+            document.querySelector(".contenedor-2").style.display = "flex";
+        });
+    
+        // Función para generar una velocidad aleatoria entre un rango
+        function generarVelocidadAleatoria(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+    
+        // Función para mover un elemento con una velocidad específica
+        function moverElemento(elemento, contenedor) {
+            let posicion = -200; // Comienza fuera de la pantalla (fuera del contenedor)
+            const maxX = contenedor.clientWidth - elemento.offsetWidth; // Calcula el máximo X
+            const randomX = Math.floor(Math.random() * maxX); // Posición aleatoria en X
+    
+            // Calcula la posición inicial de los elementos en la parte inferior del contenedor
+            const posicionY = contenedor.clientHeight - elemento.offsetHeight; // Posición Y en la parte inferior
+    
+            // Coloca el elemento en la posición inicial aleatoria
+            elemento.style.left = `${randomX}px`;
+            elemento.style.top = `${posicionY}px`;
+    
+            // Asignamos una velocidad inicial aleatoria
+            let velocidad = generarVelocidadAleatoria(1, 5); // Velocidad aleatoria inicial
+    
+            function mover() {
+                posicion += velocidad; // Incrementa la posición X del elemento con la velocidad
+    
+                // Si el elemento sale del contenedor, reinicia su posición con una nueva velocidad aleatoria
+                if (posicion > contenedor.clientWidth) {
+                    posicion = -elemento.offsetWidth; // Reinicia la posición
+                    velocidad = generarVelocidadAleatoria(1, 5); // Genera una nueva velocidad aleatoria
+                }
+    
+                // Actualiza la posición del elemento
+                elemento.style.left = `${posicion}px`;
+    
+                // Vuelve a ejecutar la función de movimiento
+                requestAnimationFrame(mover);
+            }
+    
+            mover();
+        }
+    
+        // Función que se ejecuta cuando el DOM está cargado
+        document.addEventListener("DOMContentLoaded", function() {
+            const contenedor = document.querySelector(".contenedor-2");
+    
+            // Mueve los troncos con velocidad aleatoria cada vez que salen del contenedor
+            document.querySelectorAll(".tronco-1, .tronco-2").forEach(tronco => {
+                moverElemento(tronco, contenedor);
+            });
+    
+            // Mueve las lagartijas con velocidad aleatoria cada vez que salen del contenedor
+            document.querySelectorAll(".lagartija-1, .lagartija-2").forEach(lagartija => {
+                moverElemento(lagartija, contenedor);
+            });
+        });
+    </script>
+
+
+
+</body>
+</html>
