@@ -1,97 +1,137 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="css/master.css">
-    <style>
-      
-      
-    </style>
-
-
-   
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Juego de la Rana</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #222;
+      color: white;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    canvas {
+      background: url(/08-JavaScript/challenge27/carretera.avif);
+      border: 3px solid white;
+    }
+  </style>
 </head>
-<body> 
-    <nav class="controls">
-        <a href="index.html">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
-        </a>
-    </nav>
-    <main>
-        <header>
-            <h1></h1>
-            <H2>
-            </H2>
-        </header>
-        <section>
-          
-        </section>
-    </main>
-    <script>
-        btn1.addEventListener('click', () => {
-            document.querySelector(".contenedor-1").style.display = "none"; 
-            document.querySelector(".contenedor-2").style.display = "flex";
-        });
-    
-        // Función para generar una velocidad aleatoria entre un rango
-        function generarVelocidadAleatoria(min, max) {
-            return Math.random() * (max - min) + min;
+<body>
+  <canvas id="game" width="400" height="400"></canvas>
+
+  <script>
+    const canvas = document.getElementById("game");
+    const ctx = canvas.getContext("2d");
+  
+    // Cargar las imágenes
+    const frogImg = new Image();
+    frogImg.src = "/08-JavaScript/challenge27/image 16.png"; // Ajusta la ruta si la imagen está en otro lugar
+  
+    const carImg = new Image();
+    carImg.src = "/08-JavaScript/challenge27/image 5.png"; // Ajusta la ruta si la imagen del carro está en otro lugar
+  
+    const frog = {
+      x: 180,
+      y: 360,
+      width: 20,
+      height: 20
+    };
+  
+    const cars = [];
+    const lanes = [60, 100, 140, 180];
+  
+    function createCar(laneY) {
+      return {
+        x: Math.random() * 400,
+        y: laneY,
+        width: 40,  // Puedes ajustar el tamaño de la imagen del carro aquí
+        height: 20, // Ajusta el tamaño también si es necesario
+        speed: 2 + Math.random() * 2
+      };
+    }
+  
+    lanes.forEach(lane => {
+      for (let i = 0; i < 2; i++) {
+        cars.push(createCar(lane));
+      }
+    });
+  
+    document.addEventListener("keydown", (e) => {
+      switch (e.key) {
+        case "ArrowUp":
+          frog.y -= 20;
+          break;
+        case "ArrowDown":
+          frog.y += 20;
+          break;
+        case "ArrowLeft":
+          frog.x -= 20;
+          break;
+        case "ArrowRight":
+          frog.x += 20;
+          break;
+      }
+    });
+  
+    function drawFrog() {
+      ctx.drawImage(frogImg, frog.x, frog.y, frog.width, frog.height);
+    }
+  
+    function drawCars() {
+      cars.forEach(car => {
+        ctx.drawImage(carImg, car.x, car.y, car.width, car.height);
+        car.x += car.speed;
+        if (car.x > 400) {
+          car.x = -car.width; // Resetea la posición del carro al llegar al borde
         }
-    
-        // Función para mover un elemento con una velocidad específica
-        function moverElemento(elemento, contenedor) {
-            let posicion = -200; // Comienza fuera de la pantalla (fuera del contenedor)
-            const maxX = contenedor.clientWidth - elemento.offsetWidth; // Calcula el máximo X
-            const randomX = Math.floor(Math.random() * maxX); // Posición aleatoria en X
-    
-            // Calcula la posición inicial de los elementos en la parte inferior del contenedor
-            const posicionY = contenedor.clientHeight - elemento.offsetHeight; // Posición Y en la parte inferior
-    
-            // Coloca el elemento en la posición inicial aleatoria
-            elemento.style.left = `${randomX}px`;
-            elemento.style.top = `${posicionY}px`;
-    
-            // Asignamos una velocidad inicial aleatoria
-            let velocidad = generarVelocidadAleatoria(1, 5); // Velocidad aleatoria inicial
-    
-            function mover() {
-                posicion += velocidad; // Incrementa la posición X del elemento con la velocidad
-    
-                // Si el elemento sale del contenedor, reinicia su posición con una nueva velocidad aleatoria
-                if (posicion > contenedor.clientWidth) {
-                    posicion = -elemento.offsetWidth; // Reinicia la posición
-                    velocidad = generarVelocidadAleatoria(1, 5); // Genera una nueva velocidad aleatoria
-                }
-    
-                // Actualiza la posición del elemento
-                elemento.style.left = `${posicion}px`;
-    
-                // Vuelve a ejecutar la función de movimiento
-                requestAnimationFrame(mover);
-            }
-    
-            mover();
+      });
+    }
+  
+    function checkCollision() {
+      for (let car of cars) {
+        if (
+          frog.x < car.x + car.width &&
+          frog.x + frog.width > car.x &&
+          frog.y < car.y + car.height &&
+          frog.y + frog.height > car.y
+        ) {
+          resetGame();
         }
-    
-        // Función que se ejecuta cuando el DOM está cargado
-        document.addEventListener("DOMContentLoaded", function() {
-            const contenedor = document.querySelector(".contenedor-2");
-    
-            // Mueve los troncos con velocidad aleatoria cada vez que salen del contenedor
-            document.querySelectorAll(".tronco-1, .tronco-2").forEach(tronco => {
-                moverElemento(tronco, contenedor);
-            });
-    
-            // Mueve las lagartijas con velocidad aleatoria cada vez que salen del contenedor
-            document.querySelectorAll(".lagartija-1, .lagartija-2").forEach(lagartija => {
-                moverElemento(lagartija, contenedor);
-            });
-        });
-    </script>
-
-
-
+      }
+    }
+  
+    function resetGame() {
+      alert("¡Ups! Te atropellaron 🐸🚗");
+      frog.x = 180;
+      frog.y = 360;
+    }
+  
+    function checkWin() {
+      if (frog.y <= 0) {
+        alert("¡Ganaste! 🎉🐸");
+        frog.x = 180;
+        frog.y = 360;
+      }
+    }
+  
+    function gameLoop() {
+      ctx.clearRect(0, 0, 400, 400);
+      drawFrog();
+      drawCars();
+      checkCollision();
+      checkWin();
+      requestAnimationFrame(gameLoop);
+    }
+  
+    frogImg.onload = () => {
+      carImg.onload = gameLoop; // Espera a que ambas imágenes estén cargadas
+    };
+  </script>
+  
 </body>
 </html>

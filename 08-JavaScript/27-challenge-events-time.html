@@ -1,151 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="css/master.css">
-    <style>
-        section{
-            
-        }
-      .contenedor-1 {
-        position: relative;
-            align-items: center;
-            justify-content: center;
-            display: flex;
-        }
-        .contenedor-1 .btn-1{
-            position: absolute;
-            top: 620px;
-            background-color: transparent;
-            border: none;
-            left: 40px;
-            cursor: pointer;
-        }
-        .contenedor-1 .btn-1:active{
-            transform: scale(1.1);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Juego de Ranas con Vidas</title>
+  <link rel="stylesheet" href="css/master.css">
+  <style>
+    
 
-        .contenedor-2{
-            display: none;
-            align-items: center;
-            justify-content: center;
-            position: relative;
+    .contenedor-1 {
+      position: relative;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+    }
 
-        }
-        .contenedor-2 .rana{
-            position: absolute;
-        }
+    .contenedor-1 img {
+      width: 100%;
+    }
 
-     
-        .contenedor-2 .tronco-1{
-            position: absolute;
-            left: -250px;
-            top: 500px;            
-        }
-        .contenedor-2 .tronco-2{
-            position: absolute;
-            left: -250px;
-            top: 450px;            
-        }
+    .contenedor-1 .btn-1 {
+      position: absolute;
+      top: 320px;
+      background-color: transparent;
+      border: none;
+      left: 110px;
+      cursor: pointer;
+      width: 50%;
+    }
 
+    .contenedor-1 .btn-1:active {
+      transform: scale(1.1);
+    }
 
-        .rana {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            animation: saltar 1s infinite ease-in-out;
-        }
+    .contenedor-2 {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background-image: url('/08-JavaScript/challenge27/image 22.png');
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+      height: 100%;
+      flex-direction: column;
+    }
 
-        @keyframes saltar {
-            0%, 100% { bottom: 0; }
-            50% { bottom: 100px; }
-        }
+    #vidas {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+      margin-left: -290px;
+    }
 
-      
-      
-    </style>
+    #vidas img {
+        left: 400px;
 
-
-   
+      width: 30px;
+      height: 30px;
+    }
+  </style>
 </head>
-<body> 
+<body>
     <nav class="controls">
         <a href="index.html">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
         </a>
     </nav>
-    <main>
-        <header>
-            <h1></h1>
-            <H2>
-            </H2>
-        </header>
-        <section>
-            <div class="contenedor-1">
-                <img src="/08-JavaScript/challenge27/Group 1.png" alt="">
-                <button class="btn-1"><img src="/08-JavaScript/challenge27/Group 1 (1).png" alt=""></button>
-            </div>
-            <div class="contenedor-2">
-                <img src="/08-JavaScript/challenge27/image 1 (1).png" alt="">
-                <img class="rana" src="/08-JavaScript/challenge27/image 16.png" alt="">
-                <img class="tronco-1" src="/08-JavaScript/challenge27/image 5.png" alt="">
-                <img class="tronco-2" src="/08-JavaScript/challenge27/image 5.png" alt="">
+  <main>
+    <header></header>
+    <section>
+      <div class="contenedor-1">
+        <img src="/08-JavaScript/challenge27/Group 1.png" alt="">
+        <button class="btn-1"><img src="/08-JavaScript/challenge27/Group 1 (1).png" alt=""></button>
+      </div>
+      <div class="contenedor-2">
+        <div id="vidas"></div>
+        <canvas id="game" width="400" height="400"></canvas>
+      </div>
+    </section>
+  </main>
 
-            </div>
-        </section>
-    </main>
-    <script>
-      
-        const btn1 = document.querySelector('.btn-1')
-        const contenedor1 = document.querySelector('.contenedor-1');
-        const contenedor2 = document.querySelector('.contenedor-2');
-        btn1.addEventListener('click', () =>{
-            document.querySelector(".contenedor-1").style.display = "none"; 
-            document.querySelector(".contenedor-2").style.display = "flex";
-        })
+  <script>
+    const btn1 = document.querySelector('.btn-1');
+    const contenedor1 = document.querySelector('.contenedor-1');
+    const contenedor2 = document.querySelector('.contenedor-2');
+    const canvas = document.getElementById("game");
+    const ctx = canvas.getContext("2d");
 
-        function generarVelocidadAleatoria(min, max) {
-        return Math.random() * (max - min) + min;
-    }
+    const vidasContainer = document.getElementById("vidas");
 
-        function moverElemento(elemento, velocidad, contenedor, posicionInicial) { 
-    let posicion = posicionInicial; // Se inicia en la posición deseada
-
-    function mover() {
-        const anchoContenedor = contenedor; // Ancho del contenedor
-        posicion += velocidad; // Se mueve según la velocidad asignada
-
-        if (posicion > anchoContenedor) {
-            posicion = -200; // Reinicia la posición cuando llega al final del contenedor
-        }
-
-        elemento.style.left = posicion + "px";
-        requestAnimationFrame(mover);
-    }
-
-    // Asegura que el elemento empiece en la posición inicial
-    elemento.style.left = posicionInicial + "px"; 
-
-    mover();
-}
-
-    document.addEventListener("DOMContentLoaded", function() {
-        const contenedor = 520;
-        
-        // Llamamos a la función con diferentes posiciones iniciales
-        moverElemento(document.querySelector(".tronco-1"), 3, contenedor, 100); // Inicia en 100px
-        moverElemento(document.querySelector(".tronco-2"), 1, contenedor, 200); // Inicia en 200px
-        moverElemento(document.querySelector(".lagartija-1"), 1, contenedor, 300); // Inicia en 300px
+    // Mostrar juego
+    btn1.addEventListener('click', () => {
+      contenedor1.style.display = "none";
+      contenedor2.style.display = "flex";
+      actualizarVidas();
     });
 
-    </script>
+    const frogImg = new Image();
+    frogImg.src = "/08-JavaScript/challenge27/image 16.png";
+
+    const carImg = new Image();
+    carImg.src = "/08-JavaScript/challenge27/image 5.png";
+
+    const corazonImg = "/08-JavaScript/challenge27/corazon.png";
+
+    let vidas = 3;
+
+    const frog = {
+      x: 180,
+      y: 360,
+      width: 20,
+      height: 20
+    };
+
+    const cars = [];
+    const lanes = [60, 100, 140, 180];
+
+    function createCar(laneY) {
+      return {
+        x: Math.random() * 400,
+        y: laneY,
+        width: 40,
+        height: 20,
+        speed: 2 + Math.random() * 2
+      };
+    }
+
+    lanes.forEach(lane => {
+      for (let i = 0; i < 2; i++) {
+        cars.push(createCar(lane));
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      switch (e.key) {
+        case "ArrowUp":
+          frog.y -= 20;
+          break;
+        case "ArrowDown":
+          frog.y += 20;
+          break;
+        case "ArrowLeft":
+          frog.x -= 20;
+          break;
+        case "ArrowRight":
+          frog.x += 20;
+          break;
+      }
+    });
+
+    function drawFrog() {
+      ctx.drawImage(frogImg, frog.x, frog.y, frog.width, frog.height);
+    }
+
+    function drawCars() {
+      cars.forEach(car => {
+        ctx.drawImage(carImg, car.x, car.y, car.width, car.height);
+        car.x += car.speed;
+        if (car.x > 400) {
+          car.x = -car.width;
+        }
+      });
+    }
+
+    function checkCollision() {
+      for (let car of cars) {
+        if (
+          frog.x < car.x + car.width &&
+          frog.x + frog.width > car.x &&
+          frog.y < car.y + car.height &&
+          frog.y + frog.height > car.y
+        ) {
+          vidas--;
+          actualizarVidas();
+          if (vidas <= 0) {
+            alert("Game Over 😵");
+            vidas = 3;
+            actualizarVidas();
+          }
+          resetFrog();
+        }
+      }
+    }
+
+    function checkWin() {
+      if (frog.y <= 0) {
+        alert("¡Ganaste! 🎉🐸");
+        resetFrog();
+      }
+    }
+
+    function resetFrog() {
+      frog.x = 180;
+      frog.y = 360;
+    }
+
+    function actualizarVidas() {
+      vidasContainer.innerHTML = '';
+      for (let i = 0; i < vidas; i++) {
+        const img = document.createElement("img");
+        img.src = corazonImg;
+        img.alt = "vida";
+        vidasContainer.appendChild(img);
+      }
+    }
+
+    function gameLoop() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawFrog();
+      drawCars();
+      checkCollision();
+      checkWin();
+      requestAnimationFrame(gameLoop);
+    }
+
+    frogImg.onload = () => {
+      carImg.onload = gameLoop;
+    };
+  </script>
 </body>
 </html>
-
-
-
-
