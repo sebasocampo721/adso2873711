@@ -78,6 +78,7 @@
   <main>
     <header></header>
     <section>
+      
       <div class="contenedor-1">
         <img src="/08-JavaScript/challenge27/Group 1.png" alt="">
         <button class="btn-1"><img src="/08-JavaScript/challenge27/Group 1 (1).png" alt=""></button>
@@ -90,29 +91,28 @@
   </main>
 
   <script>
-    const btn1 = document.querySelector('.btn-1');
-    const contenedor1 = document.querySelector('.contenedor-1');
-    const contenedor2 = document.querySelector('.contenedor-2');
-    const canvas = document.getElementById("game");
-    const ctx = canvas.getContext("2d");
+    const btn1 = document.querySelector('.btn-1')
+    const contenedor1 = document.querySelector('.contenedor-1')
+    const contenedor2 = document.querySelector('.contenedor-2')
+    const canvas = document.getElementById("game")
+    const ctx = canvas.getContext("2d")
 
-    const vidasContainer = document.getElementById("vidas");
+    const vidasContainer = document.getElementById("vidas")
 
-    // Mostrar juego
     btn1.addEventListener('click', () => {
-      contenedor1.style.display = "none";
-      contenedor2.style.display = "flex";
-      vidas = 3; // Reinicia las vidas a 3
-      actualizarVidas(); // Actualiza la visualización de las vidas
+      contenedor1.style.display = "none"
+      contenedor2.style.display = "flex"
+      vidas = 3
+      actualizarVidas()
     });
 
-    const frogImg = new Image();
-    frogImg.src = "/08-JavaScript/challenge27/image 16.png";
+    const frogImg = new Image()
+    frogImg.src = "/08-JavaScript/challenge27/image 16.png"
 
-    const troncoImg = new Image();
-    troncoImg.src = "/08-JavaScript/challenge27/image 5.png";
+    const troncoImg = new Image()
+    troncoImg.src = "/08-JavaScript/challenge27/image 5.png"
 
-    const corazonImg = "/08-JavaScript/challenge27/corazon.png";
+    const corazonImg = "/08-JavaScript/challenge27/corazon.png"
 
     let vidas = 3;
 
@@ -121,10 +121,10 @@
       y: 360,
       width: 20,
       height: 20
-    };
+    }
 
-    const troncos = [];
-    const lanes = [60, 100, 140, 180, 220, 260, 300]; // Añadir más líneas para los troncos
+    const troncos = []
+    const lanes = [60, 100, 140, 180, 220, 260, 300]
 
     function createtronco(laneY) {
       return {
@@ -133,14 +133,14 @@
         width: 40,
         height: 20,
         velocidad: 2 + Math.random() * 2
-      };
+      }
     }
 
     lanes.forEach(lane => {
-      for (let i = 0; i < 3; i++) {  // Aumentar la cantidad de troncos por línea
-        troncos.push(createtronco(lane));
+      for (let i = 0; i < 3; i++) { 
+        troncos.push(createtronco(lane))
       }
-    });
+    })
 
     document.addEventListener("keydown", (e) => {
       switch (e.key) {
@@ -154,23 +154,23 @@
           frog.x -= 20;
           break;
         case "ArrowRight":
-          frog.x += 20;
+          frog.x += 20
           break;
       }
     });
 
     function troncoD() {
-      ctx.drawImage(frogImg, frog.x, frog.y, frog.width, frog.height);
+      ctx.drawImage(frogImg, frog.x, frog.y, frog.width, frog.height)
     }
 
     function drawtroncos() {
       troncos.forEach(tronco => {
-        ctx.drawImage(troncoImg, tronco.x, tronco.y, tronco.width, tronco.height);
-        tronco.x += tronco.velocidad;
+        ctx.drawImage(troncoImg, tronco.x, tronco.y, tronco.width, tronco.height)
+        tronco.x += tronco.velocidad
         if (tronco.x > 400) {
-          tronco.x = -tronco.width;
+          tronco.x = -tronco.width
         }
-      });
+      })
     }
 
     function Collision() {
@@ -181,54 +181,54 @@
           frog.y < tronco.y + tronco.height &&
           frog.y + frog.height > tronco.y
         ) {
-          vidas--;
-          actualizarVidas(); 
+          vidas--
+          actualizarVidas()
           if (vidas <= 0) {
-            alert("Game Over 😵");
-            vidas = 3; 
-            actualizarVidas(); 
+            alert("Game Over 😵")
+            vidas = 3 
+            actualizarVidas()
           }
-          resetFrog();
+          resetFrog()
         }
       }
     }
 
     function win() {
       if (frog.y <= 0) {
-        alert("¡Ganaste! 🎉🐸");
-        vidas = 3; 
-        actualizarVidas();
-        resetFrog();
+        alert("¡Ganaste! 🎉🐸")
+        vidas = 3
+        actualizarVidas()
+        resetFrog()
       }
     }
 
     function resetFrog() {
-      frog.x = 180;
-      frog.y = 360;
+      frog.x = 180
+      frog.y = 360
     }
 
     function actualizarVidas() {
-      vidasContainer.innerHTML = '';
+      vidasContainer.innerHTML = ''
       for (let i = 0; i < vidas; i++) {
-        const img = document.createElement("img");
-        img.src = corazonImg;
-        img.alt = "vida";
-        vidasContainer.appendChild(img);
+        const img = document.createElement("img")
+        img.src = corazonImg
+        img.alt = "vida"
+        vidasContainer.appendChild(img)
       }
     }
 
     function game() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      troncoD();
-      drawtroncos();
-      Collision();
-      win();
-      requestAnimationFrame(game);
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      troncoD()
+      drawtroncos()
+      Collision()
+      win()
+      requestAnimationFrame(game)
     }
 
     frogImg.onload = () => {
-      troncoImg.onload = game;
-    };
+      troncoImg.onload = game
+    }
   </script>
 </body>
 </html>
