@@ -1,66 +1,138 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Juego de la Rana</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Juego de tronco</title>
+  <link rel="stylesheet" href="css/master.css">
   <style>
-    body {
-      margin: 0;
-      background-color: #222;
-      color: white;
-      font-family: sans-serif;
-      display: flex;
-      justify-content: center;
+
+    
+    .contenedor-1 {
+      position: relative;
       align-items: center;
-      height: 100vh;
+      justify-content: center;
+      display: flex;
     }
-    canvas {
-      background: url(/08-JavaScript/challenge27/carretera.avif);
-      border: 3px solid white;
+
+    .contenedor-1 img {
+      width: 100%;
+    }
+
+    .contenedor-1 .btn-1 {
+      position: absolute;
+      top: 320px;
+      background-color: transparent;
+      border: none;
+      left: 110px;
+      cursor: pointer;
+      width: 50%;
+    }
+
+    .contenedor-1 .btn-1:active {
+      transform: scale(1.1);
+    }
+
+    .contenedor-2 {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background-image: url('/08-JavaScript/challenge27/image 22.png');
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+      height: 100%;
+      flex-direction: column;
+    }
+
+    #vidas {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+      margin-left: -290px;
+    }
+
+    #vidas img {
+      left: 400px;
+      width: 30px;
+      height: 30px;
     }
   </style>
 </head>
 <body>
-  <canvas id="game" width="400" height="400"></canvas>
+  <nav class="controls">
+    <a href="index.html">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome icon --><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+    </a>
+  </nav>
+  <main>
+    <header></header>
+    <section>
+      <div class="contenedor-1">
+        <img src="/08-JavaScript/challenge27/Group 1.png" alt="">
+        <button class="btn-1"><img src="/08-JavaScript/challenge27/Group 1 (1).png" alt=""></button>
+      </div>
+      <div class="contenedor-2">
+        <div id="vidas"></div>
+        <canvas id="game" width="400" height="400"></canvas>
+      </div>
+    </section>
+  </main>
 
   <script>
+    const btn1 = document.querySelector('.btn-1');
+    const contenedor1 = document.querySelector('.contenedor-1');
+    const contenedor2 = document.querySelector('.contenedor-2');
     const canvas = document.getElementById("game");
     const ctx = canvas.getContext("2d");
-  
-    // Cargar las imágenes
+
+    const vidasContainer = document.getElementById("vidas");
+
+    // Mostrar juego
+    btn1.addEventListener('click', () => {
+      contenedor1.style.display = "none";
+      contenedor2.style.display = "flex";
+      vidas = 3; // Reinicia las vidas a 3
+      actualizarVidas(); // Actualiza la visualización de las vidas
+    });
+
     const frogImg = new Image();
-    frogImg.src = "/08-JavaScript/challenge27/image 16.png"; // Ajusta la ruta si la imagen está en otro lugar
-  
-    const carImg = new Image();
-    carImg.src = "/08-JavaScript/challenge27/image 5.png"; // Ajusta la ruta si la imagen del carro está en otro lugar
-  
+    frogImg.src = "/08-JavaScript/challenge27/image 16.png";
+
+    const troncoImg = new Image();
+    troncoImg.src = "/08-JavaScript/challenge27/image 5.png";
+
+    const corazonImg = "/08-JavaScript/challenge27/corazon.png";
+
+    let vidas = 3;
+
     const frog = {
       x: 180,
       y: 360,
       width: 20,
       height: 20
     };
-  
-    const cars = [];
-    const lanes = [60, 100, 140, 180];
-  
-    function createCar(laneY) {
+
+    const troncos = [];
+    const lanes = [60, 100, 140, 180, 220, 260, 300]; // Añadir más líneas para los troncos
+
+    function createtronco(laneY) {
       return {
         x: Math.random() * 400,
         y: laneY,
-        width: 40,  // Puedes ajustar el tamaño de la imagen del carro aquí
-        height: 20, // Ajusta el tamaño también si es necesario
-        speed: 2 + Math.random() * 2
+        width: 40,
+        height: 20,
+        velocidad: 2 + Math.random() * 2
       };
     }
-  
+
     lanes.forEach(lane => {
-      for (let i = 0; i < 2; i++) {
-        cars.push(createCar(lane));
+      for (let i = 0; i < 3; i++) {  // Aumentar la cantidad de troncos por línea
+        troncos.push(createtronco(lane));
       }
     });
-  
+
     document.addEventListener("keydown", (e) => {
       switch (e.key) {
         case "ArrowUp":
@@ -77,61 +149,77 @@
           break;
       }
     });
-  
-    function drawFrog() {
+
+    function troncoD() {
       ctx.drawImage(frogImg, frog.x, frog.y, frog.width, frog.height);
     }
-  
-    function drawCars() {
-      cars.forEach(car => {
-        ctx.drawImage(carImg, car.x, car.y, car.width, car.height);
-        car.x += car.speed;
-        if (car.x > 400) {
-          car.x = -car.width; // Resetea la posición del carro al llegar al borde
+
+    function drawtroncos() {
+      troncos.forEach(tronco => {
+        ctx.drawImage(troncoImg, tronco.x, tronco.y, tronco.width, tronco.height);
+        tronco.x += tronco.velocidad;
+        if (tronco.x > 400) {
+          tronco.x = -tronco.width;
         }
       });
     }
-  
-    function checkCollision() {
-      for (let car of cars) {
+
+    function Collision() {
+      for (let tronco of troncos) {
         if (
-          frog.x < car.x + car.width &&
-          frog.x + frog.width > car.x &&
-          frog.y < car.y + car.height &&
-          frog.y + frog.height > car.y
+          frog.x < tronco.x + tronco.width &&
+          frog.x + frog.width > tronco.x &&
+          frog.y < tronco.y + tronco.height &&
+          frog.y + frog.height > tronco.y
         ) {
-          resetGame();
+          vidas--;
+          actualizarVidas(); 
+          if (vidas <= 0) {
+            alert("Game Over 😵");
+            vidas = 3; 
+            actualizarVidas(); 
+          }
+          resetFrog();
         }
       }
     }
-  
-    function resetGame() {
-      alert("¡Ups! Te atropellaron 🐸🚗");
+
+    function win() {
+      if (frog.y <= 0) {
+        alert("¡Ganaste! 🎉🐸");
+        vidas = 3; 
+        actualizarVidas();
+        resetFrog();
+      }
+    }
+
+    function resetFrog() {
       frog.x = 180;
       frog.y = 360;
     }
-  
-    function checkWin() {
-      if (frog.y <= 0) {
-        alert("¡Ganaste! 🎉🐸");
-        frog.x = 180;
-        frog.y = 360;
+
+    function actualizarVidas() {
+      vidasContainer.innerHTML = '';
+      for (let i = 0; i < vidas; i++) {
+        const img = document.createElement("img");
+        img.src = corazonImg;
+        img.alt = "vida";
+        vidasContainer.appendChild(img);
       }
     }
-  
-    function gameLoop() {
-      ctx.clearRect(0, 0, 400, 400);
-      drawFrog();
-      drawCars();
-      checkCollision();
-      checkWin();
-      requestAnimationFrame(gameLoop);
+
+    function game() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      troncoD();
+      drawtroncos();
+      Collision();
+      win();
+      requestAnimationFrame(game);
     }
-  
+
     frogImg.onload = () => {
-      carImg.onload = gameLoop; // Espera a que ambas imágenes estén cargadas
+      troncoImg.onload = game;
     };
   </script>
-  
 </body>
 </html>
