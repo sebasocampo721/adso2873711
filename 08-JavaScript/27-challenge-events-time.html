@@ -68,6 +68,7 @@
       height: 30px;
     }
 
+    /* Tarjeta de mensaje */
     .mensaje {
       position: fixed;
       top: 30%;
@@ -121,9 +122,10 @@
         <canvas id="game" width="400" height="400"></canvas>
       </div>
 
+      <!-- Tarjeta flotante -->
       <div id="mensaje" class="mensaje oculto">
         <p id="texto-mensaje"></p>
-        <button onclick="cerrarMensaje()">Aceptar</button>
+        <button onclick="cerrarMensaje()">Cerrar</button>
       </div>
     </section>
   </main>
@@ -135,9 +137,10 @@
     const canvas = document.getElementById("game")
     const ctx = canvas.getContext("2d")
 
+
     const vidasContainer = document.getElementById("vidas")
     let vidas = 3
-    let juegoActivo = true 
+    let juegoActivo = true // Variable para controlar el estado del juego
 
     btn1.addEventListener('click', () => {
       contenedor1.style.display = "none"
@@ -163,6 +166,9 @@
 
     const troncos = []
     const lanes = [60, 100, 140, 180, 220, 260, 300]
+
+    // Sonido de colisión
+    const sonidoColision = new Audio('/08-JavaScript/challenge27/car-crash_ext-6388.mp3')
 
     function createtronco(laneY) {
       return {
@@ -212,6 +218,7 @@
           frog.y < tronco.y + tronco.height &&
           frog.y + frog.height > tronco.y
         ) {
+          sonidoColision.play() // Reproduce el sonido de la colisión
           vidas--
           actualizarVidas()
           if (vidas <= 0) {
@@ -247,9 +254,9 @@
     function mostrarMensaje(texto) {
       const mensaje = document.getElementById('mensaje')
       const textoMensaje = document.getElementById('texto-mensaje')
-      textoMensaje.textContent = texto;
+      textoMensaje.textContent = texto
       mensaje.classList.remove('oculto')
-      juegoActivo = false
+      juegoActivo = false;
     }
 
     function cerrarMensaje() {
