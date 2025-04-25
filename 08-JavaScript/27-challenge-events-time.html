@@ -6,7 +6,6 @@
   <title>Juego de tronco</title>
   <link rel="stylesheet" href="css/master.css">
   <style>
-
     body {
       margin: 0;
       padding: 0;
@@ -15,6 +14,7 @@
       background-position: center;
       background-repeat: no-repeat;
     }
+
     .contenedor-1 {
       position: relative;
       align-items: center;
@@ -41,19 +41,19 @@
     }
 
     .contenedor-2 {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    background-image: url('/08-JavaScript/challenge27/image 22.png');
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); 
-  }
+      display: none;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background-image: url('/08-JavaScript/challenge27/image 22.png');
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+      height: 100%;
+      flex-direction: column;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); 
+    }
 
     #vidas {
       display: flex;
@@ -67,25 +67,63 @@
       width: 30px;
       height: 30px;
     }
+
+    .mensaje {
+      position: fixed;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -30%);
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      z-index: 999;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .mensaje button {
+      margin-top: 15px;
+      padding: 8px 15px;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .mensaje button:hover {
+      background-color: #45a049;
+    }
+
+    .oculto {
+      display: none;
+    }
   </style>
 </head>
 <body>
   <nav class="controls">
     <a href="index.html">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome icon --><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
     </a>
   </nav>
   <main>
     <header></header>
     <section>
-      
       <div class="contenedor-1">
         <img src="/08-JavaScript/challenge27/Group 1.png" alt="">
         <button class="btn-1"><img src="/08-JavaScript/challenge27/Group 1 (1).png" alt=""></button>
       </div>
+
       <div class="contenedor-2">
         <div id="vidas"></div>
         <canvas id="game" width="400" height="400"></canvas>
+      </div>
+
+      <div id="mensaje" class="mensaje oculto">
+        <p id="texto-mensaje"></p>
+        <button onclick="cerrarMensaje()">Aceptar</button>
       </div>
     </section>
   </main>
@@ -98,6 +136,8 @@
     const ctx = canvas.getContext("2d")
 
     const vidasContainer = document.getElementById("vidas")
+    let vidas = 3
+    let juegoActivo = true 
 
     btn1.addEventListener('click', () => {
       contenedor1.style.display = "none"
@@ -113,8 +153,6 @@
     troncoImg.src = "/08-JavaScript/challenge27/image 5.png"
 
     const corazonImg = "/08-JavaScript/challenge27/corazon.png"
-
-    let vidas = 3;
 
     const frog = {
       x: 180,
@@ -143,19 +181,12 @@
     })
 
     document.addEventListener("keydown", (e) => {
+      if (!juegoActivo) return; // Si el juego está detenido, no se mueve la rana
       switch (e.key) {
-        case "ArrowUp":
-          frog.y -= 20;
-          break;
-        case "ArrowDown":
-          frog.y += 20;
-          break;
-        case "ArrowLeft":
-          frog.x -= 20;
-          break;
-        case "ArrowRight":
-          frog.x += 20
-          break;
+        case "ArrowUp": frog.y -= 20; break;
+        case "ArrowDown": frog.y += 20; break;
+        case "ArrowLeft": frog.x -= 20; break;
+        case "ArrowRight": frog.x += 20; break;
       }
     });
 
@@ -184,21 +215,17 @@
           vidas--
           actualizarVidas()
           if (vidas <= 0) {
-            alert("Game Over 😵")
-            vidas = 3 
-            actualizarVidas()
+            mostrarMensaje("Game Over 😵")
+          } else {
+            resetFrog()
           }
-          resetFrog()
         }
       }
     }
 
     function win() {
       if (frog.y <= 0) {
-        alert("¡Ganaste! 🎉🐸")
-        vidas = 3
-        actualizarVidas()
-        resetFrog()
+        mostrarMensaje("¡Ganaste! 🎉🐸")
       }
     }
 
@@ -217,7 +244,22 @@
       }
     }
 
+    function mostrarMensaje(texto) {
+      const mensaje = document.getElementById('mensaje')
+      const textoMensaje = document.getElementById('texto-mensaje')
+      textoMensaje.textContent = texto;
+      mensaje.classList.remove('oculto')
+      juegoActivo = false
+    }
+
+    function cerrarMensaje() {
+      const mensaje = document.getElementById('mensaje')
+      mensaje.classList.add('oculto')
+      location.reload()
+    }
+
     function game() {
+      if (!juegoActivo) return; 
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       troncoD()
       drawtroncos()
