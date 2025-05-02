@@ -1,192 +1,128 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Cazador de Tiempos</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: #111;
-      color: #fff;
-      font-family: sans-serif;
-      overflow: hidden;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>local storage</title>
+    <link rel="stylesheet" href="css/master.css">
+    <style>
+      section{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+      button {
+        background-color: rgb(241, 225, 152);
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        padding: 0.6rem;
+        width: 80px;
+      }
+      input{
+        border: 2px solid black;
+        border-radius: 5px;
+        padding: 0.5rem;
+        width: 140px;
+      }
+      ol {
+        list-style-position: inside;
+        padding: 0;
+        margin: 2rem auto;
+        width: 300px;
+        li{
+          background-color: #fff8;
+          padding: 2px;
+          display: flex;
+          align-items: center;
+          border-bottom: 2px solid red;
+          justify-content: space-between;
+          &:last-child{
+            border-bottom: none;
+          }
+          span{
+            cursor: pointer;
+            background-color: rgb(255, 0, 0);
+            border-radius: 10px ;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            height: 16px;
+            width: 16px;
+          }
+        }
+      }
+      
+    </style>
 
-    #game {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-    }
 
-    .object {
-      position: absolute;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    #circle {
-      background: #4caf50;
-    }
-
-    #bad {
-      background: #e53935;
-      display: none;
-    }
-
-    #hud {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      font-size: 1.2em;
-    }
-
-    #message {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 2em;
-      display: none;
-      text-align: center;
-    }
-
-    button {
-      margin-top: 15px;
-      padding: 10px 20px;
-      font-size: 1em;
-      cursor: pointer;
-    }
-  </style>
+   
 </head>
-<body>
+<body> 
+    <nav class="controls">
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+        </a>
+    </nav>
+    <main>
+        <header>
+            <h1>29 local storage</h1>
+            <H2>almacena datos en el navegador 
+            </H2>
+        </header>
+        <section>
+          <div >
+            <input type="text" placeholder="Type task">
+            <button>Add</button>
+          </div>
+          <ol class="tasks">
+            
+          </ol>
+        </section>
+    </main>
+    <script>
+      
+      const task = document.querySelector('input')
+      const btnAdd = document.querySelector('button')
+      const tasks = document.querySelector('.tasks')
 
-  <div id="game">
-    <div id="hud">
-      Tiempo: <span id="time">30</span> | 
-      Puntos: <span id="score">0</span> |
-      Vidas: <span id="lives">3</span>
-    </div>
+      btnAdd.addEventListener('click', function(){
+        if (task.value.length > 0) {
+          tasks.innerHTML += `<li>${task.value} <span>&times;</span></li>`
+          task.value = ''
+          saveTasks()
+        }else{
+          alert('please type a task to add!')
+        }
+      })
 
-    <div id="message">
-      ¡Juego Terminado!<br>
-      Puntaje final: <span id="finalScore"></span><br>
-      <button onclick="startGame()">Reiniciar</button>
-    </div>
+      function showTask() {
+        if(localStorage.getItem('tasks')){
+          tasks.innerHTML = localStorage.getItem('tasks')
+        }
+      }
 
-    <div id="circle" class="object"></div>
-    <div id="bad" class="object">❌</div>
-  </div>
+      function saveTasks(){
+        localStorage.setItem('tasks', tasks.innerHTML)
 
-  <script src="game.js"></script>
-  <script>
-    const circle = document.getElementById("circle");
-const bad = document.getElementById("bad");
-const timeDisplay = document.getElementById("time");
-const scoreDisplay = document.getElementById("score");
-const livesDisplay = document.getElementById("lives");
-const message = document.getElementById("message");
-const finalScore = document.getElementById("finalScore");
+        
+      }
 
-let time = 30;
-let score = 0;
-let lives = 3;
-let gameInterval;
-let moveInterval;
-let badInterval;
+      function allowRemove() {
+        const btnRemove = document.querySelectorAll('li span')
+        btnRemove.forEach(element =>{
+          element.addEventListener('click', function(){
+            this.parentNode.remove()
+            saveTasks()
+          })
+        })
+      }
 
-function getRandomPosition() {
-  const maxX = window.innerWidth - 60;
-  const maxY = window.innerHeight - 60;
-  return {
-    x: Math.floor(Math.random() * maxX),
-    y: Math.floor(Math.random() * maxY)
-  };
-}
-
-function moveCircle() {
-  const { x, y } = getRandomPosition();
-  circle.style.left = `${x}px`;
-  circle.style.top = `${y}px`;
-}
-
-function moveBad() {
-  const { x, y } = getRandomPosition();
-  bad.style.left = `${x}px`;
-  bad.style.top = `${y}px`;
-  bad.style.display = "block";
-
-  // Ocultar después de cierto tiempo si no lo tocan
-  setTimeout(() => {
-    if (bad.style.display === "block") {
-      bad.style.display = "none";
-    }
-  }, 1200);
-}
-
-function updateHUD() {
-  timeDisplay.textContent = time;
-  scoreDisplay.textContent = score;
-  livesDisplay.textContent = lives;
-}
-
-function endGame() {
-  clearInterval(gameInterval);
-  clearInterval(moveInterval);
-  clearInterval(badInterval);
-  circle.style.display = "none";
-  bad.style.display = "none";
-  finalScore.textContent = score;
-  message.style.display = "block";
-}
-
-function startGame() {
-  time = 30;
-  score = 0;
-  lives = 3;
-  updateHUD();
-  message.style.display = "none";
-  circle.style.display = "block";
-  bad.style.display = "none";
-
-  gameInterval = setInterval(() => {
-    time--;
-    updateHUD();
-    if (time <= 0 || lives <= 0) {
-      endGame();
-    }
-  }, 1000);
-
-  moveInterval = setInterval(() => {
-    moveCircle();
-  }, 1000);
-
-  badInterval = setInterval(() => {
-    moveBad();
-  }, 3000); // Aparece cada 3 segundos aprox
-}
-
-circle.addEventListener("click", () => {
-  score++;
-  time += 2;
-  updateHUD();
-  moveCircle();
-});
-
-bad.addEventListener("click", () => {
-  lives--;
-  updateHUD();
-  bad.style.display = "none";
-  if (lives <= 0) {
-    endGame();
-  }
-});
-
-startGame();
-
-  </script>
+      showTask()
+      allowRemove()
+    </script>
 </body>
 </html>

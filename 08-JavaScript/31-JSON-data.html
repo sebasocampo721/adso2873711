@@ -3,20 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pop up</title>
+    <title></title>
     <link rel="stylesheet" href="css/master.css">
     <style>
       
-      button {
-        display: flex;
-        margin: 1rem auto;
-        background-color: rgb(241, 225, 152);
-        border-radius: 5px;
-        border: none;
-        cursor: pointer;
-        padding: 0.6rem;
-        width: 100px;
-      }
+      
     </style>
 
 
@@ -30,29 +21,13 @@
     </nav>
     <main>
         <header>
-            <h1>28- pop up</h1>
+            <h1></h1>
             <H2>
             </H2>
         </header>
         <section>
-          <button class="btn-init">Launch question</button>
+          
         </section>
     </main>
-    <script>
-      btnInit = document.querySelector('.btn-init')
-        
-      btnInit.addEventListener('click', () =>{
-        if (confirm('are you ready to aswer the question ?')) {
-          const answer = prompt('How many planets in solar systemp?')
-          if (answer==8) {
-            alert('congratulations, its correct!')
-          }else{
-            alert('sorry, try again')
-          }
-        }else{
-          alert('thanks for nothing')
-        }
-      })
-    </script>
 </body>
 </html>
