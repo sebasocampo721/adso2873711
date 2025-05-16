@@ -3,31 +3,487 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
     <link rel="stylesheet" href="css/master.css">
+    <title>Reproductor de Musica</title>
     <style>
-      
-      
+        @font-face {
+            font-family: Helvetica;
+            src: url(fonts/Helvetica.ttf);
+        }
+
+        * {
+            font-family: Helvetica;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav.controls {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 100;
+        }
+        
+        nav.controls a:is(:link, :visited) {
+            border-radius: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #0009;
+            height: 40px;
+            transform: scale(0.8);
+            opacity: 0.6;
+            padding: 10px;
+            width: 40px;
+            transition: all 0.4s ease-in;
+        }
+        
+        nav.controls a:is(:hover) {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        nav.controls svg {
+            width: 40px;
+        }
+    
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            flex: 1;
+            padding: 20px;
+        }
+
+        section.iPod {
+            margin-top: 20px;
+            height: 620px;
+            width: 371px;
+            background: url(images/mp3player/cuerpo.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            position: relative;
+        }
+
+        div.pantalla {
+            height: 45%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        div.controls {
+            height: 55%;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+
+        div.screen {
+            width: 317px;
+            height: 242px;
+            margin-top: 17px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            background-color: #303433;
+        }
+        
+        div.content-screen {
+            width: 306px;
+            height: 230px;
+            background-color: #ffffff;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            transition: .3s all ease-in;
+        }
+        
+        div.circle-buttons {
+            width: 228px;
+            height: 228px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 50%;
+            background: url(images/mp3player/circle-buttons.png);
+            background-size: contain;
+        }
+
+        div.menu {
+            height: calc(228px/3);
+            width: 50%;
+            border-radius: 42px;
+            display: flex;
+            justify-content: center;
+            align-items: start;
+        }
+
+        div.songs {
+            height: calc(228px/3);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 20px;
+        }
+
+        div.prev {
+            height: 100%;
+            width: 33%;
+            border-radius: 22px;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+        }
+
+        div.next {
+            height: 100%;
+            width: 33%;
+            border-radius: 22px;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+        }
+
+        div.play-pause {
+            height: calc(228px/3);
+            width: 50%;
+            border-radius: 42px;
+            display: flex;
+            justify-content: center;
+            align-items: end;
+        }
+
+        button {
+            margin: 0;
+            padding: 0;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        button.prev {
+            margin-left: 12px;
+        }
+
+        button.next {
+            margin-right: 12px;
+        }
+
+        button.menu {
+            margin-top: 15px;
+        }
+
+        button.play-pause {
+            margin-bottom: 8px;
+        }
+
+        div.info-bar {
+            width: 100%;
+            height: 19px;
+            border-bottom: 1px solid #586669;
+            background: #F8F8F8;
+            background: linear-gradient(0deg,rgba(248, 248, 248, 1) 0%, rgba(164, 174, 176, 1) 100%);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        div.info-song {
+            width: 100%;
+            height: 210px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        div.name {
+            width: 80%;
+            height: 100%;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            padding-left: 5px;
+        }
+        
+        div.name h5 {
+            font-weight: 100;
+        }
+
+        div.battery {
+            width: 20%;
+            height: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        div.play {
+            width: 9.5px;
+            height: 10px;
+            transition: .2s all ease-in;
+        }
+
+        div.bateria {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 22.5px;
+            height: 10px;
+        }
+
+        div.portada {
+            width: 50%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+
+        div.cover {
+            width: 122px;
+            height: 154px;
+            background-size: cover !important;
+        }
+
+        div.info-song-one {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            padding-left: 5px;
+            margin-bottom: 20px;
+        }
+        
+        div.info-song-one .title, 
+        div.info-song-one .year {
+            font-size: 15px;
+            font-weight: bold;
+            color: #000000;
+        }
+        
+        div.info-song-one .year {
+            margin-top: -3px;
+        }
+        
+        div.info-song-one .artist, 
+        div.info-song-one .album {
+            font-size: 13px;
+            font-weight: 200;
+            color: #353535;
+        }
+        
+        div.info-song-one .stars {
+            margin-top: -3px;
+            margin-left: -2px;
+        }
+
+        /* Media queries para responsive */
+        @media (max-width: 480px) {
+            section.iPod {
+                transform: scale(0.8);
+                transform-origin: center;
+                margin-top: 0;
+            }
+
+            main {
+                padding: 0;
+            }
+        }
+
+        @media (max-width: 380px) {
+            section.iPod {
+                transform: scale(0.7);
+                transform-origin: center;
+                margin-top: -40px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            section.iPod {
+                transform: scale(0.6);
+                transform-origin: center;
+                margin-top: -60px;
+            }
+        }
+
+        /* Manejar orientación horizontal en móviles */
+        @media (max-height: 480px) and (orientation: landscape) {
+            section.iPod {
+                transform: scale(0.6);
+                transform-origin: center;
+                margin-top: -60px;
+            }
+
+            body {
+                min-height: 480px;
+            }
+        }
     </style>
-
-
-   
 </head>
-<body> 
+<body>
     <nav class="controls">
         <a href="index.html">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path fill="#ffffff"
+                    d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" />
+            </svg>
         </a>
-    </nav>
+    </nav>  
     <main>
-        <header>
-            <h1></h1>
-            <H2>
-            </H2>
-        </header>
-        <section>
-          
+        <section class="iPod">
+            <div class="pantalla">
+                <div class="screen">
+                    <div class="content-screen">
+                        <div class="info-bar">
+                            <div class="name">
+                                <h5>iPod</h5>
+                            </div>
+                            <div class="battery">
+                                <div class="play">
+                                    
+                                </div>
+                                <div class="bateria">
+                                    <img src="images/mp3play    er/bateria.png" alt="bateria">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-song">
+                            <div class="portada">
+                                <div class="cover"></div>
+                            </div>
+                            <div class="info-song-one">
+                                <div class="title"></div>
+                                <div class="artist"></div>
+                                <div class="album"></div>
+                                <div class="stars">
+                                    <img src="images/mp3player/stars.png" alt="stars">
+                                </div>
+                                <div class="year"></div>
+                            </div>
+                        </div>
+                        <audio src=""></audio>
+                    </div>
+                </div>
+            </div>
+            <div class="controls">
+                <div class="circle-buttons">
+                    <div class="menu">
+                        <button class="menu">
+                            <img src="images/mp3player/play.svg" alt="menu">
+                        </button>
+                    </div>
+                    <div class="songs">
+                        <div class="prev">
+                            <button class="prev">
+                                <img src="images/mp3player/prev.svg" alt="prev">
+                            </button>
+                        </div>
+                        <div class="next">
+                            <button class="next">
+                                <img src="images/mp3player/next.svg" alt="next">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="play-pause">
+                        <button class="play-pause">
+                            <img src="images/mp3player/pause.svg" alt="play_pause">
+                        </button>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
+    <script>
+        // Elements
+        const cover     = document.querySelector('.cover')
+        const title     = document.querySelector('.title')
+        const album     = document.querySelector('.album')
+        const artist    = document.querySelector('.artist')
+        const year      = document.querySelector('.year')
+        const btnPrev   = document.querySelector('.prev')
+        const btnNext   = document.querySelector('.next')
+        const playPause = document.querySelector('.play-pause')
+        const audio     = document.querySelector('audio')
+        const play      = document.querySelector('.play')
+
+
+        // Variables
+        let songs        = []
+        let currentSong = 0
+        let isPLaying   = false
+
+        // Functions
+        function loadSong(index) {
+            const song = songs[index]
+            cover.style.background  = `url(${song.cover}) no-repeat center`
+            title.textContent       = song.title
+            album.textContent       = song.album
+            artist.textContent      = song.artist
+            year.textContent        = song.year
+            audio.src               = song.song
+            // console.table(song)
+        }
+
+        // Eventes 
+        playPause.addEventListener('click', (e) => {
+            if(isPLaying) {
+                audio.pause()
+                play.style.background = `url(images/mp3player/pause.png) center no-repeat`
+            }
+            else{
+                audio.play()
+                play.style.background = `url(images/mp3player/play.png) center no-repeat`
+
+            }
+            isPLaying = !isPLaying
+        })
+
+        btnNext.addEventListener('click', (e) => {
+            if (currentSong < songs.length-1){
+                currentSong += 1
+            } else {
+                currentSong = 0
+            }
+            loadSong(currentSong)
+            isPLaying = false
+        })
+
+        btnPrev.addEventListener('click', (e) => {
+            if (currentSong > 0){
+                currentSong -= 1
+            } else {
+                currentSong = songs.length-1
+            }
+            loadSong(currentSong)
+            isPLaying = false
+        })
+
+        fetch('json/playlist.json')
+            .then(response => response.json())
+            .then(data => {
+                songs = data.songs
+                loadSong(currentSong)
+            }).catch(error => console.error('Error: ', error))
+    </script>
 </body>
 </html>

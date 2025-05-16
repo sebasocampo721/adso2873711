@@ -3,31 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Sprite esqueleto</title>
     <link rel="stylesheet" href="css/master.css">
     <style>
-      
-      
+        .container {
+            position: relative;
+            width: 800px;
+            height: 400px;
+            margin: auto;
+            background-color: #E3DCC3;
+        }
+
+        .esqueleto {
+            top: 40%;
+            left: 40%;
+            position: absolute;
+            width: 83px; /* Un solo frame de ancho */
+            height: 100px; /* Un solo frame de alto */
+            background-image: url('./IMG 32/image 4.png'); 
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            image-rendering: pixelated;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .controls button {
+            width: 50px;
+            height: 50px;
+            background-color: #444;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+        }
     </style>
-
-
-   
 </head>
 <body> 
     <nav class="controls">
         <a href="index.html">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
         </a>
     </nav>
     <main>
         <header>
-            <h1></h1>
-            <H2>
-            </H2>
+            <h1>Sprite esqueleto</h1>
+            <h2>Controla tu esqueleto</h2>
         </header>
-        <section>
-          
+        <section class="container">
+            <div class="esqueleto"></div>
+            <div class="controls">
+                <button class="left">idle</button>
+                <button class="idle">walk</button>
+                <button class="right">run</button>
+                <button class="jump">attack</button>
+            </div>
         </section>
     </main>
+    <script>
+    const esqueleto = document.querySelector('.esqueleto');
+
+    // Tamaño de un solo frame
+    const frameWidth = 83;
+    const frameHeight = 100;
+
+    // Animaciones disponibles
+    const animations = {
+        idle:   { row: 0, frames: 4, fps: 4 },
+        walk:   { row: 1, frames: 6, fps: 8 },
+        run:    { row: 2, frames: 6, fps: 10 },
+        attack: { row: 3, frames: 6, fps: 12 },
+    };
+
+    let currentAnimation = animations.idle;
+    let currentFrame = 0;
+    let lastTime = 0;
+
+    function setAnimation(name) {
+        if (!animations[name]) return;
+        currentAnimation = animations[name];
+        currentFrame = 0;
+        esqueleto.style.backgroundPositionY = `-${currentAnimation.row * frameHeight}px`;
+    }
+
+    // Asignar animaciones a botones
+    document.querySelector('.left').addEventListener('click', () => setAnimation('idle'));
+    document.querySelector('.idle').addEventListener('click', () => setAnimation('walk'));
+    document.querySelector('.right').addEventListener('click', () => setAnimation('run'));
+    document.querySelector('.jump').addEventListener('click', () => setAnimation('attack'));
+
+    function animateSprite(timestamp) {
+        if (timestamp - lastTime > 1000 / currentAnimation.fps) {
+            currentFrame = (currentFrame + 1) % currentAnimation.frames;
+            const x = currentFrame * frameWidth;
+            const y = currentAnimation.row * frameHeight;
+            esqueleto.style.backgroundPosition = `-${x}px -${y}px`;
+            lastTime = timestamp;
+        }
+        requestAnimationFrame(animateSprite);
+    }
+
+    requestAnimationFrame(animateSprite);
+</script>
+
 </body>
 </html>
