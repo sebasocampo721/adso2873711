@@ -1,0 +1,33 @@
+{
+    "songs": [
+        {
+            "id": 1,
+            "title": "Esclava",
+            "artist": "Bryan Myers - Anonimus",
+            "album": "Esclava(Remix)",
+            "year": 2015,
+            "cover": "./images/Music/portadas/esclava.png",
+            "song": "./mp3/Bryant Myers ft Anonimus ft Almighty ft Anuel AA - Esclava (Remix).mp3"
+        },
+        {
+            "id": 2,
+            "title": "Te deseo lo mejor",
+            "artist": "the simpsons, Bad Bunny",
+            "duration": 3.0,
+            "year": 2021,
+            "album": "El Último Tour Del Mundo",
+            "cover": "images/cover-2.jpg",
+            "song": "./mp3/te-deseo-lo-mejor-video-oficial.mp3"
+        },
+        {
+            "id": 3,
+            "title": "Me voy",
+            "artist": "Andres Cepeda",
+            "duration": 4.9,
+            "year": 2012,
+            "album": "Se morir",
+            "cover": "images/cover-3.jpg",
+            "song": "./mp3/me-voy.mp3"
+        }
+    ]
+}
