@@ -18,8 +18,9 @@ class PetSeeder extends Seeder
         $pet->kind = 'Dog';
         $pet->weight = 8.5;
         $pet->age = 3;
-        $pet->bread = 'samoyedo';
+        $pet->breed = 'samoyedo';
         $pet->location = 'New York';
+        $pet->description = 'bañar dos veces a la semana';
         $pet->save();
 
 
@@ -28,8 +29,10 @@ class PetSeeder extends Seeder
         $pet->kind = 'cat';
         $pet->weight = 1.5;
         $pet->age = 3;
-        $pet->bread = 'persa';
+        $pet->breed = 'persa';
         $pet->location = 'New York';
+        $pet->description = 'bañar tres veces a la semana';
+
         $pet->save();
 
 
@@ -38,8 +41,10 @@ class PetSeeder extends Seeder
         $pet->kind = 'pig';
         $pet->weight = 11.5;
         $pet->age = 3;
-        $pet->bread = 'mini';
+        $pet->breed = 'mini';
         $pet->location = 'New York';
+        $pet->description = 'es dificil de bañar';
+
         $pet->save();
 
     }

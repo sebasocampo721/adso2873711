@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('age')->nullable();
             $table->string('breed')->nullable();
             $table->string('location');
+            $table->text('description');
             $table->boolean('active')->default();
             $table->boolean('status')->default(1); 
             $table->timestamps();
