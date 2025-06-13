@@ -11,4 +11,11 @@ class Adoption extends Model
         'pet_id',
         
     ];
+
+    public function User() {
+        return $this ->belongsTo(User::class);
+    }
+    public function Pet() {
+        return $this ->belongsTo(Pet::class);
+    }
 }

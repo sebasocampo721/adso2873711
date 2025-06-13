@@ -19,4 +19,8 @@ class Pet extends Model
         'description',
         'status',
     ];
+    //
+    public function adoption() {
+        return $this ->hasOne(Adoption::class);
+    }
 }
